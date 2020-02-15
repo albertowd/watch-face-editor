@@ -1,23 +1,8 @@
 {
-  "name": "watch-face-editor",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": {
+    "email": "alberto+git@albertowd.com.br",
+    "name": "Alberto Wollmann Dietrich",
+    "url": "http://albertowd.com.br/"
   },
   "browserslist": {
     "production": [
@@ -30,5 +15,28 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "description": "A simple watch face editor to the Amazfit GTS device.",
+  "devDpendencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "name": "watch-face-editor",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test"
+  },
+  "version": "0.1.0"
 }
