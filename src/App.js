@@ -1,12 +1,14 @@
 import React from 'react';
-import logo from './assets/logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="preview">
+          <img alt="Amazfit GTS" className="watch" src="devices/gts/watch.png" />
+          <img alt="Amazfit GTS face example" className="example" src="devices/gts/example.png" />
+        </div>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
