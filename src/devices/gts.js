@@ -1,7 +1,7 @@
 import defaultGTS from './defaults/gts';
 import functionsGTS from './functions/gts'
 
-const gts = {
+const GTS = {
   defaults: defaultGTS,
   dimensions: {
     height: 442,
@@ -10,12 +10,18 @@ const gts = {
   functions: functionsGTS,
   name: 'gts',
   preview: {
-    bottom: 223,
-    letf: 62,
-    right: 92,
-    top: 223,
-    zoom: 1.0
+    dimensions: {
+      height: 888,
+      width: 502
+    },
+    offset: {
+      bottom: 223,
+      left: 62,
+      right: 92,
+      top: 223,
+    },
+    zoom: 0.5
   }
 };
 
-export default gts;
+export default GTS;

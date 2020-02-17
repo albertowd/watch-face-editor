@@ -1,0 +1,27 @@
+.screen {
+  position: absolute;
+  overflow: hidden;
+}
+
+.screen > div {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.screen > div > .draw {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.screen > div > .example {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+}
