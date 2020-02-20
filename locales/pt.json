@@ -1,4 +1,10 @@
 {
+  "activity": {
+    "title": "Atividade"
+  },
+  "animation": {
+    "title": "Animação"
+  },
   "app": {
     "by": "por",
     "title": "Editor de Faces (GTS)"
@@ -8,10 +14,22 @@
     "position": "Posição",
     "title": "Imagem de Fundo"
   },
+  "battery": {
+    "title": "Bateria"
+  },
+  "clock": {
+    "title": "Anaóligo"
+  },
+  "date": {
+    "title": "Data"
+  },
   "device": {
     "packLimit": "Limite do pacote",
     "screen": "Tela",
     "title": "Relógio"
+  },
+  "editor": {
+    "title": "Edição do JSON"
   },
   "status": {
     "alarm": {
@@ -34,7 +52,13 @@
       "position": "Posição",
       "title": "Bloqueio"
     },
-    "title": "Status"
+    "title": "Ícones"
+  },
+  "time": {
+    "title": "Hora"
+  },
+  "weather": {
+    "title": "Tempo"
   },
   "welcome": {
     "start": "Começar"

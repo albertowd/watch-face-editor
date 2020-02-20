@@ -9,11 +9,14 @@ export default {
   computed: {
     model () {
       return this.$store.state.device.model
+    },
+    title () {
+      return this.$t('status.title')
     }
   },
   head () {
     return {
-      title: `${this.model} Status`
+      title: `${this.model} ${this.title}`
     }
   }
 }

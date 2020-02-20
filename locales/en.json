@@ -1,4 +1,10 @@
 {
+  "activity": {
+    "title": "Activity"
+  },
+  "animation": {
+    "title": "Animation"
+  },
   "app" : {
     "by": "by",
     "title": "Watch Face Editor (GTS)"
@@ -8,10 +14,22 @@
     "position": "Position",
     "title": "Background"
   },
+  "battery": {
+    "title": "Battery"
+  },
+  "clock": {
+    "title": "Clock"
+  },
+  "date": {
+    "title": "Date"
+  },
   "device": {
     "packLimit": "Package Limit",
     "screen": "Screen",
     "title": "Device"
+  },
+  "editor": {
+    "title": "JSON Editor"
   },
   "status": {
     "alarm": {
@@ -35,6 +53,12 @@
       "title": "Lock"
     },
     "title": "Status"
+  },
+  "time": {
+    "title": "Time"
+  },
+  "weather": {
+    "title": "Weather"
   },
   "welcome" : {
     "start": "Start"

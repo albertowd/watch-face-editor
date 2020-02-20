@@ -1,4 +1,5 @@
 export const state = () => ({
+  allowed: true,
   enabled: false,
   image: null,
   x: 50,
@@ -21,5 +22,8 @@ export const mutations = {
       state.image = null
     }
     state.enabled = enabled
+  },
+  togglePermision (state, allowed) {
+    state.allowed = allowed
   }
 }
