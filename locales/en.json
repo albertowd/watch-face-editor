@@ -7,6 +7,10 @@
   },
   "app" : {
     "by": "by",
+    "errors": {
+      "notFound": "Not found",
+      "unknown": "Unknown error"
+    },
     "title": "Watch Face Editor (GTS)"
   },
   "background": {
