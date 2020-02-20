@@ -3,13 +3,13 @@
   overflow: hidden;
 }
 
-.screen > div {
+.screen > .screen-relative {
   height: 100%;
   position: relative;
   width: 100%;
 }
 
-.screen > div > .draw {
+.screen > .screen-relative > .draw-wrapper {
   bottom: 0px;
   left: 0px;
   position: absolute;
@@ -17,7 +17,13 @@
   top: 0px;
 }
 
-.screen > div > .example {
+.screen > .screen-relative > .draw-wrapper > .draw {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.screen > .screen-relative > .example {
   bottom: 0px;
   left: 0px;
   position: absolute;

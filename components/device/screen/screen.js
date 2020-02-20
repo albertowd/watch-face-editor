@@ -1,4 +1,4 @@
-import background from './background/background.vue'
+import positionedImage from './positioned-image/positioned-image.vue'
 
 export default {
   props: {
@@ -8,7 +8,7 @@ export default {
     }
   },
   components: {
-    background
+    positionedImage
   },
   computed: {
     model () {
@@ -17,10 +17,10 @@ export default {
     position () {
       const preview = this.$store.state.device.preview
       return {
-        bottom: `${preview.offset.bottom * preview.zoom}px`,
-        left: `${preview.offset.left * preview.zoom}px`,
-        right: `${preview.offset.right * preview.zoom}px`,
-        top: `${preview.offset.top * preview.zoom}px`
+        bottom: `${preview.offset.bottom}px`,
+        left: `${preview.offset.left}px`,
+        right: `${preview.offset.right}px`,
+        top: `${preview.offset.top}px`
       }
     }
   },

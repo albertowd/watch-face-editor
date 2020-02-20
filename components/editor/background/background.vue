@@ -1,9 +1,9 @@
 <script src="./background.js" />
 <style src="./background.css"></style>
 <template>
-  <v-card outlined>
+  <v-card class="background-editor" outlined>
     <v-card-title>
-      <v-btn :outlined="!enabled" @click="onFilePick">{{ enabled ? "Clear" : "Background" }}</v-btn>
+      <v-btn :outlined="!enabled" @click="onFilePick">{{ enabled ? "Background - Clear" : "Background" }}</v-btn>
       <input
         ref="imageInput"
         accept="image/*"

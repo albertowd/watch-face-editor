@@ -17,8 +17,9 @@ export default {
     size () {
       const preview = this.$store.state.device.preview
       return {
-        height: `${preview.dimensions.height * preview.zoom}px`,
-        width: `${preview.dimensions.width * preview.zoom}px`
+        height: `${preview.dimensions.height}px`,
+        transform: `scale(${preview.zoom})`,
+        width: `${preview.dimensions.width}px`
       }
     }
   }

@@ -3,10 +3,10 @@
   <v-container class="fill-height">
     <v-row align="center">
       <v-col align="right">
-        <preview :example="true" />
+        <preview />
       </v-col>
       <v-col>
-        <info />
+        <status />
       </v-col>
     </v-row>
   </v-container>
