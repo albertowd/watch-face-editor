@@ -1,5 +1,5 @@
 <script src="./status.js" />
-<style src="./status.css"></style>
+<style scoped src="./status.css"></style>
 <template>
   <v-layout class="status-editor" column>
     <positionedImageEditor name="alarm" store="status" title="Alarm" />

@@ -56,7 +56,7 @@ export default {
         {
           disabled: false,
           icon: 'mdi-json',
-          title: this.$t('editor.title'),
+          title: this.$t('json.title'),
           to: '/json'
         },
         {

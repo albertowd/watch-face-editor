@@ -1,5 +1,5 @@
 <script src="./positioned-image-editor.js" />
-<style src="./positioned-image-editor.css"></style>
+<style scoped src="./positioned-image-editor.css"></style>
 <template>
   <v-card class="positioned-image-editor my-5" outlined>
     <v-card-title>

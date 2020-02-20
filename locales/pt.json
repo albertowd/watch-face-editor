@@ -32,7 +32,7 @@
     "screen": "Tela",
     "title": "Relógio"
   },
-  "editor": {
+  "json": {
     "title": "Edição do JSON"
   },
   "status": {

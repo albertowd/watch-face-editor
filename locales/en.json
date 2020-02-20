@@ -32,7 +32,7 @@
     "screen": "Screen",
     "title": "Device"
   },
-  "editor": {
+  "json": {
     "title": "JSON Editor"
   },
   "status": {
