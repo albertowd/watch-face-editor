@@ -23,6 +23,6 @@ export default {
     }
   },
   mounted () {
-    this.json = this.$store.state.json.content
+    this.json = this.$store.getters.updatedContent
   }
 }
