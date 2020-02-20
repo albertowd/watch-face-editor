@@ -1,26 +1,27 @@
 export const state = () => ({
+  allowed: true,
   alarm: {
     enabled: false,
     image: null,
-    x: 0,
+    x: 50,
     y: 0
   },
   bluetooth: {
     enabled: false,
     image: null,
-    x: 0,
+    x: 100,
     y: 0
   },
   dnd: {
     enabled: false,
     image: null,
-    x: 0,
+    x: 150,
     y: 0
   },
   lock: {
     enabled: false,
     image: null,
-    x: 0,
+    x: 200,
     y: 0
   }
 })
@@ -76,9 +77,9 @@ export const mutations = {
     if (!enabled) {
       state.alarm.image = null
     }
-    state.alarm.enabled = enabled
+    state.bluetooth.enabled = enabled
   },
-  toggleDND (state, enabled) {
+  toggleDnd (state, enabled) {
     if (!enabled) {
       state.dnd.image = null
     }
@@ -89,5 +90,8 @@ export const mutations = {
       state.lock.image = null
     }
     state.lock.enabled = enabled
+  },
+  togglePermision (state, allowed) {
+    state.allowed = allowed
   }
 }

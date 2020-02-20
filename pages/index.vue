@@ -40,8 +40,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/device">
-            {{ $t('start') }}
+          <v-btn color="primary" nuxt to="device">
+            {{ $t('welcome.start') }}
           </v-btn>
         </v-card-actions>
       </v-card>

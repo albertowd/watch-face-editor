@@ -3,11 +3,11 @@
 <template>
   <v-card class="positioned-image-editor my-5" outlined>
     <v-card-title>
-      <v-btn :outlined="!enabled" @click="onFilePick">{{ title + (enabled ? " - Clear" : "") }}</v-btn>
+      <v-btn :outlined="!enabled" @click="onFilePick">{{ tTitle + (enabled ? ` - ${tClear}` : "") }}</v-btn>
       <input ref="imageInput" accept="image/*" type="file" @change="onFilePicked" />
     </v-card-title>
     <v-card-text>
-      <h3>Position</h3>
+      <h3>{{ tPosition }}</h3>
       <v-slider
         label="X:"
         step="1"

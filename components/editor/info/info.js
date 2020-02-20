@@ -1,5 +1,11 @@
 export default {
   computed: {
+    device () {
+      return {
+        packLimit: this.$t('device.packLimit'),
+        screen: this.$t('device.screen')
+      }
+    },
     height () {
       return this.$store.state.device.dimensions.height
     },

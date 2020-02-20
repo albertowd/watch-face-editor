@@ -30,6 +30,18 @@ export default {
     },
     subName () {
       return this.name ? this.name[0].toUpperCase() + this.name.slice(1) : ''
+    },
+    tClear () {
+      const subName = this.subName ? `.${this.subName.toLowerCase()}` : ''
+      return this.$t(`${this.store}${subName}.clear`)
+    },
+    tPosition () {
+      const subName = this.subName ? `.${this.subName.toLowerCase()}` : ''
+      return this.$t(`${this.store}${subName}.position`)
+    },
+    tTitle () {
+      const subName = this.subName ? `.${this.subName.toLowerCase()}` : ''
+      return this.$t(`${this.store}${subName}.title`)
     }
   },
   methods: {

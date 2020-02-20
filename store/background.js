@@ -1,7 +1,7 @@
 export const state = () => ({
   enabled: false,
   image: null,
-  x: 0,
+  x: 50,
   y: 0
 })
 

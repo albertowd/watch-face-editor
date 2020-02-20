@@ -85,5 +85,11 @@ module.exports = {
     */
     extend (config, ctx) {
     }
+  },
+  /*
+   * customize nuxt.js router (vue-router).
+   */
+  router: {
+    middleware: 'i18n'
   }
 }

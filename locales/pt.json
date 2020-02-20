@@ -1,3 +1,42 @@
 {
-  "start": "Começar"
+  "app": {
+    "by": "por",
+    "title": "Editor de Faces (GTS)"
+  },
+  "background": {
+    "clear": "Limpar",
+    "position": "Posição",
+    "title": "Imagem de Fundo"
+  },
+  "device": {
+    "packLimit": "Limite do pacote",
+    "screen": "Tela",
+    "title": "Relógio"
+  },
+  "status": {
+    "alarm": {
+      "clear": "Limpar",
+      "position": "Posição",
+      "title": "Alarme"
+    },
+    "bluetooth": {
+      "clear": "Limpar",
+      "position": "Posição",
+      "title": "Bluetooth"
+    },
+    "dnd": {
+      "clear": "Limpar",
+      "position": "Posição",
+      "title": "Silencioso"
+    },
+    "lock": {
+      "clear": "Limpar",
+      "position": "Posição",
+      "title": "Bloqueio"
+    },
+    "title": "Status"
+  },
+  "welcome": {
+    "start": "Começar"
+  }
 }

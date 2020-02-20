@@ -1,3 +1,42 @@
 {
-  "start": "Start"
+  "app" : {
+    "by": "by",
+    "title": "Watch Face Editor (GTS)"
+  },
+  "background": {
+    "clear": "Clear",
+    "position": "Position",
+    "title": "Background"
+  },
+  "device": {
+    "packLimit": "Package Limit",
+    "screen": "Screen",
+    "title": "Device"
+  },
+  "status": {
+    "alarm": {
+      "clear": "Clear",
+      "position": "Position",
+      "title": "Alarm"
+    },
+    "bluetooth": {
+      "clear": "Clear",
+      "position": "Position",
+      "title": "Bluetooth"
+    },
+    "dnd": {
+      "clear": "Clear",
+      "position": "Position",
+      "title": "Do not Disturb"
+    },
+    "lock": {
+      "clear": "Clear",
+      "position": "Position",
+      "title": "Lock"
+    },
+    "title": "Status"
+  },
+  "welcome" : {
+    "start": "Start"
+  }
 }
