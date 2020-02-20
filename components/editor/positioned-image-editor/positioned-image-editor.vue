@@ -13,7 +13,7 @@
       :min="0"
       :max="dimensions.width"
       :value="position.x"
-      @end="onXChange"
+      @change="onXChange"
     />
     <v-slider
       label="Y:"
@@ -23,7 +23,7 @@
       :min="0"
       :max="dimensions.height"
       :value="position.y"
-      @end="onYChange"
+      @change="onYChange"
     />
   </div>
 </template>

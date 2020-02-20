@@ -21,7 +21,7 @@
         :min="0"
         :max="dimensions.width"
         :value="position.x"
-        @end="onXChange"
+        @change="onXChange"
       />
       <v-slider
         label="Y (inverted):"
@@ -32,7 +32,7 @@
         :min="0"
         :max="dimensions.height"
         :value="position.y"
-        @end="onYChange"
+        @change="onYChange"
       />
     </v-card-text>
   </v-card>
