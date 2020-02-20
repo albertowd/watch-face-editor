@@ -3,8 +3,10 @@
 <template>
   <div class="screen" :style="position" @click="toggleExample">
     <div>
-      <div class="draw" />
-      <v-img v-if="showExample" alt="Device image." class="example" :src="'/devices/' + alias + '.example.png'" />
+      <div class="draw">
+        <background />
+      </div>
+      <v-img v-if="showExample" alt="Device face example." class="example" :src="'/devices/' + model + '.example.png'" />
     </div>
   </div>
 </template>

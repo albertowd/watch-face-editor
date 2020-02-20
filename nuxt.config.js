@@ -30,7 +30,6 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/devices/DeviceLoader'
   ],
   /*
   ** Nuxt.js dev-modules

@@ -6,7 +6,9 @@
         <vuetify-logo />
       </div>
       <v-card>
-        <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
+        <v-card-title class="headline">
+          Welcome to the Vuetify + Nuxt.js template
+        </v-card-title>
         <v-card-text>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
           <p>
@@ -31,14 +33,16 @@
               <small>&mdash; John Leider</small>
             </em>
           </div>
-          <hr class="my-3" />
+          <hr class="my-3"></hr>
           <a href="https://nuxtjs.org/" target="_blank">Nuxt Documentation</a>
           <br />
           <a href="https://github.com/nuxt/nuxt.js" target="_blank">Nuxt GitHub</a>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/device/GTS">Continue</v-btn>
+          <v-btn color="primary" nuxt to="/device">
+            Continue
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>

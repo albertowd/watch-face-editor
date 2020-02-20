@@ -4,52 +4,62 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
+      fixed: true,
       items: [
         {
           icon: 'mdi-watch-variant',
           title: 'Device',
-          to: `/device/${this.$route.params.name ? this.$route.params.name : 'GTS'}`
+          to: '/device'
         },
         {
           icon: 'mdi-heart',
           title: 'Activity',
-          to: '/'
+          to: '/heart'
         },
         {
           icon: 'mdi-play-box',
           title: 'Animation',
-          to: '/'
+          to: '/animation'
+        },
+        {
+          icon: 'mdi-wallpaper',
+          title: 'Background',
+          to: '/background'
         },
         {
           icon: 'mdi-battery-charging',
           title: 'Battery',
-          to: '/'
+          to: '/battery'
         },
         {
           icon: 'mdi-clock',
           title: 'Clock',
-          to: '/'
+          to: '/clock'
         },
         {
           icon: 'mdi-calendar',
           title: 'Date',
-          to: '/'
+          to: '/date'
         },
         {
           icon: 'mdi-eye',
           title: 'Status',
-          to: '/'
+          to: '/status'
         },
         {
           icon: 'mdi-timer-sand-full',
           title: 'Time',
-          to: '/'
+          to: '/time'
         },
         {
           icon: 'mdi-cloud',
           title: 'Weather',
-          to: '/'
+          to: '/weather'
+        },
+        {
+          icon: 'mdi-json',
+          title: 'JSON editor',
+          to: '/json'
         }
       ],
       miniVariant: false,

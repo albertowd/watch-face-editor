@@ -1,23 +1,31 @@
+import background from './background/background.vue'
+
 export default {
   props: {
-    device: {
-      default: {},
-      type: Object
-    },
     example: {
-      default: true,
+      default: false,
       type: Boolean
+    }
+  },
+  components: {
+    background
+  },
+  computed: {
+    model () {
+      return this.$store.state.device.model
+    },
+    position () {
+      const preview = this.$store.state.device.preview
+      return {
+        bottom: `${preview.offset.bottom * preview.zoom}px`,
+        left: `${preview.offset.left * preview.zoom}px`,
+        right: `${preview.offset.right * preview.zoom}px`,
+        top: `${preview.offset.top * preview.zoom}px`
+      }
     }
   },
   data () {
     return {
-      alias: this.device.alias,
-      position: {
-        bottom: `${this.device.preview.offset.bottom * this.device.preview.zoom}px`,
-        left: `${this.device.preview.offset.left * this.device.preview.zoom}px`,
-        right: `${this.device.preview.offset.right * this.device.preview.zoom}px`,
-        top: `${this.device.preview.offset.top * this.device.preview.zoom}px`
-      },
       showExample: this.example
     }
   },

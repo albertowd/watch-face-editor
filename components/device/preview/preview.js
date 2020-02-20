@@ -5,17 +5,20 @@ export default {
     screen
   },
   props: {
-    device: {
-      default: {},
-      type: Object
+    example: {
+      default: false,
+      type: Boolean
     }
   },
-  data () {
-    return {
-      alias: this.device.alias,
-      size: {
-        height: `${this.device.preview.dimensions.height * this.device.preview.zoom}px`,
-        width: `${this.device.preview.dimensions.width * this.device.preview.zoom}px`
+  computed: {
+    model () {
+      return this.$store.state.device.model
+    },
+    size () {
+      const preview = this.$store.state.device.preview
+      return {
+        height: `${preview.dimensions.height * preview.zoom}px`,
+        width: `${preview.dimensions.width * preview.zoom}px`
       }
     }
   }
