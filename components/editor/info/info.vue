@@ -1,7 +1,7 @@
 <script src="./info.js" />
 <style src="./info.css"></style>
 <template>
-  <v-card outlined>
+  <v-card class="info-card" outlined>
     <v-card-title>
       <h2>{{ name }}</h2>
     </v-card-title>

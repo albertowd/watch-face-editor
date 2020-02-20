@@ -1,15 +1,20 @@
-.screen {
+.info-card {
+  max-width: 512px;
+  width: 100%;
+}
+
+.info-card > .screen {
   position: absolute;
   overflow: hidden;
 }
 
-.screen > div {
+.info-card > .screen > div {
   height: 100%;
   position: relative;
   width: 100%;
 }
 
-.screen > div > .draw {
+.info-card > .screen > div > .draw {
   bottom: 0px;
   left: 0px;
   position: absolute;
@@ -17,7 +22,7 @@
   top: 0px;
 }
 
-.screen > div > .example {
+.info-card > .screen > div > .example {
   bottom: 0px;
   left: 0px;
   position: absolute;

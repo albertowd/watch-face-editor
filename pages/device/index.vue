@@ -1,13 +1,7 @@
 <script src="./index.js" />
 <template>
-  <v-container class="fill-height">
-    <v-row align="center">
-      <v-col align="right">
-        <preview :example="true" />
-      </v-col>
-      <v-col>
-        <info />
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-layout align-center justify-center>
+    <preview :example="true" />
+    <info />
+  </v-layout>
 </template>

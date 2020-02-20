@@ -1,11 +1,11 @@
 export default {
   props: {
     name: {
-      default: 'alarm',
+      default: '',
       type: String
     },
     store: {
-      default: 'status',
+      default: 'background',
       type: String
     },
     title: {
@@ -27,15 +27,18 @@ export default {
       const x = this.getStore().x
       const y = this.getStore().y
       return { x, y }
+    },
+    subName () {
+      return this.name ? this.name[0].toUpperCase() + this.name.slice(1) : ''
     }
   },
   methods: {
     getStore () {
-      return this.$store.state[this.store][this.name]
+      return this.name ? this.$store.state[this.store][this.name] : this.$store.state[this.store]
     },
     onFilePick () {
       if (this.enabled) {
-        this.$store.commit(`${this.store}/toggle${this.name[0].toUpperCase() + this.name.slice(1)}`, false)
+        this.$store.commit(`${this.store}/toggle${this.subName}`, false)
         this.$refs.imageInput.value = null
       } else {
         this.$refs.imageInput.click()
@@ -46,15 +49,15 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.addEventListener('load', (event) => {
-        this.$store.commit(`${this.store}/change${this.name[0].toUpperCase() + this.name.slice(1)}Image`, event.target.result)
+        this.$store.commit(`${this.store}/change${this.subName}Image`, event.target.result)
       })
       fileReader.readAsDataURL(file)
     },
     onXChange (x) {
-      this.$store.commit(`${this.store}/change${this.name[0].toUpperCase() + this.name.slice(1)}X`, x)
+      this.$store.commit(`${this.store}/change${this.subName}X`, x)
     },
     onYChange (y) {
-      this.$store.commit(`${this.store}/change${this.name[0].toUpperCase() + this.name.slice(1)}Y`, y)
+      this.$store.commit(`${this.store}/change${this.subName}Y`, y)
     }
   }
 }

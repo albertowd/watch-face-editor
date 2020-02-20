@@ -41,7 +41,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn color="primary" nuxt to="/device">
-            Continue
+            {{ $t('start') }}
           </v-btn>
         </v-card-actions>
       </v-card>
