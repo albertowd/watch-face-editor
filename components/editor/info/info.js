@@ -7,7 +7,7 @@ export default {
       }
     },
     height () {
-      return this.$store.state.device.dimensions.height
+      return this.$store.state.device.size.height
     },
     limit () {
       return this.$store.state.device.packLimit
@@ -17,7 +17,7 @@ export default {
       return `${device.vendor} ${device.model}`
     },
     width () {
-      return this.$store.state.device.dimensions.width
+      return this.$store.state.device.size.width
     }
   }
 }

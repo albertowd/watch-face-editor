@@ -1,15 +1,13 @@
 export const state = () => ({
   allowed: true,
-  enabled: false,
   image: null,
-  x: 50,
+  x: 0,
   y: 0
 })
 
 export const mutations = {
   changeImage (state, image) {
     state.image = image
-    state.enabled = true
   },
   changeX (state, x) {
     state.x = x
@@ -17,13 +15,11 @@ export const mutations = {
   changeY (state, y) {
     state.y = y
   },
-  toggle (state, enabled) {
-    if (!enabled) {
-      state.image = null
+  toggle (state, allowed) {
+    if (undefined !== allowed) {
+      state.allowed = allowed
+    } else {
+      state.allowed = !state.allowed
     }
-    state.enabled = enabled
-  },
-  togglePermision (state, allowed) {
-    state.allowed = allowed
   }
 }

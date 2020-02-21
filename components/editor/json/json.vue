@@ -1,7 +1,7 @@
 <script src="./json.js" />
 <style scoped src="./json.css"></style>
 <template>
-  <v-card class="json-editor" outlined>
+  <v-card class="editor-json" outlined>
     <v-card-title>
       <h2>{{ tTitle }}</h2>
     </v-card-title>

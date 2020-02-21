@@ -1,10 +1,13 @@
 <script src="./status.js" />
 <style scoped src="./status.css"></style>
 <template>
-  <v-layout class="status-editor" column>
-    <positionedImageEditor name="alarm" store="status" title="Alarm" />
-    <positionedImageEditor name="bluetooth" store="status" title="Bluetooth" />
-    <positionedImageEditor name="dnd" store="status" title="Do not Disturb" />
-    <positionedImageEditor name="lock" store="status" title="Lock" />
+  <v-layout class="editor-status" column>
+    <iconEditor v-if="hasAlarm" name="alarm" />
+    <br />
+    <iconEditor v-if="hasBluetooth" name="bluetooth" />
+    <br />
+    <iconEditor v-if="hasDND" name="dnd" />
+    <br />
+    <iconEditor v-if="hasLock" name="lock" />
   </v-layout>
 </template>

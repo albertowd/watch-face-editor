@@ -14,7 +14,6 @@
     "title": "Editor de Faces (GTS)"
   },
   "background": {
-    "clear": "Limpar",
     "position": "Posição",
     "title": "Imagem de Fundo"
   },
@@ -37,17 +36,14 @@
   },
   "status": {
     "alarm": {
-      "clear": "Limpar",
       "position": "Posição",
       "title": "Alarme"
     },
     "bluetooth": {
-      "clear": "Limpar",
       "position": "Posição",
       "title": "Bluetooth"
     },
     "dnd": {
-      "clear": "Limpar",
       "position": "Posição",
       "title": "Silencioso"
     },

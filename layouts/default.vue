@@ -30,7 +30,7 @@ export default {
           to: '/animation'
         },
         {
-          disabled: !this.$store.state.background.allowed,
+          disabled: !this.$store.state.device.features.background,
           icon: 'mdi-wallpaper',
           title: this.$t('background.title'),
           to: '/background'
@@ -60,7 +60,7 @@ export default {
           to: '/json'
         },
         {
-          disabled: !this.$store.state.status.allowed,
+          disabled: !(this.$store.state.device.features.status.alarm || this.$store.state.device.features.status.bluetooth || this.$store.state.device.features.status.dnd || this.$store.state.device.features.status.lock),
           icon: 'mdi-eye',
           title: this.$t('status.title'),
           to: '/status'
@@ -127,9 +127,7 @@ export default {
       </v-menu>
     </v-app-bar>
     <v-content>
-      <v-container class="fill-height" fluid>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
     <v-footer app :fixed="true">
       <v-spacer />{{ by }} Alberto Wollmann Dietrich

@@ -1,4 +1,8 @@
-.background-editor {
+.editor-background {
   max-width: 512px;
   width: 100%;
+}
+
+.editor-background-hidden {
+  display: none;
 }

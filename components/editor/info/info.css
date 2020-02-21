@@ -1,32 +1,4 @@
-.info-card {
+.editor-info {
   max-width: 512px;
-  width: 100%;
-}
-
-.info-card > .screen {
-  position: absolute;
-  overflow: hidden;
-}
-
-.info-card > .screen > div {
-  height: 100%;
-  position: relative;
-  width: 100%;
-}
-
-.info-card > .screen > div > .draw {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.info-card > .screen > div > .example {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
   width: 100%;
 }

@@ -1,33 +1,3 @@
-.screen {
-  position: absolute;
-  overflow: hidden;
-}
-
-.screen > .screen-relative {
-  height: 100%;
+.device-screen {
   position: relative;
-  width: 100%;
-}
-
-.screen > .screen-relative > .draw-wrapper {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.screen > .screen-relative > .draw-wrapper > .draw {
-  height: 100%;
-  position: relative;
-  width: 100%;
-}
-
-.screen > .screen-relative > .example {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 100%;
 }

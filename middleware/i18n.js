@@ -11,7 +11,7 @@ export default function ({ isHMR, app, store, route, params, error, redirect }) 
   */
 
   // based on directory structure _lang/xxxx, en/about has params.lang as "en"
-  const locale = params.lang || 'en'
+  const locale = params.lang || 'pt'
   store.commit('SET_LANG', locale)
   app.i18n.locale = store.state.locale
 }

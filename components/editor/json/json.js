@@ -23,6 +23,18 @@ export default {
     }
   },
   mounted () {
-    this.json = this.$store.getters.updatedContent
+    const device = {
+      activity: this.$store.state.activity,
+      animation: this.$store.state.animation,
+      background: this.$store.state.background,
+      battery: this.$store.state.battery,
+      clock: this.$store.state.clock,
+      date: this.$store.state.date,
+      status: this.$store.state.status,
+      time: this.$store.state.time,
+      weather: this.$store.state.weather
+    }
+    const obj = this.$converter.fromDevice(device)
+    this.json = JSON.stringify(obj, null, 2)
   }
 }

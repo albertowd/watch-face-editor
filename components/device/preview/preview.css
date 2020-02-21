@@ -1,8 +1,33 @@
-.preview {
+.device-preview {
   position: relative;
 }
 
-.preview > .watch {
+.device-preview-draw {
+  position: relative;
+}
+
+.device-preview-draw-screen {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.device-preview-draw-wrapper {
+  position: absolute;
+  overflow: hidden;
+}
+
+.device-preview-example {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.device-preview-watch {
   bottom: 0;
   left: 0;
   position: absolute;

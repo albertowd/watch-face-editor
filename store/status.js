@@ -1,35 +1,40 @@
 export const state = () => ({
-  allowed: true,
   alarm: {
-    enabled: false,
-    image: null,
-    x: 50,
+    allowed: true,
+    imageOn: null,
+    imageOff: null,
+    x: 0,
     y: 0
   },
   bluetooth: {
-    enabled: false,
-    image: null,
-    x: 100,
+    allowed: true,
+    imageOn: null,
+    imageOff: null,
+    x: 50,
     y: 0
   },
   dnd: {
-    enabled: false,
-    image: null,
-    x: 150,
+    allowed: true,
+    imageOn: null,
+    imageOff: null,
+    x: 100,
     y: 0
   },
   lock: {
-    enabled: false,
-    image: null,
-    x: 200,
+    allowed: true,
+    imageOn: null,
+    imageOff: null,
+    x: 150,
     y: 0
   }
 })
 
 export const mutations = {
-  changeAlarmImage (state, image) {
-    state.alarm.image = image
-    state.alarm.enabled = true
+  changeAlarmImageOn (state, image) {
+    state.alarm.imageOn = image
+  },
+  changeAlarmImageOff (state, image) {
+    state.alarm.imageOff = image
   },
   changeAlarmX (state, x) {
     state.alarm.x = x
@@ -37,9 +42,11 @@ export const mutations = {
   changeAlarmY (state, y) {
     state.alarm.y = y
   },
-  changeBluetoothImage (state, image) {
-    state.bluetooth.image = image
-    state.bluetooth.enabled = true
+  changeBluetoothImageOn (state, image) {
+    state.bluetooth.imageOn = image
+  },
+  changeBluetoothImageOff (state, image) {
+    state.bluetooth.imageOff = image
   },
   changeBluetoothX (state, x) {
     state.bluetooth.x = x
@@ -47,9 +54,11 @@ export const mutations = {
   changeBluetoothY (state, y) {
     state.bluetooth.y = y
   },
-  changeDndImage (state, image) {
-    state.dnd.image = image
-    state.dnd.enabled = true
+  changeDndImageOn (state, image) {
+    state.dnd.imageOn = image
+  },
+  changeDndImageOff (state, image) {
+    state.dnd.imageOff = image
   },
   changeDndX (state, x) {
     state.dnd.x = x
@@ -57,9 +66,11 @@ export const mutations = {
   changeDndY (state, y) {
     state.dnd.y = y
   },
-  changeLockImage (state, image) {
-    state.lock.image = image
-    state.lock.enabled = true
+  changeLockImageOn (state, image) {
+    state.lock.imageOn = image
+  },
+  changeLockImageOff (state, image) {
+    state.lock.imageOff = image
   },
   changeLockX (state, x) {
     state.lock.x = x
@@ -67,31 +78,32 @@ export const mutations = {
   changeLockY (state, y) {
     state.lock.y = y
   },
-  toggleAlarm (state, enabled) {
-    if (!enabled) {
-      state.alarm.image = null
+  toggleAllarm (state, allowed) {
+    if (undefined !== allowed) {
+      state.alarm.allowed = allowed
+    } else {
+      state.alarm.allowed = !state.alarm.allowed
     }
-    state.alarm.enabled = enabled
   },
-  toggleBluetooth (state, enabled) {
-    if (!enabled) {
-      state.alarm.image = null
+  toggleBluetooth (state, allowed) {
+    if (undefined !== allowed) {
+      state.bluetooth.allowed = allowed
+    } else {
+      state.bluetooth.allowed = !state.bluetooth.allowed
     }
-    state.bluetooth.enabled = enabled
   },
-  toggleDnd (state, enabled) {
-    if (!enabled) {
-      state.dnd.image = null
+  toggleDnd (state, allowed) {
+    if (undefined !== allowed) {
+      state.dnd.allowed = allowed
+    } else {
+      state.dnd.allowed = !state.dnd.allowed
     }
-    state.dnd.enabled = enabled
   },
-  toggleLock (state, enabled) {
-    if (!enabled) {
-      state.lock.image = null
+  toggleLock (state, allowed) {
+    if (undefined !== allowed) {
+      state.lock.allowed = allowed
+    } else {
+      state.lock.allowed = !state.lock.allowed
     }
-    state.lock.enabled = enabled
-  },
-  togglePermision (state, allowed) {
-    state.allowed = allowed
   }
 }
