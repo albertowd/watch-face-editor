@@ -7,10 +7,12 @@
   },
   "app" : {
     "by": "by",
+    "devices": "Devices",
     "errors": {
       "notFound": "Not found",
       "unknown": "Unknown error"
     },
+    "languages": "Languages",
     "position": "Position",
     "title": "Watch Face Editor (GTS)"
   },

@@ -2,25 +2,25 @@ export const state = () => ({
   alarm: {
     imageOn: null,
     imageOff: null,
-    x: 0,
+    x: 50,
     y: 0
   },
   bluetooth: {
     imageOn: null,
     imageOff: null,
-    x: 50,
+    x: 100,
     y: 0
   },
   dnd: {
     imageOn: null,
     imageOff: null,
-    x: 100,
+    x: 150,
     y: 0
   },
   lock: {
     imageOn: null,
     imageOff: null,
-    x: 150,
+    x: 200,
     y: 0
   }
 })

@@ -7,10 +7,12 @@
   },
   "app": {
     "by": "por",
+    "devices": "Dispositivos",
     "errors": {
       "notFound": "Não encontrado",
       "unknown": "Erro desconhecido"
     },
+    "languages": "Linguagens",
     "position": "Posição",
     "title": "Editor de Faces (GTS)"
   },

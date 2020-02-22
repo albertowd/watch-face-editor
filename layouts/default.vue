@@ -7,7 +7,8 @@ export default {
   },
   data () {
     return {
-      drawer: false
+      drawer: false,
+      modelIndex: 0
     }
   },
   computed: {
@@ -83,11 +84,29 @@ export default {
           to: '/weather'
         }
       ]
+    },
+    locale () {
+      console.log(this.$store.state.i18n.locale)
+      return this.$store.state.i18n.locale
+    },
+    model () {
+      const name = this.$store.state.device.model.toString()
+      // this.modelIndex = ['GTS', 'Mi Band 4'].indexOf(name)
+      return name
+    },
+    tDevices () {
+      return this.$t('app.devices')
+    },
+    tLanguages () {
+      return this.$t('app.languages')
     }
   },
   methods: {
-    changeLang (lang) {
-      this.$store.commit('SET_LANG', lang)
+    checkLocale (locale) {
+      console.log(locale)
+      console.log(this.$store.state.i18n.locale)
+      console.log(locale === this.$store.state.i18n.locale)
+      return locale === this.$store.state.i18n.locale
     }
   }
 }
@@ -124,11 +143,22 @@ export default {
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
+        <v-subheader>{{ tDevices }}</v-subheader>
         <v-list>
-          <v-divider inset />
-          <v-subheader>Languages</v-subheader>
-          <v-list-item @click="changeLang('en')">English</v-list-item>
-          <v-list-item @click="changeLang('pt')">Português</v-list-item>
+          <v-list-item-group v-model="modelIndex">
+            <v-list-item exact to="?device=gts">Amazfit GTS</v-list-item>
+            <v-list-item exact to="?device=mb4" disabled>Mi Band 4</v-list-item>
+          </v-list-item-group>
+        </v-list>
+        <v-divider />
+        <v-subheader>{{ tLanguages }}</v-subheader>
+        <v-list>
+          <v-list-item exact to="?locale=en">English</v-list-item>
+          <v-list-item exact to="?locale=pt">Português</v-list-item>
+        </v-list>
+        <v-divider />
+        <v-list>
+          <v-list-item disabled>About</v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
