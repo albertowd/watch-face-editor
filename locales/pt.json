@@ -11,10 +11,10 @@
       "notFound": "Não encontrado",
       "unknown": "Erro desconhecido"
     },
+    "position": "Posição",
     "title": "Editor de Faces (GTS)"
   },
   "background": {
-    "position": "Posição",
     "title": "Imagem de Fundo"
   },
   "battery": {
@@ -27,6 +27,8 @@
     "title": "Data"
   },
   "device": {
+    "export": "Exportar .ZIP",
+    "import": "Importar Arquivos",
     "packLimit": "Limite do pacote",
     "screen": "Tela",
     "title": "Relógio"
@@ -36,20 +38,16 @@
   },
   "status": {
     "alarm": {
-      "position": "Posição",
       "title": "Alarme"
     },
     "bluetooth": {
-      "position": "Posição",
       "title": "Bluetooth"
     },
     "dnd": {
-      "position": "Posição",
       "title": "Silencioso"
     },
     "lock": {
       "clear": "Limpar",
-      "position": "Posição",
       "title": "Bloqueio"
     },
     "title": "Ícones"

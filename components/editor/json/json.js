@@ -14,9 +14,7 @@ export default {
     onChange (json) {
       this.error = ''
       try {
-        const jsonObj = JSON.parse(json)
-        this.json = JSON.stringify(jsonObj, null, 2)
-        this.$store.commit('json/changeContent', this.json)
+        JSON.parse(json)
       } catch (error) {
         this.error = JSON.stringify(error.message)
       }
@@ -35,6 +33,7 @@ export default {
       weather: this.$store.state.weather
     }
     const obj = this.$converter.fromDevice(device)
+    delete obj.images
     this.json = JSON.stringify(obj, null, 2)
   }
 }

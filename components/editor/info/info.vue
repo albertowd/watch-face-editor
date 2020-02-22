@@ -15,9 +15,9 @@
         <span>{{ limit }} kb</span>
       </p>
       <v-layout>
-        <v-btn color="success">Export Assets</v-btn>
+        <v-btn color="success" @click="exportZip">{{ tExport }}</v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="primary">Import Assets</v-btn>
+        <v-btn color="primary" @click="importFiles">{{ tImport }}</v-btn>
       </v-layout>
     </v-card-text>
   </v-card>

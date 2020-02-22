@@ -6,9 +6,8 @@
       <v-layout>
         <h2>{{ tTitle }}</h2>
         <v-spacer />
-        <v-btn :outlined="!enabled" @click="pickImage">
-          <v-icon v-if="!enabled">mdi-image</v-icon>
-          <v-icon v-if="enabled">mdi-image-off</v-icon>
+        <v-btn @click="pickImage">
+          <v-icon :color="image ? 'primary' : 'normal'">{{ image ? 'mdi-image-off' : 'mdi-image' }}</v-icon>
         </v-btn>
         <input
           ref="imageInput"
@@ -25,7 +24,7 @@
         label="X:"
         step="1"
         thumb-label="always"
-        :disabled="!enabled"
+        :disabled="!image"
         :min="0"
         :max="dimensions.width"
         :value="position.x"
@@ -35,7 +34,7 @@
         label="Y:"
         step="1"
         thumb-label="always"
-        :disabled="!enabled"
+        :disabled="!image"
         :min="0"
         :max="dimensions.height"
         :value="position.y"

@@ -11,10 +11,10 @@
       "notFound": "Not found",
       "unknown": "Unknown error"
     },
+    "position": "Position",
     "title": "Watch Face Editor (GTS)"
   },
   "background": {
-    "position": "Position",
     "title": "Background"
   },
   "battery": {
@@ -27,6 +27,8 @@
     "title": "Date"
   },
   "device": {
+    "export": "Export .ZIP",
+    "import": "Import Files",
     "packLimit": "Package Limit",
     "screen": "Screen",
     "title": "Device"
@@ -36,19 +38,15 @@
   },
   "status": {
     "alarm": {
-      "position": "Position",
       "title": "Alarm"
     },
     "bluetooth": {
-      "position": "Position",
       "title": "Bluetooth"
     },
     "dnd": {
-      "position": "Position",
       "title": "Do not Disturb"
     },
     "lock": {
-      "position": "Position",
       "title": "Lock"
     },
     "title": "Status"

@@ -6,8 +6,8 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    enabled () {
-      return this.$store.state.background.image !== null
+    image () {
+      return this.$store.state.background.image
     },
     position () {
       return {
@@ -15,11 +15,8 @@ export default {
         y: this.$store.state.background.y
       }
     },
-    tClear () {
-      return this.$t('background.clear')
-    },
     tPosition () {
-      return this.$t('background.position')
+      return this.$t('app.position')
     },
     tTitle () {
       return this.$t('background.title')
@@ -33,7 +30,7 @@ export default {
       this.$store.commit('background/changeY', y)
     },
     pickImage () {
-      if (this.enabled) {
+      if (this.image) {
         this.$store.commit('background/changeImage', null)
         this.$refs.imageInput.value = null
       } else {

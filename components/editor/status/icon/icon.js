@@ -27,11 +27,8 @@ export default {
     subName () {
       return this.name ? this.name[0].toUpperCase() + this.name.slice(1) : ''
     },
-    tClear () {
-      return this.$t(`status.${this.name}.clear`)
-    },
     tPosition () {
-      return this.$t(`status.${this.name}.position`)
+      return this.$t('app.position')
     },
     tTitle () {
       return this.$t(`status.${this.name}.title`)
