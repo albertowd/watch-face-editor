@@ -7,10 +7,10 @@ export default {
   },
   computed: {
     imageOff () {
-      return this.$store.state.status[this.name].imageOff !== null
+      return this.$store.state.status[this.name].imageOff
     },
     imageOn () {
-      return this.$store.state.status[this.name].imageOn !== null
+      return this.$store.state.status[this.name].imageOn
     },
     position () {
       return {
@@ -24,9 +24,6 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    subName () {
-      return this.name ? this.name[0].toUpperCase() + this.name.slice(1) : ''
-    },
     tPosition () {
       return this.$t('app.position')
     },
@@ -38,42 +35,48 @@ export default {
     offFilePick () {
       if (this.imageOff) {
         this.$store.commit(`status/${this.name}`, { imageOff: null })
-        this.$refs.imageOffInput.value = null
+        this.$store.commit('json/json', { example: false })
       } else {
         this.$refs.imageOffInput.click()
       }
     },
     offFilePicked (event) {
       const file = event.target.files[0]
+      this.$refs.imageOffInput.value = null
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         this.$store.commit(`status/${this.name}`, { imageOff: event.target.result })
+        this.$store.commit('json/json', { example: false })
       }
       fileReader.readAsDataURL(file)
     },
     onFilePick () {
       if (this.imageOn) {
         this.$store.commit(`status/${this.name}`, { imageOn: null })
-        this.$refs.imageOnInput.value = null
+        this.$store.commit('json/json', { example: false })
       } else {
         this.$refs.imageOnInput.click()
       }
     },
     onFilePicked (event) {
       const file = event.target.files[0]
+      this.$refs.imageOnInput.value = null
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         this.$store.commit(`status/${this.name}`, { imageOn: event.target.result })
+        this.$store.commit('json/json', { example: false })
       }
       fileReader.readAsDataURL(file)
     },
     onXChange (x) {
       this.$store.commit(`status/${this.name}`, { x })
+      this.$store.commit('json/json', { example: false })
     },
     onYChange (y) {
       this.$store.commit(`status/${this.name}`, { y })
+      this.$store.commit('json/json', { example: false })
     }
   }
 }

@@ -1,6 +1,10 @@
 export const state = () => ({
   features: {
     background: true,
+    date: {
+      monthAndDay: false,
+      weekDay: true
+    },
     status: {
       alarm: true,
       bluetooth: true,

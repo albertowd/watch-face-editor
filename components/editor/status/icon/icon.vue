@@ -12,7 +12,7 @@
         <input
           ref="imageOffInput"
           class="editor-status-icon-hidden"
-          accept="image/*"
+          accept=".png"
           type="file"
           @change="offFilePicked"
         />
@@ -22,7 +22,7 @@
         <input
           ref="imageOnInput"
           class="editor-status-icon-hidden"
-          accept="image/*"
+          accept=".png"
           type="file"
           @change="onFilePicked"
         />
@@ -33,7 +33,7 @@
       <v-slider
         label="X:"
         step="1"
-        thumb-label="always"
+        thumb-label
         :disabled="!(imageOff || imageOn)"
         :min="0"
         :max="size.width"
@@ -43,7 +43,7 @@
       <v-slider
         label="Y:"
         step="1"
-        thumb-label="always"
+        thumb-label
         :disabled="!(imageOff || imageOn)"
         :min="0"
         :max="size.height"

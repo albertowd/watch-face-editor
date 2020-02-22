@@ -1,5 +1,4 @@
 export const state = () => ({
-  allowed: true,
   image: null,
   x: 0,
   y: 0

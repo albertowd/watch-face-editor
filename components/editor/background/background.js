@@ -25,24 +25,27 @@ export default {
   methods: {
     changeX (x) {
       this.$store.commit('background/background', { x })
+      this.$store.commit('json/json', { example: false })
     },
     changeY (y) {
       this.$store.commit('background/background', { y })
+      this.$store.commit('json/json', { example: false })
     },
     pickImage () {
       if (this.image) {
         this.$store.commit('background/background', { image: null })
-        this.$refs.imageInput.value = null
       } else {
         this.$refs.imageInput.click()
       }
     },
     uploadImage (event) {
       const file = event.target.files[0]
+      this.$refs.imageInput.value = null
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         this.$store.commit('background/background', { image: event.target.result })
+        this.$store.commit('json/json', { example: false })
       }
       fileReader.readAsDataURL(file)
     }

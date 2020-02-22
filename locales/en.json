@@ -24,7 +24,14 @@
     "title": "Clock"
   },
   "date": {
-    "title": "Date"
+    "monthAndDay": {
+      "title": "Month and Day"
+    },
+    "title": "Date",
+    "weekDay": {
+      "error": "Week day must have only 7 or 21 images.",
+      "title": "Week Day"
+    }
   },
   "device": {
     "export": "Export .ZIP",

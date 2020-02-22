@@ -24,7 +24,14 @@
     "title": "Anaóligo"
   },
   "date": {
-    "title": "Data"
+    "monthAndDay": {
+      "title": "Mês e Dia"
+    },
+    "title": "Data",
+    "weekDay": {
+      "error": "Os dias da semana só podem ter 7 ou 21 imagens.",
+      "title": "Dia da Semana"
+    }
   },
   "device": {
     "export": "Exportar .ZIP",

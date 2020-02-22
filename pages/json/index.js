@@ -1,10 +1,8 @@
 import json from '~/components/editor/json/json.vue'
-import preview from '~/components/device/preview/preview.vue'
 
 export default {
   components: {
-    json,
-    preview
+    json
   },
   computed: {
     model () {

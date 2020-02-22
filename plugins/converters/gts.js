@@ -32,12 +32,12 @@ function _statusToGTS (gts, name, status) {
   }
 }
 
-function fromDevice (device) {
+function fromDevice (device, features) {
   const gts = {
     images: []
   }
 
-  if (device.background.allowed && device.background.image) {
+  if (features.background && device.background.image) {
     gts.Background = {
       Image: {
         ImageIndex: gts.images.length,
@@ -53,40 +53,64 @@ function fromDevice (device) {
     gts.images.push(device.background.image)
   }
 
-  if (device.status.alarm.allowed) {
+  if (features.date.weekDay) {
+    if (device.date.weekDay.images.length) {
+      gts.Date = {
+        WeekDay: {
+          ImageIndex: gts.images.length,
+          ImagesCount: device.date.weekDay.images.length,
+          X: device.date.weekDay.x,
+          Y: device.date.weekDay.y
+        }
+      }
+      gts.images = gts.images.concat(device.date.weekDay.images)
+    }
+  }
+
+  if (features.status.alarm) {
     _statusToGTS(gts, 'Alarm', device.status.alarm)
   }
-  if (device.status.bluetooth.allowed) {
+  if (features.status.bluetooth) {
     _statusToGTS(gts, 'Bluetooth', device.status.bluetooth)
   }
-  if (device.status.dnd.allowed) {
+  if (features.status.dnd) {
     _statusToGTS(gts, 'DoNotDisturb', device.status.dnd)
   }
-  if (device.status.lock.allowed) {
+  if (features.status.lock) {
     _statusToGTS(gts, 'Lock', device.status.lock)
   }
 
   return gts
 }
 
-function toDevice (device, gts) {
-  if (gts.Background) {
+function toDevice (device, features, gts) {
+  if (features.background && gts.Background) {
     device.background.image = gts.images[gts.Background.Image.ImageIndex]
     device.background.x = gts.Background.Image.X
     device.background.y = gts.Background.Image.Y
   }
 
+  if (features.date.weekDay) {
+    if (gts.Date.WeekDay) {
+      device.date.weekDay.images = gts.images.filter((image, index) => {
+        return index >= gts.Date.WeekDay.ImageIndex && index < (gts.Date.WeekDay.ImageIndex + gts.Date.WeekDay.ImagesCount)
+      })
+      device.date.weekDay.x = gts.Date.WeekDay.X
+      device.date.weekDay.y = gts.Date.WeekDay.Y
+    }
+  }
+
   if (gts.Status) {
-    if (gts.Status.Alarm) {
+    if (features.status.alarm && gts.Status.Alarm) {
       _gtsToStatus(gts, 'Alarm', device.status.alarm)
     }
-    if (gts.Status.Bluetooth) {
+    if (features.status.bluetooth && gts.Status.Bluetooth) {
       _gtsToStatus(gts, 'Bluetooth', device.status.bluetooth)
     }
-    if (gts.Status.DoNotDisturb) {
+    if (features.status.dnd && gts.Status.DoNotDisturb) {
       _gtsToStatus(gts, 'DoNotDisturb', device.status.dnd)
     }
-    if (gts.Status.Lock) {
+    if (features.status.lock && gts.Status.Lock) {
       _gtsToStatus(gts, 'Lock', device.status.lock)
     }
   }

@@ -1,5 +1,10 @@
 <script>
+import preview from '~/components/device/preview/preview.vue'
+
 export default {
+  components: {
+    preview
+  },
   data () {
     return {
       drawer: false
@@ -18,13 +23,13 @@ export default {
           to: '/device'
         },
         {
-          disabled: !this.$store.state.activity.allowed,
+          disabled: !this.$store.state.device.features.activity,
           icon: 'mdi-heart',
           title: this.$t('activity.title'),
           to: '/activity'
         },
         {
-          disabled: !this.$store.state.animation.allowed,
+          disabled: !this.$store.state.device.features.animation,
           icon: 'mdi-play-box',
           title: this.$t('animation.title'),
           to: '/animation'
@@ -36,19 +41,19 @@ export default {
           to: '/background'
         },
         {
-          disabled: !this.$store.state.battery.allowed,
+          disabled: !this.$store.state.device.features.battery,
           icon: 'mdi-battery-charging',
           title: this.$t('battery.title'),
           to: '/battery'
         },
         {
-          disabled: !this.$store.state.clock.allowed,
+          disabled: !this.$store.state.device.features.clock,
           icon: 'mdi-clock',
           title: this.$t('clock.title'),
           to: '/clock'
         },
         {
-          disabled: !this.$store.state.date.allowed,
+          disabled: !(this.$store.state.device.features.date.monthAndDay || this.$store.state.device.features.date.weekDay),
           icon: 'mdi-calendar',
           title: this.$t('date.title'),
           to: '/date'
@@ -66,13 +71,13 @@ export default {
           to: '/status'
         },
         {
-          disabled: !this.$store.state.time.allowed,
+          disabled: !this.$store.state.device.features.time,
           icon: 'mdi-timer-sand-full',
           title: this.$t('time.title'),
           to: '/time'
         },
         {
-          disabled: !this.$store.state.weather.allowed,
+          disabled: !this.$store.state.device.features.weather,
           icon: 'mdi-cloud',
           title: this.$t('weather.title'),
           to: '/weather'
@@ -128,7 +133,10 @@ export default {
       </v-menu>
     </v-app-bar>
     <v-content>
-      <nuxt />
+      <v-layout align-center fill-height justify-center wrap>
+        <preview class="mr-10" />
+        <nuxt />
+      </v-layout>
     </v-content>
     <v-footer app :fixed="true">
       <v-spacer />{{ by }} Alberto Wollmann Dietrich

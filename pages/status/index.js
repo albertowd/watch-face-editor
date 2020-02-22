@@ -1,10 +1,8 @@
 import status from '~/components/editor/status/status.vue'
-import preview from '~/components/device/preview/preview.vue'
 
 export default {
   components: {
-    status,
-    preview
+    status
   },
   computed: {
     model () {

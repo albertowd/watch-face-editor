@@ -7,7 +7,7 @@
     </v-card-title>
     <v-card-text>
       <v-textarea ref="textArea" v-model="json" placeholder="{...}" rows="10" @change="onChange"></v-textarea>
-      <v-alert v-if="json && error" type="error">{{ error }}</v-alert>
+      <v-alert v-if="!example && error" type="error">{{ error }}</v-alert>
     </v-card-text>
   </v-card>
 </template>

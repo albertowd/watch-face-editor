@@ -7,5 +7,6 @@
     <status name="bluetooth" />
     <status name="dnd" />
     <status name="lock" />
+    <screenDate />
   </div>
 </template>

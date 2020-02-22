@@ -11,7 +11,7 @@
         </v-btn>
         <input
           ref="imageInput"
-          accept="image/*"
+          accept=".png"
           class="editor-background-hidden"
           type="file"
           @change="uploadImage"
@@ -23,7 +23,7 @@
       <v-slider
         label="X:"
         step="1"
-        thumb-label="always"
+        thumb-label
         :disabled="!image"
         :min="0"
         :max="dimensions.width"
@@ -33,7 +33,7 @@
       <v-slider
         label="Y:"
         step="1"
-        thumb-label="always"
+        thumb-label
         :disabled="!image"
         :min="0"
         :max="dimensions.height"

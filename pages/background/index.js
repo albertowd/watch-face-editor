@@ -1,10 +1,8 @@
 import background from '~/components/editor/background/background.vue'
-import preview from '~/components/device/preview/preview.vue'
 
 export default {
   components: {
-    background,
-    preview
+    background
   },
   computed: {
     model () {

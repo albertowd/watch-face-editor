@@ -1,5 +1,4 @@
 export const state = () => ({
-  allowed: false
 })
 
 export const mutations = {

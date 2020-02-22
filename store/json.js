@@ -1,4 +1,5 @@
 export const state = () => ({
+  example: true,
   content: '{}'
 })
 

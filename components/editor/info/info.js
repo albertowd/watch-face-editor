@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     exportZip () {
-      this.$zipUnpacked(this.$converter.fromDevice(this.getDevice()), undefined, (content, name) => {
+      this.$zipUnpacked(this.$converter.fromDevice(this.getDevice(), this.$store.state.device.features), undefined, (content, name) => {
         const link = document.createElement('a')
         link.href = window.URL.createObjectURL(content)
         link.download = name
@@ -44,23 +44,23 @@ export default {
       })
     },
     getDevice () {
-      return {
-        activity: this.$vuexToObj(this.$store.state.activity),
-        animation: this.$vuexToObj(this.$store.state.animation),
-        background: this.$vuexToObj(this.$store.state.background),
-        battery: this.$vuexToObj(this.$store.state.battery),
-        clock: this.$vuexToObj(this.$store.state.clock),
-        date: this.$vuexToObj(this.$store.state.date),
-        status: this.$vuexToObj(this.$store.state.status),
-        time: this.$vuexToObj(this.$store.state.time),
-        weather: this.$vuexToObj(this.$store.state.weather)
-      }
+      return this.$vuexToObj({
+        activity: this.$store.state.activity,
+        animation: this.$store.state.animation,
+        background: this.$store.state.background,
+        battery: this.$store.state.battery,
+        clock: this.$store.state.clock,
+        date: this.$store.state.date,
+        status: this.$store.state.status,
+        time: this.$store.state.time,
+        weather: this.$store.state.weather
+      })
     },
     pickFiles () {
       this.$refs.jsonInput.click()
     },
     setDevice (images = []) {
-      const device = this.$converter.toDevice(this.getDevice(), { images, ...this.obj })
+      const device = this.$converter.toDevice(this.getDevice(), this.$store.state.device.features, { images, ...this.obj })
       this.$store.commit('activity/activity', device.activity)
       this.$store.commit('animation/animation', device.animation)
       this.$store.commit('background/background', device.background)
@@ -71,9 +71,9 @@ export default {
       this.$store.commit('time/time', device.time)
       this.$store.commit('weather/weather', device.weather)
 
-      const obj = this.$converter.fromDevice(device)
+      const obj = this.$converter.fromDevice(device, this.$store.state.device.features)
       delete obj.images
-      this.$store.commit('json/json', { content: JSON.stringify(obj, null, 4) })
+      this.$store.commit('json/json', { content: JSON.stringify(obj, null, 4), example: false })
     },
     uploadJSON (event) {
       const file = event.target.files[0]

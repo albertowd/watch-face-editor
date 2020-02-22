@@ -6,7 +6,7 @@ export default {
   },
   computed: {
     showExample () {
-      return this.$store.state.json.content === '{}'
+      return this.$store.state.json.example
     },
     model () {
       return this.$store.state.device.model
