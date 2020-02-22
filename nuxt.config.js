@@ -32,8 +32,9 @@ module.exports = {
   plugins: [
     '~/plugins/i18n',
     { src: '~/plugins/jszip', mode: 'client' },
-    { src: '~/plugins/converters/index', mode: 'client' },
-    { src: '~/plugins/converters/gts', mode: 'client' }
+    { src: '~/plugins/converters/mb4', mode: 'client' },
+    { src: '~/plugins/converters/gts', mode: 'client' },
+    { src: '~/plugins/converters/pack', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

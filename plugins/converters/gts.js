@@ -119,7 +119,7 @@ function toDevice (device, features, gts) {
 }
 
 export default ({ app, store }, inject) => {
-  if (!app.$converter && store.state.device.model === 'GTS') {
+  if (!store.state.device.alias || store.state.device.alias === 'gts') {
     inject('converter', { fromDevice, toDevice })
   }
 }
