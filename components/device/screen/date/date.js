@@ -1,16 +1,12 @@
 export default {
   data () {
     return {
-      weekDayIndex: 0
+      weekDayIndex: ((new Date()).getDay() + 6) % 7 // getDay first day is Sunday
     }
   },
   computed: {
-    weekDay () {
-      const weekDay = this.$store.state.date.weekDay
-      if (weekDay.images.length <= this.weekDayIndex) {
-        this.weekDayIndex = 0
-      }
-      return weekDay
+    images () {
+      return this.$store.state.date.weekDay.images
     },
     weekDayPosition () {
       const weekDay = this.$store.state.date.weekDay
