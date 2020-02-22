@@ -8,7 +8,7 @@
         <div class="device-preview-draw-screen">
           <screen />
         </div>
-        <v-img v-if="example" class="device-preview-example" :src="`/devices/${model}.example.png`" />
+        <v-img v-if="showExample" class="device-preview-example" :src="`/devices/${model}.example.png`" />
       </div>
     </div>
   </div>

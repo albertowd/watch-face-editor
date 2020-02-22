@@ -24,14 +24,14 @@ export default {
   },
   methods: {
     changeX (x) {
-      this.$store.commit('background/changeX', x)
+      this.$store.commit('background/background', { x })
     },
     changeY (y) {
-      this.$store.commit('background/changeY', y)
+      this.$store.commit('background/background', { y })
     },
     pickImage () {
       if (this.image) {
-        this.$store.commit('background/changeImage', null)
+        this.$store.commit('background/background', { image: null })
         this.$refs.imageInput.value = null
       } else {
         this.$refs.imageInput.click()
@@ -41,9 +41,9 @@ export default {
       const file = event.target.files[0]
 
       const fileReader = new FileReader()
-      fileReader.addEventListener('load', (event) => {
-        this.$store.commit('background/changeImage', event.target.result)
-      })
+      fileReader.onload = (event) => {
+        this.$store.commit('background/background', { image: event.target.result })
+      }
       fileReader.readAsDataURL(file)
     }
   }

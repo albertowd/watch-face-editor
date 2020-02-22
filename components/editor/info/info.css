@@ -2,3 +2,7 @@
   max-width: 512px;
   width: 100%;
 }
+
+.editor-info-hidden {
+  display: none;
+}

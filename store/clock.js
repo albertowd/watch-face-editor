@@ -3,7 +3,9 @@ export const state = () => ({
 })
 
 export const mutations = {
-  togglePermision (state, allowed) {
-    state.allowed = allowed
+  clock (state, clock) {
+    for (const prop in clock) {
+      state[prop] = clock[prop]
+    }
   }
 }

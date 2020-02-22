@@ -6,20 +6,9 @@ export const state = () => ({
 })
 
 export const mutations = {
-  changeImage (state, image) {
-    state.image = image
-  },
-  changeX (state, x) {
-    state.x = x
-  },
-  changeY (state, y) {
-    state.y = y
-  },
-  toggle (state, allowed) {
-    if (undefined !== allowed) {
-      state.allowed = allowed
-    } else {
-      state.allowed = !state.allowed
+  background (state, background) {
+    for (const prop in background) {
+      state[prop] = background[prop]
     }
   }
 }

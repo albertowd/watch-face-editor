@@ -37,7 +37,7 @@ export default {
   methods: {
     offFilePick () {
       if (this.imageOff) {
-        this.$store.commit(`status/change${this.subName}ImageOff`, null)
+        this.$store.commit(`status/${this.name}`, { imageOff: null })
         this.$refs.imageOffInput.value = null
       } else {
         this.$refs.imageOffInput.click()
@@ -47,14 +47,14 @@ export default {
       const file = event.target.files[0]
 
       const fileReader = new FileReader()
-      fileReader.addEventListener('load', (event) => {
-        this.$store.commit(`status/change${this.subName}ImageOff`, event.target.result)
-      })
+      fileReader.onload = (event) => {
+        this.$store.commit(`status/${this.name}`, { imageOff: event.target.result })
+      }
       fileReader.readAsDataURL(file)
     },
     onFilePick () {
       if (this.imageOn) {
-        this.$store.commit(`status/change${this.subName}ImageOn`, null)
+        this.$store.commit(`status/${this.name}`, { imageOn: null })
         this.$refs.imageOnInput.value = null
       } else {
         this.$refs.imageOnInput.click()
@@ -64,16 +64,16 @@ export default {
       const file = event.target.files[0]
 
       const fileReader = new FileReader()
-      fileReader.addEventListener('load', (event) => {
-        this.$store.commit(`status/change${this.subName}ImageOn`, event.target.result)
-      })
+      fileReader.onload = (event) => {
+        this.$store.commit(`status/${this.name}`, { imageOn: event.target.result })
+      }
       fileReader.readAsDataURL(file)
     },
     onXChange (x) {
-      this.$store.commit(`status/change${this.subName}X`, x)
+      this.$store.commit(`status/${this.name}`, { x })
     },
     onYChange (y) {
-      this.$store.commit(`status/change${this.subName}Y`, y)
+      this.$store.commit(`status/${this.name}`, { y })
     }
   }
 }

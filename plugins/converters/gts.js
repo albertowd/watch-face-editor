@@ -1,28 +1,32 @@
-/*
-function _gtsToStatus (device, name, status) {
-  if (status) {
-    device[name] = {
-      x: status.Coordinates.Y,
-      y: status.Coordinates.X
-    }
+function _gtsToStatus (gts, name, status) {
+  status.x = gts.Status[name].Coordinates.X
+  status.y = gts.Status[name].Coordinates.Y
+  if (gts.Status[name].ImageIndexOff) {
+    status.imageOff = gts.images[gts.Status[name].ImageIndexOff]
+  }
+  if (gts.Status[name].ImageIndexOn) {
+    status.imageOn = gts.images[gts.Status[name].ImageIndexOn]
   }
 }
-*/
 
 function _statusToGTS (gts, name, status) {
   if (status.imageOff || status.imageOn) {
-    gts[name] = {
+    if (!gts.Status) {
+      gts.Status = {}
+    }
+
+    gts.Status[name] = {
       Coordinates: {
         X: status.x,
         Y: status.y
       }
     }
     if (status.imageOff) {
-      gts[name].ImageIndexOff = gts.images.length
+      gts.Status[name].ImageIndexOff = gts.images.length
       gts.images.push(status.imageOff)
     }
     if (status.imageOn) {
-      gts[name].ImageIndexOn = gts.images.length
+      gts.Status[name].ImageIndexOn = gts.images.length
       gts.images.push(status.imageOn)
     }
   }
@@ -65,36 +69,33 @@ function fromDevice (device) {
   return gts
 }
 
-/*
-function toDevice (gts) {
-  const device = {}
+function toDevice (device, gts) {
+  if (gts.Background) {
+    device.background.image = gts.images[gts.Background.Image.ImageIndex]
+    device.background.x = gts.Background.Image.X
+    device.background.y = gts.Background.Image.Y
+  }
 
-  if (device.background.allowed && gts.Background.Image) {
-    device.background = {
-      x: gts.Background.Image.X,
-      y: gts.Background.Image.Y
+  if (gts.Status) {
+    if (gts.Status.Alarm) {
+      _gtsToStatus(gts, 'Alarm', device.status.alarm)
     }
-  }
-
-  if (device.status.alarm.allowed) {
-    gtsToStatus(device, 'alarm', gts.Status.Alarm)
-  }
-  if (device.status.bluetooth.allowed) {
-    gtsToStatus(device, 'bluetooth', gts.Status.Bluetooth)
-  }
-  if (device.status.dnd.allowed) {
-    gtsToStatus(device, 'dnd', gts.Status.DoNotDisturb)
-  }
-  if (device.status.lock.allowed) {
-    gtsToStatus(device, 'lock', gts.Status.Lock)
+    if (gts.Status.Bluetooth) {
+      _gtsToStatus(gts, 'Bluetooth', device.status.bluetooth)
+    }
+    if (gts.Status.DoNotDisturb) {
+      _gtsToStatus(gts, 'DoNotDisturb', device.status.dnd)
+    }
+    if (gts.Status.Lock) {
+      _gtsToStatus(gts, 'Lock', device.status.lock)
+    }
   }
 
   return device
 }
-*/
 
 export default ({ app, store }, inject) => {
   if (!app.$converter && store.state.device.model === 'GTS') {
-    inject('converter', { fromDevice })
+    inject('converter', { fromDevice, toDevice })
   }
 }

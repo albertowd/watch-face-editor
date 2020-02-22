@@ -3,10 +3,9 @@ export const state = () => ({
 })
 
 export const mutations = {
-  changeContent (state, content) {
-    try {
-      const obj = JSON.parse(content)
-      state.content = JSON.stringify(obj, null, 2)
-    } catch (error) {}
+  json (state, json) {
+    for (const prop in json) {
+      state[prop] = json[prop]
+    }
   }
 }

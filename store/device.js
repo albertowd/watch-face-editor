@@ -1,5 +1,4 @@
 export const state = () => ({
-  model: 'GTS',
   features: {
     background: true,
     status: {
@@ -9,6 +8,7 @@ export const state = () => ({
       lock: true
     }
   },
+  model: 'GTS',
   packLimit: 1536,
   preview: {
     screen: {
@@ -29,12 +29,12 @@ export const state = () => ({
 })
 
 export const mutations = {
-  changeDevice (state, device) {
+  device (state, device) {
     for (const prop in device) {
       state[prop] = device[prop]
     }
   },
-  changePreviewZoom (state, newValue) {
+  previewZoom (state, newValue) {
     state.preview.zoom = newValue
   }
 }

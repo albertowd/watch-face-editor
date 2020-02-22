@@ -4,13 +4,10 @@ export default {
   components: {
     screen
   },
-  props: {
-    example: {
-      default: false,
-      type: Boolean
-    }
-  },
   computed: {
+    showExample () {
+      return this.$store.state.json.content === '{}'
+    },
     model () {
       return this.$store.state.device.model
     },

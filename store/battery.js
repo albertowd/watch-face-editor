@@ -3,7 +3,9 @@ export const state = () => ({
 })
 
 export const mutations = {
-  togglePermision (state, allowed) {
-    state.allowed = allowed
+  battery (state, battery) {
+    for (const prop in battery) {
+      state[prop] = battery[prop]
+    }
   }
 }

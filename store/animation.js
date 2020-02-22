@@ -3,7 +3,9 @@ export const state = () => ({
 })
 
 export const mutations = {
-  togglePermision (state, allowed) {
-    state.allowed = allowed
+  animation (state, animation) {
+    for (const prop in animation) {
+      state[prop] = animation[prop]
+    }
   }
 }

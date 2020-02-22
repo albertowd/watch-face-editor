@@ -1,4 +1,9 @@
 export default {
+  data () {
+    return {
+      json: null
+    }
+  },
   computed: {
     device () {
       return {
@@ -28,18 +33,7 @@ export default {
   },
   methods: {
     exportZip () {
-      const device = {
-        activity: this.$store.state.activity,
-        animation: this.$store.state.animation,
-        background: this.$store.state.background,
-        battery: this.$store.state.battery,
-        clock: this.$store.state.clock,
-        date: this.$store.state.date,
-        status: this.$store.state.status,
-        time: this.$store.state.time,
-        weather: this.$store.state.weather
-      }
-      this.$zipUnpacked(this.$converter.fromDevice(device), undefined, (content, name) => {
+      this.$zipUnpacked(this.$converter.fromDevice(this.getDevice()), undefined, (content, name) => {
         const link = document.createElement('a')
         link.href = window.URL.createObjectURL(content)
         link.download = name
@@ -49,8 +43,74 @@ export default {
         document.body.removeChild(link)
       })
     },
-    importFiles () {
+    getDevice () {
+      return {
+        activity: this.$vuexToObj(this.$store.state.activity),
+        animation: this.$vuexToObj(this.$store.state.animation),
+        background: this.$vuexToObj(this.$store.state.background),
+        battery: this.$vuexToObj(this.$store.state.battery),
+        clock: this.$vuexToObj(this.$store.state.clock),
+        date: this.$vuexToObj(this.$store.state.date),
+        status: this.$vuexToObj(this.$store.state.status),
+        time: this.$vuexToObj(this.$store.state.time),
+        weather: this.$vuexToObj(this.$store.state.weather)
+      }
+    },
+    pickFiles () {
+      this.$refs.jsonInput.click()
+    },
+    setDevice (images = []) {
+      const device = this.$converter.toDevice(this.getDevice(), { images, ...this.obj })
+      this.$store.commit('activity/activity', device.activity)
+      this.$store.commit('animation/animation', device.animation)
+      this.$store.commit('background/background', device.background)
+      this.$store.commit('battery/battery', device.battery)
+      this.$store.commit('clock/clock', device.clock)
+      this.$store.commit('date/date', device.date)
+      this.$store.commit('status/status', device.status)
+      this.$store.commit('time/time', device.time)
+      this.$store.commit('weather/weather', device.weather)
 
+      const obj = this.$converter.fromDevice(device)
+      delete obj.images
+      this.$store.commit('json/json', { content: JSON.stringify(obj, null, 4) })
+    },
+    uploadJSON (event) {
+      const file = event.target.files[0]
+      this.$refs.jsonInput.value = null
+
+      if (file) {
+        const fileReader = new FileReader()
+        fileReader.onload = (event) => {
+          this.obj = JSON.parse(event.target.result)
+          this.$refs.pngInput.click()
+        }
+        fileReader.readAsText(file)
+      }
+    },
+    uploadPNGs (event) {
+      const files = Object.values(event.target.files)
+      this.$refs.pngInput.value = null
+
+      if (files.length) {
+        const promises = []
+
+        for (const file of files) {
+          promises.push(new Promise((resolve) => {
+            const fileReader = new FileReader()
+            fileReader.onload = (event) => {
+              resolve(event.target.result)
+            }
+            fileReader.readAsDataURL(file)
+          }))
+        }
+
+        Promise.all(promises).then((images) => {
+          this.setDevice(images)
+        })
+      } else {
+        this.setDevice()
+      }
     }
   }
 }

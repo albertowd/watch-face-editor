@@ -120,7 +120,8 @@ export default {
           </v-btn>
         </template>
         <v-list>
-          <v-spacer></v-spacer>
+          <v-divider inset />
+          <v-subheader>Languages</v-subheader>
           <v-list-item @click="changeLang('en')">English</v-list-item>
           <v-list-item @click="changeLang('pt')">Português</v-list-item>
         </v-list>
