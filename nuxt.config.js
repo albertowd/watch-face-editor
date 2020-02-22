@@ -93,6 +93,6 @@ module.exports = {
    * customize nuxt.js router (vue-router).
    */
   router: {
-    middleware: 'i18n'
+    middleware: [ 'device', 'i18n']
   }
 }

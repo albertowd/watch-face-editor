@@ -5,15 +5,15 @@ export default {
     screen
   },
   computed: {
+    alias () {
+      return this.$store.state.device.alias
+    },
     showExample () {
       return this.$store.state.json.example
     },
-    model () {
-      return this.$store.state.device.model
-    },
     position () {
       const device = this.$store.state.device
-      const preview = this.$store.state.device.preview
+      const preview = device.preview
       return {
         bottom: `${(preview.size.height - preview.screen.y - device.size.height) * preview.zoom}px`,
         left: `${preview.screen.x * preview.zoom}px`,
@@ -23,14 +23,20 @@ export default {
     },
     relativePosition () {
       const device = this.$store.state.device
-      const preview = this.$store.state.device.preview
-      return {
+      const preview = device.preview
+
+      const pos = {
         height: `${device.size.height}px`,
-        left: `-${(device.size.width * preview.zoom) / 2}px`,
-        top: `-${(device.size.height * preview.zoom) / 2}px`,
-        transform: `scale(${preview.zoom})`,
         width: `${device.size.width}px`
       }
+
+      if (preview.zoom !== 1.0) {
+        pos.left = `${(preview.zoom < 1 ? -1 : 1) * (device.size.width * (preview.zoom * preview.zoom))}px`
+        pos.top = `${(preview.zoom < 1 ? -1 : 1) * (device.size.height * (preview.zoom * preview.zoom))}px`
+        pos.transform = `scale(${preview.zoom})`
+      }
+
+      return pos
     },
     size () {
       const preview = this.$store.state.device.preview

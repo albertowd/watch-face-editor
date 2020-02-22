@@ -89,10 +89,8 @@ export default {
       console.log(this.$store.state.i18n.locale)
       return this.$store.state.i18n.locale
     },
-    model () {
-      const name = this.$store.state.device.model.toString()
-      // this.modelIndex = ['GTS', 'Mi Band 4'].indexOf(name)
-      return name
+    name () {
+      return `${this.$store.state.device.vendor} ${this.$store.state.device.model}`
     },
     tDevices () {
       return this.$t('app.devices')
@@ -135,7 +133,7 @@ export default {
     </v-navigation-drawer>
     <v-app-bar clipped-left fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title v-text="$t('app.title')" />
+      <v-toolbar-title v-text="`${$t('app.title')} - ${name}`" />
       <v-spacer></v-spacer>
       <v-menu left bottom>
         <template v-slot:activator="{ on }">
@@ -147,7 +145,7 @@ export default {
         <v-list>
           <v-list-item-group v-model="modelIndex">
             <v-list-item exact to="?device=gts">Amazfit GTS</v-list-item>
-            <v-list-item exact to="?device=mb4" disabled>Mi Band 4</v-list-item>
+            <v-list-item exact to="?device=mb4">Mi Band 4</v-list-item>
           </v-list-item-group>
         </v-list>
         <v-divider />

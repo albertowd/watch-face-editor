@@ -1,0 +1,34 @@
+{
+  "alias": "mb4",
+  "features": {
+    "background": true,
+    "date": {
+      "monthAndDay": false,
+      "weekDay": true
+    },
+    "status": {
+      "alarm": false,
+      "bluetooth": true,
+      "dnd": true,
+      "lock": true
+    }
+  },
+  "model": "Mi Smarth Band 4",
+  "packLimit": 320,
+  "preview": {
+    "screen": {
+      "x": 25,
+      "y": 103
+    },
+    "size": {
+      "height": 467,
+      "width": 169
+    },
+    "zoom": 1.0
+  },
+  "size": {
+    "height": 240,
+    "width": 120
+  },
+  "vendor": "Xiaomi"
+}
