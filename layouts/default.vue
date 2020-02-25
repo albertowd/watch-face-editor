@@ -86,7 +86,6 @@ export default {
       ]
     },
     locale () {
-      console.log(this.$store.state.i18n.locale)
       return this.$store.state.i18n.locale
     },
     name () {
@@ -101,9 +100,6 @@ export default {
   },
   methods: {
     checkLocale (locale) {
-      console.log(locale)
-      console.log(this.$store.state.i18n.locale)
-      console.log(locale === this.$store.state.i18n.locale)
       return locale === this.$store.state.i18n.locale
     }
   }

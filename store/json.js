@@ -1,6 +1,6 @@
 export const state = () => ({
-  example: true,
-  content: '{}'
+  changed: false,
+  parsed: '{}'
 })
 
 export const mutations = {

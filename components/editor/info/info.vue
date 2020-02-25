@@ -32,7 +32,7 @@
           @change="uploadPNGs"
         />
         <v-spacer></v-spacer>
-        <v-btn color="success" @click="exportZip">{{ tExport }}</v-btn>
+        <v-btn color="success" :disabled="!changed" @click="exportZip">{{ tExport }}</v-btn>
       </v-layout>
     </v-card-text>
   </v-card>

@@ -31,7 +31,7 @@ export default {
     onFilePick () {
       if (this.images.length) {
         this.$store.commit('date/weekDay', { images: [] })
-        this.$store.commit('json/json', { example: false })
+        this.$store.commit('json/json', { changed: true })
       } else {
         this.$refs.pngInput.click()
       }
@@ -61,17 +61,17 @@ export default {
 
         Promise.all(promises).then((images) => {
           this.$store.commit('date/weekDay', { images })
-          this.$store.commit('json/json', { example: false })
+          this.$store.commit('json/json', { changed: true })
         })
       }
     },
     onXChange (x) {
       this.$store.commit('date/weekDay', { x })
-      this.$store.commit('json/json', { example: false })
+      this.$store.commit('json/json', { changed: true })
     },
     onYChange (y) {
       this.$store.commit('date/weekDay', { y })
-      this.$store.commit('json/json', { example: false })
+      this.$store.commit('json/json', { changed: true })
     }
   }
 }

@@ -9,7 +9,7 @@ export default {
       return this.$store.state.device.alias
     },
     showExample () {
-      return this.$store.state.json.example
+      return !this.$store.state.json.changed
     },
     position () {
       const device = this.$store.state.device

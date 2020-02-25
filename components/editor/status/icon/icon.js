@@ -35,7 +35,7 @@ export default {
     offFilePick () {
       if (this.imageOff) {
         this.$store.commit(`status/${this.name}`, { imageOff: null })
-        this.$store.commit('json/json', { example: false })
+        this.$store.commit('json/json', { changed: true })
       } else {
         this.$refs.imageOffInput.click()
       }
@@ -47,14 +47,14 @@ export default {
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         this.$store.commit(`status/${this.name}`, { imageOff: event.target.result })
-        this.$store.commit('json/json', { example: false })
+        this.$store.commit('json/json', { changed: true })
       }
       fileReader.readAsDataURL(file)
     },
     onFilePick () {
       if (this.imageOn) {
         this.$store.commit(`status/${this.name}`, { imageOn: null })
-        this.$store.commit('json/json', { example: false })
+        this.$store.commit('json/json', { changed: true })
       } else {
         this.$refs.imageOnInput.click()
       }
@@ -66,17 +66,17 @@ export default {
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
         this.$store.commit(`status/${this.name}`, { imageOn: event.target.result })
-        this.$store.commit('json/json', { example: false })
+        this.$store.commit('json/json', { changed: true })
       }
       fileReader.readAsDataURL(file)
     },
     onXChange (x) {
       this.$store.commit(`status/${this.name}`, { x })
-      this.$store.commit('json/json', { example: false })
+      this.$store.commit('json/json', { changed: true })
     },
     onYChange (y) {
       this.$store.commit(`status/${this.name}`, { y })
-      this.$store.commit('json/json', { example: false })
+      this.$store.commit('json/json', { changed: true })
     }
   }
 }

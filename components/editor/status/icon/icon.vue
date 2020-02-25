@@ -7,7 +7,7 @@
         <h2>{{ tTitle }}</h2>
         <v-spacer />
         <v-btn @click="offFilePick">
-          <v-icon :color="imageOff ? 'primary' : 'normal'">mdi-power-off</v-icon>
+          <v-icon :color="imageOff ? 'primary' : 'normal'">mdi-power-plug-off</v-icon>
         </v-btn>
         <input
           ref="imageOffInput"
@@ -17,7 +17,7 @@
           @change="offFilePicked"
         />
         <v-btn class="ml-5" @click="onFilePick">
-          <v-icon :color="imageOn ? 'primary' : 'normal'">mdi-power-on</v-icon>
+          <v-icon :color="imageOn ? 'primary' : 'normal'">mdi-power-plug</v-icon>
         </v-btn>
         <input
           ref="imageOnInput"

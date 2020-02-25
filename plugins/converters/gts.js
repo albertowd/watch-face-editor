@@ -90,7 +90,7 @@ function toDevice (device, features, gts) {
     device.background.y = gts.Background.Image.Y
   }
 
-  if (features.date.weekDay) {
+  if (features.date.weekDay && gts.Date) {
     if (gts.Date.WeekDay) {
       device.date.weekDay.images = gts.images.filter((image, index) => {
         return index >= gts.Date.WeekDay.ImageIndex && index < (gts.Date.WeekDay.ImageIndex + gts.Date.WeekDay.ImagesCount)
@@ -118,8 +118,4 @@ function toDevice (device, features, gts) {
   return device
 }
 
-export default ({ app, store }, inject) => {
-  if (!store.state.device.alias || store.state.device.alias === 'gts') {
-    inject('converter', { fromDevice, toDevice })
-  }
-}
+export default { fromDevice, toDevice }

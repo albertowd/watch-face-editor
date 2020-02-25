@@ -46,11 +46,6 @@ function fromDevice (device, features) {
         ImageIndex: mb4.images.length,
         X: device.background.x,
         Y: device.background.y
-      },
-      Preview: {
-        ImageIndex: mb4.images.length,
-        X: device.background.x,
-        Y: device.background.y
       }
     }
     mb4.images.push(device.background.image)
@@ -121,9 +116,4 @@ function toDevice (device, features, mb4) {
   return device
 }
 
-export default ({ app, store }, inject) => {
-  console.log(store.state.device)
-  if (store.state.device.alias === 'mb4') {
-    inject('converter', { fromDevice, toDevice })
-  }
-}
+export default { fromDevice, toDevice }

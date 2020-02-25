@@ -5,6 +5,9 @@ export default {
     }
   },
   computed: {
+    changed () {
+      return this.$store.state.json.changed
+    },
     device () {
       return {
         packLimit: this.$t('device.packLimit'),
@@ -33,7 +36,10 @@ export default {
   },
   methods: {
     exportZip () {
-      this.$zipUnpacked(this.$converter.fromDevice(this.getDevice(), this.$store.state.device.features), undefined, (content, name) => {
+      const converter = this.$converters[this.$store.state.device.alias]
+      const device = this.$packDevice(this.$store.state)
+      const pack = converter.fromDevice(device, this.$store.state.device.features)
+      this.$zipUnpacked(pack, undefined, (content, name) => {
         const link = document.createElement('a')
         link.href = window.URL.createObjectURL(content)
         link.download = name
@@ -43,37 +49,18 @@ export default {
         document.body.removeChild(link)
       })
     },
-    getDevice () {
-      return this.$vuexToObj({
-        activity: this.$store.state.activity,
-        animation: this.$store.state.animation,
-        background: this.$store.state.background,
-        battery: this.$store.state.battery,
-        clock: this.$store.state.clock,
-        date: this.$store.state.date,
-        status: this.$store.state.status,
-        time: this.$store.state.time,
-        weather: this.$store.state.weather
-      })
-    },
     pickFiles () {
       this.$refs.jsonInput.click()
     },
     setDevice (images = []) {
-      const device = this.$converter.toDevice(this.getDevice(), this.$store.state.device.features, { images, ...this.obj })
-      this.$store.commit('activity/activity', device.activity)
-      this.$store.commit('animation/animation', device.animation)
-      this.$store.commit('background/background', device.background)
-      this.$store.commit('battery/battery', device.battery)
-      this.$store.commit('clock/clock', device.clock)
-      this.$store.commit('date/date', device.date)
-      this.$store.commit('status/status', device.status)
-      this.$store.commit('time/time', device.time)
-      this.$store.commit('weather/weather', device.weather)
+      const converter = this.$converters[this.$store.state.device.alias]
+      const pack = this.$packDevice(this.$store.state)
+      const device = converter.toDevice(pack, this.$store.state.device.features, { images, ...this.obj })
+      this.$unpackDevice(device, this.$store)
 
-      const obj = this.$converter.fromDevice(device, this.$store.state.device.features)
+      const obj = converter.fromDevice(device, this.$store.state.device.features)
       delete obj.images
-      this.$store.commit('json/json', { content: JSON.stringify(obj, null, 4), example: false })
+      this.$store.commit('json/json', { changed: true, parsed: JSON.stringify(obj, null, 4) })
     },
     uploadJSON (event) {
       const file = event.target.files[0]
@@ -96,13 +83,7 @@ export default {
         const promises = []
 
         for (const file of files) {
-          promises.push(new Promise((resolve) => {
-            const fileReader = new FileReader()
-            fileReader.onload = (event) => {
-              resolve(event.target.result)
-            }
-            fileReader.readAsDataURL(file)
-          }))
+          promises.push(this.uploadPormise(file))
         }
 
         Promise.all(promises).then((images) => {
@@ -111,6 +92,15 @@ export default {
       } else {
         this.setDevice()
       }
+    },
+    uploadPormise (file) {
+      return new Promise((resolve) => {
+        const fileReader = new FileReader()
+        fileReader.onload = (event) => {
+          resolve(event.target.result)
+        }
+        fileReader.readAsDataURL(file)
+      })
     }
   }
 }

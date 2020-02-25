@@ -9,12 +9,10 @@ export default function ({ isHMR, app, store, route, params, error, redirect }) 
   if (!store.state.device.alias && !route.query.device) {
     store.commit('device/device', GTS)
   } else if (route.query.device && route.query.device !== store.state.device.alias) {
-    switch (route.query.device.toLowerCase()) {
-      case 'mb4':
-        store.commit('device/device', MB4)
-        break
-      default:
-        store.commit('device/device', GTS)
+    if (route.query.device.toLowerCase() === 'mb4') {
+      store.commit('device/device', MB4)
+    } else {
+      store.commit('device/device', GTS)
     }
   }
 }
