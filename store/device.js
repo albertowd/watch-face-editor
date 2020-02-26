@@ -11,7 +11,8 @@ export const state = () => ({
       bluetooth: false,
       dnd: false,
       lock: false
-    }
+    },
+    time: true
   },
   model: 'Unknown',
   packLimit: 1536,

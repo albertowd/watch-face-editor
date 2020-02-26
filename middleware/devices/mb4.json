@@ -11,7 +11,8 @@
       "bluetooth": true,
       "dnd": true,
       "lock": true
-    }
+    },
+    "time": true
   },
   "model": "Mi Smarth Band 4",
   "packLimit": 320,

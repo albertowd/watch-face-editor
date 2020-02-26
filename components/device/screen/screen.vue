@@ -7,6 +7,10 @@
     <status name="bluetooth" />
     <status name="dnd" />
     <status name="lock" />
+    <screenTime :initial="new Date().getHours() / 10" :max="2" name="hours" sub="tens" />
+    <screenTime :initial="new Date().getHours() % 10" name="hours" sub="ones" />
+    <screenTime :initial="new Date().getMinutes() / 10" :max="5" name="minutes" sub="tens" />
+    <screenTime :initial="new Date().getMinutes() % 10" name="minutes" sub="ones" />
     <screenDate />
   </div>
 </template>

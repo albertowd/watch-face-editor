@@ -29,10 +29,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-  date (state, date) {
-    for (const prop in date) {
-      state[prop] = date[prop]
-    }
+  import (state, obj) {
+    // TODO: make import function
   },
   monthAndDay (state, monthAndDay) {
     for (const prop in monthAndDay) {

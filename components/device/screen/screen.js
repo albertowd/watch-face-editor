@@ -1,11 +1,13 @@
 import background from './background/background.vue'
 import screenDate from './date/date.vue'
+import screenTime from './time/time.vue'
 import status from './status/status.vue'
 
 export default {
   components: {
     background,
     screenDate,
+    screenTime,
     status
   },
   computed: {

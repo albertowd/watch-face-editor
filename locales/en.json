@@ -13,7 +13,9 @@
       "unknown": "Unknown error"
     },
     "languages": "Languages",
+    "ones": "Ones",
     "position": "Position",
+    "tens": "Tens",
     "title": "Watch Face Editor"
   },
   "background": {
@@ -46,21 +48,15 @@
     "title": "JSON Editor"
   },
   "status": {
-    "alarm": {
-      "title": "Alarm"
-    },
-    "bluetooth": {
-      "title": "Bluetooth"
-    },
-    "dnd": {
-      "title": "Do not Disturb"
-    },
-    "lock": {
-      "title": "Lock"
-    },
+    "alarm": "Alarm",
+    "bluetooth": "Bluetooth",
+    "dnd": "Do not Disturb",
+    "lock": "Lock",
     "title": "Status"
   },
   "time": {
+    "hours": "Hours",
+    "minutes": "Minutes",
     "title": "Time"
   },
   "weather": {

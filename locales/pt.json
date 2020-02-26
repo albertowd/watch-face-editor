@@ -13,7 +13,9 @@
       "unknown": "Erro desconhecido"
     },
     "languages": "Linguagens",
+    "ones": "Unidades",
     "position": "Posição",
+    "tens": "Dezenas",
     "title": "Editor de Faces"
   },
   "background": {
@@ -46,22 +48,15 @@
     "title": "Edição do JSON"
   },
   "status": {
-    "alarm": {
-      "title": "Alarme"
-    },
-    "bluetooth": {
-      "title": "Bluetooth"
-    },
-    "dnd": {
-      "title": "Silencioso"
-    },
-    "lock": {
-      "clear": "Limpar",
-      "title": "Bloqueio"
-    },
+    "alarm": "Alarme",
+    "bluetooth": "Bluetooth",
+    "dnd": "Silencioso",
+    "lock": "Bloqueio",
     "title": "Ícones"
   },
   "time": {
+    "hours": "Horas",
+    "minutes": "Minutos",
     "title": "Hora"
   },
   "weather": {

@@ -28,7 +28,7 @@ export default {
       return this.$t('app.position')
     },
     tTitle () {
-      return this.$t(`status.${this.name}.title`)
+      return this.$t(`status.${this.name}`)
     }
   },
   methods: {

@@ -11,7 +11,8 @@
       "bluetooth": true,
       "dnd": true,
       "lock": true
-    }
+    },
+    "time": true
   },
   "model": "GTS",
   "packLimit": 1536,
