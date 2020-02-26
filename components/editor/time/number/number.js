@@ -50,6 +50,10 @@ export default {
     }
   },
   methods: {
+    changeImages (images, name, sub, store = this.$store) {
+      store.commit(`time/${name}${sub}`, { images })
+      store.commit('json/json', { changed: true })
+    },
     imagePromise (file) {
       return new Promise((resolve) => {
         const fileReader = new FileReader()
@@ -61,8 +65,7 @@ export default {
     },
     onesFilePick () {
       if (this.onesImages.length) {
-        this.$store.commit(`time/${this.name}Ones`, { images: [] })
-        this.$store.commit('json/json', { changed: true })
+        this.changeImages([], this.name, 'Ones')
       } else {
         this.$refs.onesInput.click()
       }
@@ -85,19 +88,14 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.$store.commit(`time/${this.name}Ones`, { images })
-          this.$store.commit('json/json', { changed: true })
-          if (!this.tensImages.length) {
-            this.$store.commit(`time/${this.name}Tens`, { images })
-            this.$store.commit('json/json', { changed: true })
-          }
+          this.changeImages(images, this.name, 'Ones')
+          this.$emit('newImages', images)
         })
       }
     },
     tensFilePick () {
       if (this.tensImages.length) {
-        this.$store.commit(`time/${this.name}Tens`, { images: [] })
-        this.$store.commit('json/json', { changed: true })
+        this.changeImages([], this.name, 'Tens')
       } else {
         this.$refs.tensInput.click()
       }
@@ -120,12 +118,8 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.$store.commit(`time/${this.name}Tens`, { images })
-          this.$store.commit('json/json', { changed: true })
-          if (!this.onesImages.length) {
-            this.$store.commit(`time/${this.name}Ones`, { images })
-            this.$store.commit('json/json', { changed: true })
-          }
+          this.changeImages(images, this.name, 'Tens')
+          this.$emit('newImages', images)
         })
       }
     },

@@ -3,9 +3,9 @@
 <template>
   <v-layout class="editor-time" column>
     <br />
-    <numberEditor name="hours" />
+    <numberEditor ref="hoursEditor" name="hours" @newImages="onNewImages" />
     <br />
-    <numberEditor name="minutes" />
+    <numberEditor ref="minutesEditor" name="minutes" @newImages="onNewImages" />
     <br />
   </v-layout>
 </template>
