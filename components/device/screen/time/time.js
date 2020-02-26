@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     toggle () {
-      this.index = (this.index + 1) % this.max
+      this.index = (this.index + 1) % (this.max + 1)
     }
   }
 }

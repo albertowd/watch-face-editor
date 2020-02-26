@@ -60,7 +60,7 @@ export default {
       })
     },
     onesFilePick () {
-      if (this.onesImages) {
+      if (this.onesImages.length) {
         this.$store.commit(`time/${this.name}Ones`, { images: [] })
         this.$store.commit('json/json', { changed: true })
       } else {
@@ -74,7 +74,7 @@ export default {
 
       if (files.length) {
         if (files.length !== 10) {
-          this.onesError = this.$t('times.ones.error')
+          this.onesError = this.$t('time.error')
           return
         }
 
@@ -85,16 +85,17 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.changeTime({ ones: { images } })
-          if (this.tensImages !== null) {
-            this.$store.commit(`time/${this.name}Ones`, { images })
+          this.$store.commit(`time/${this.name}Ones`, { images })
+          this.$store.commit('json/json', { changed: true })
+          if (!this.tensImages.length) {
+            this.$store.commit(`time/${this.name}Tens`, { images })
             this.$store.commit('json/json', { changed: true })
           }
         })
       }
     },
     tensFilePick () {
-      if (this.tensImages) {
+      if (this.tensImages.length) {
         this.$store.commit(`time/${this.name}Tens`, { images: [] })
         this.$store.commit('json/json', { changed: true })
       } else {
@@ -108,7 +109,7 @@ export default {
 
       if (files.length) {
         if (files.length !== 10) {
-          this.tensError = this.$t('times.ones.error')
+          this.tensError = this.$t('time.error')
           return
         }
 
@@ -119,9 +120,10 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.changeTime({ tens: { images } })
-          if (this.onesImages !== null) {
-            this.$store.commit(`time/${this.name}Tens`, { images })
+          this.$store.commit(`time/${this.name}Tens`, { images })
+          this.$store.commit('json/json', { changed: true })
+          if (!this.onesImages.length) {
+            this.$store.commit(`time/${this.name}Ones`, { images })
             this.$store.commit('json/json', { changed: true })
           }
         })

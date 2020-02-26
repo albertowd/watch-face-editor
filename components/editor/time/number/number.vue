@@ -5,7 +5,6 @@
     <v-card-title>
       <v-layout>
         <h2>{{ tTitle }}</h2>
-        <v-alert v-if="tensError" type="error">{{ tensError }}</v-alert>
         <v-spacer />
         <v-btn @click="tensFilePick">
           {{ tTens }}
@@ -13,8 +12,9 @@
         </v-btn>
         <input
           ref="tensInput"
-          class="editor-time-number-hidden"
           accept=".png"
+          class="editor-time-number-hidden"
+          multiple
           type="file"
           @change="tensFilePicked"
         />
@@ -24,16 +24,17 @@
         </v-btn>
         <input
           ref="onesInput"
-          class="editor-time-number-hidden"
           accept=".png"
+          class="editor-time-number-hidden"
+          multiple
           type="file"
           @change="tensFilePicked"
         />
       </v-layout>
     </v-card-title>
     <v-card-text>
+      <v-alert v-if="tensError" type="error">{{ tensError }}</v-alert>
       <h3>{{ tPosition }} - {{ tTens }}</h3>
-      <v-alert v-if="onesError" type="error">{{ onesError }}</v-alert>
       <v-slider
         label="X:"
         step="1"
@@ -54,6 +55,7 @@
         :value="tensPosition.y"
         @change="onTensYChange"
       />
+      <v-alert v-if="onesError" type="error">{{ onesError }}</v-alert>
       <h3>{{ tPosition }} - {{ tOnes }}</h3>
       <v-slider
         label="X:"

@@ -33,7 +33,7 @@
     },
     "title": "Date",
     "weekDay": {
-      "error": "Week day must have only 7 or 21 images.",
+      "error": "Week day must have only 7, 14 or 21 images (chinese-1, chinese-2, international).",
       "title": "Week Day"
     }
   },
@@ -55,6 +55,7 @@
     "title": "Status"
   },
   "time": {
+    "error": "Time numbers should have exactly 10 images (0-9).",
     "hours": "Hours",
     "minutes": "Minutes",
     "title": "Time"

@@ -33,7 +33,7 @@
     },
     "title": "Data",
     "weekDay": {
-      "error": "Os dias da semana só podem ter 7 ou 21 imagens.",
+      "error": "Os dias da semana só podem ter 7, 14 ou 21 imagens (chinês-1, chinês-2, internacional).",
       "title": "Dia da Semana"
     }
   },
@@ -55,6 +55,7 @@
     "title": "Ícones"
   },
   "time": {
+    "error": "Números de hora precisam de 10 imagens (0-9).",
     "hours": "Horas",
     "minutes": "Minutos",
     "title": "Hora"

@@ -28,6 +28,15 @@ export default {
     }
   },
   methods: {
+    imagePromise (file) {
+      return new Promise((resolve) => {
+        const fileReader = new FileReader()
+        fileReader.onload = (event) => {
+          resolve(event.target.result)
+        }
+        fileReader.readAsDataURL(file)
+      })
+    },
     onFilePick () {
       if (this.images.length) {
         this.$store.commit('date/weekDay', { images: [] })
@@ -42,7 +51,7 @@ export default {
       this.error = ''
 
       if (files.length) {
-        if (files.length !== 7 && files.length !== 21) {
+        if (files.length !== 7 && files.length !== 14 && files.length !== 21) {
           this.error = this.$t('date.weekDay.error')
           return
         }
@@ -50,13 +59,7 @@ export default {
         const promises = []
 
         for (const file of files) {
-          promises.push(new Promise((resolve) => {
-            const fileReader = new FileReader()
-            fileReader.onload = (event) => {
-              resolve(event.target.result)
-            }
-            fileReader.readAsDataURL(file)
-          }))
+          promises.push(this.imagePromise(file))
         }
 
         Promise.all(promises).then((images) => {

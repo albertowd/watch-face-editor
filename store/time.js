@@ -28,7 +28,7 @@ export const state = () => ({
 export const mutations = {
   hoursOnes (state, ones) {
     for (const prop in ones) {
-      state.hours.tens[prop] = ones[prop]
+      state.hours.ones[prop] = ones[prop]
     }
   },
   hoursTens (state, tens) {
@@ -38,7 +38,7 @@ export const mutations = {
   },
   minutesOnes (state, ones) {
     for (const prop in ones) {
-      state.minutes.tens[prop] = ones[prop]
+      state.minutes.ones[prop] = ones[prop]
     }
   },
   minutesTens (state, tens) {
