@@ -6,6 +6,10 @@ export default function ({ isHMR, app, store, route, params, error, redirect }) 
     return
   }
 
+  if (route.path === '/') {
+    return redirect('/device')
+  }
+
   if (!store.state.device.alias && !route.query.device) {
     store.commit('device/device', GTS)
   } else if (route.query.device && route.query.device !== store.state.device.alias) {
