@@ -29,17 +29,33 @@ export const state = () => ({
 })
 
 export const mutations = {
+  /**
+   * Imports date options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New date options.
+   */
   import (state, obj) {
-    // TODO: make import function
+    this.commit('date/weekDay', obj.weekDay)
+    // this.commit('date/monthAndDay', obj.monthAndDay)
   },
+  /**
+   * Updates new month and day options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} weekDay New month and day options.
+   */
   monthAndDay (state, monthAndDay) {
-    for (const prop in monthAndDay) {
-      state.monthAndDay[prop] = monthAndDay[prop]
-    }
+    // TODO: implement the monthAnDay updater!
+    this.commit('json/changed', true)
   },
+  /**
+   * Updates new week day options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} weekDay New week day options.
+   */
   weekDay (state, weekDay) {
     for (const prop in weekDay) {
       state.weekDay[prop] = weekDay[prop]
     }
+    this.commit('json/changed', true)
   }
 }

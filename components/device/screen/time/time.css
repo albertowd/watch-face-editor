@@ -1,13 +1,3 @@
-.device-screen-status {
-  position: relative;
-}
-
-.device-screen-status-image {
+.device-screen-time {
   position: absolute;
-}
-
-.device-screen-status-wrapper {
-  left: 0;
-  position: absolute;
-  top: 0;
 }

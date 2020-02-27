@@ -52,7 +52,6 @@ export default {
   methods: {
     changeImages (images, name, sub, store = this.$store) {
       store.commit(`time/${name}${sub}`, { images })
-      store.commit('json/json', { changed: true })
     },
     imagePromise (file) {
       return new Promise((resolve) => {
@@ -125,19 +124,15 @@ export default {
     },
     onOnesXChange (x) {
       this.$store.commit(`time/${this.name}Ones`, { x })
-      this.$store.commit('json/json', { changed: true })
     },
     onOnesYChange (y) {
       this.$store.commit(`time/${this.name}Ones`, { y })
-      this.$store.commit('json/json', { changed: true })
     },
     onTensXChange (x) {
       this.$store.commit(`time/${this.name}Tens`, { x })
-      this.$store.commit('json/json', { changed: true })
     },
     onTensYChange (y) {
       this.$store.commit(`time/${this.name}Tens`, { y })
-      this.$store.commit('json/json', { changed: true })
     }
   }
 }

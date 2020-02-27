@@ -23,18 +23,18 @@ export default {
     }
   },
   methods: {
+    changeBackground (obj) {
+      this.$store.commit('background/import', obj)
+    },
     changeX (x) {
-      this.$store.commit('background/background', { x })
-      this.$store.commit('json/json', { changed: true })
+      this.changeBackground({ x })
     },
     changeY (y) {
-      this.$store.commit('background/background', { y })
-      this.$store.commit('json/json', { changed: true })
+      this.changeBackground({ y })
     },
     pickImage () {
       if (this.image) {
-        this.$store.commit('background/background', { image: null })
-        this.$store.commit('json/json', { changed: true })
+        this.changeBackground({ image: null })
       } else {
         this.$refs.imageInput.click()
       }
@@ -45,8 +45,7 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
-        this.$store.commit('background/background', { image: event.target.result })
-        this.$store.commit('json/json', { changed: true })
+        this.changeBackground({ image: event.target.result })
       }
       fileReader.readAsDataURL(file)
     }

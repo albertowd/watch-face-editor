@@ -2,7 +2,7 @@
 <style scoped src="./screen.css"></style>
 <template>
   <div class="device-screen" :style="size">
-    <background />
+    <background class="z-index:1;" />
     <status name="alarm" />
     <status name="bluetooth" />
     <status name="dnd" />

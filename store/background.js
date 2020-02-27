@@ -5,9 +5,15 @@ export const state = () => ({
 })
 
 export const mutations = {
-  background (state, background) {
-    for (const prop in background) {
-      state[prop] = background[prop]
+  /**
+   * Imports background options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New background options.
+   */
+  import (state, obj) {
+    for (const prop in obj) {
+      state[prop] = obj[prop]
     }
+    this.commit('json/changed', true)
   }
 }

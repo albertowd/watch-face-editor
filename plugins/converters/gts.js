@@ -1,3 +1,9 @@
+/**
+ * Updates a device status object with the available options on a GTS object.
+ * @param {object} gts A GTS object representing it's JSON.
+ * @param {string} name Name of the status option (Alarm, Bluetooth, DoNotDisturb, Lock).
+ * @param {obj} status Device status to be updated.
+ */
 function _gtsToStatus (gts, name, status) {
   status.x = gts.Status[name].Coordinates.X
   status.y = gts.Status[name].Coordinates.Y
@@ -9,6 +15,27 @@ function _gtsToStatus (gts, name, status) {
   }
 }
 
+/**
+ * Updates a device time object with the available options on a GTS object.
+ * @param {object} gts A GTS object representing it's JSON.
+ * @param {string} name Name of the time option (Hours, Minutes).
+ * @param {string} sub Name of the sub time object option (Ones, Tens).
+ * @param {obj} time Device time to be updated.
+ */
+function _gtsToTime (gts, name, sub, time) {
+  time.x = gts.Time[name][sub].X
+  time.y = gts.Time[name][sub].Y
+  if (gts.Time[name][sub].ImagesCount) {
+    time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
+  }
+}
+
+/**
+ * Updates a GTS object with the available options on a device status object.
+ * @param {object} gts A GTS object representing it's JSON to be updated.
+ * @param {string} name Name of the status option (Alarm, Bluetooth, DoNotDisturb, Lock).
+ * @param {obj} status Device status to be copied.
+ */
 function _statusToGTS (gts, name, status) {
   if (status.imageOff || status.imageOn) {
     if (!gts.Status) {
@@ -32,6 +59,39 @@ function _statusToGTS (gts, name, status) {
   }
 }
 
+/**
+ * Updates a GTS object with the available options on a device time object.
+ * @param {object} gts A GTS object representing it's JSON to be updated.
+ * @param {string} name Name of the time option (Hours, Minutes).
+ * @param {string} sub Name of the sub time object option (Ones, Tens).
+ * @param {obj} time Device time to be copied.
+ */
+function _timeToGTS (gts, name, sub, time) {
+  if (time.images.length) {
+    if (!gts.Time) {
+      gts.Time = {}
+    }
+
+    const obj = {
+      ImagesCount: time.images.length,
+      ImageIndex: gts.images.length,
+      X: time.x,
+      Y: time.y
+    }
+    if (!gts.Time[name]) {
+      gts.Time[name] = {}
+    }
+    gts.Time[name][sub] = obj
+    gts.images = gts.images.concat(time.images)
+  }
+}
+
+/**
+ * Converts a store compliant device object into a GTS JSON object.
+ * @param {obj} device Store based device with all available options.
+ * @param {obj} features Features enabled for this device.
+ * @returns {obj} The new GTS JSON object with enabled device options.
+ */
 function fromDevice (device, features) {
   const gts = {
     images: []
@@ -80,9 +140,23 @@ function fromDevice (device, features) {
     _statusToGTS(gts, 'Lock', device.status.lock)
   }
 
+  if (features.time) {
+    _timeToGTS(gts, 'Hours', 'Ones', device.time.hours.ones)
+    _timeToGTS(gts, 'Hours', 'Tens', device.time.hours.tens)
+    _timeToGTS(gts, 'Minutes', 'Ones', device.time.minutes.ones)
+    _timeToGTS(gts, 'Minutes', 'Tens', device.time.minutes.tens)
+  }
+
   return gts
 }
 
+/**
+ * Converts a GTS JSON object into a store compliant device object.
+ * @param {obj} device Store based device with all available options.
+ * @param {obj} features Features enabled for this device.
+ * @param {obj} gts GTS JSON object to parse from.
+ * @returns {obj} The updated device object.
+ */
 function toDevice (device, features, gts) {
   if (features.background && gts.Background) {
     device.background.image = gts.images[gts.Background.Image.ImageIndex]
@@ -112,6 +186,21 @@ function toDevice (device, features, gts) {
     }
     if (features.status.lock && gts.Status.Lock) {
       _gtsToStatus(gts, 'Lock', device.status.lock)
+    }
+  }
+
+  if (gts.Time && features.time) {
+    if (gts.Time.Hours.Ones) {
+      _gtsToTime(gts, 'Hours', 'Ones', device.time.hours.ones)
+    }
+    if (gts.Time.Hours.Tens) {
+      _gtsToTime(gts, 'Hours', 'Tens', device.time.hours.tens)
+    }
+    if (gts.Time.Minutes.Ones) {
+      _gtsToTime(gts, 'Minutes', 'Ones', device.time.minutes.ones)
+    }
+    if (gts.Time.Minutes.Tens) {
+      _gtsToTime(gts, 'Minutes', 'Tens', device.time.minutes.tens)
     }
   }
 

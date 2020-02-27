@@ -26,29 +26,59 @@ export const state = () => ({
 })
 
 export const mutations = {
-  alarm (state, alarm) {
-    for (const prop in alarm) {
-      state.alarm[prop] = alarm[prop]
+  /**
+   * Updates new alarm options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New alarm options.
+   */
+  alarm (state, obj) {
+    for (const prop in obj) {
+      state.alarm[prop] = obj[prop]
     }
+    this.commit('json/changed', true)
   },
-  bluetooth (state, bluetooth) {
-    for (const prop in bluetooth) {
-      state.bluetooth[prop] = bluetooth[prop]
+  /**
+   * Updates new bluetooth options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New bluetooth options.
+   */
+  bluetooth (state, obj) {
+    for (const prop in obj) {
+      state.bluetooth[prop] = obj[prop]
     }
+    this.commit('json/changed', true)
   },
-  dnd (state, dnd) {
-    for (const prop in dnd) {
-      state.dnd[prop] = dnd[prop]
+  /**
+   * Updates new dnd options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New dnd options.
+   */
+  dnd (state, obj) {
+    for (const prop in obj) {
+      state.dnd[prop] = obj[prop]
     }
+    this.commit('json/changed', true)
   },
-  lock (state, lock) {
-    for (const prop in lock) {
-      state.lock[prop] = lock[prop]
-    }
+  /**
+   * Imports status options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New status options.
+   */
+  import (state, obj) {
+    this.commit('status/alarm', obj.alarm)
+    this.commit('status/bluetooth', obj.bluetooth)
+    this.commit('status/dnd', obj.dnd)
+    this.commit('status/lock', obj.lock)
   },
-  status (state, status) {
-    for (const prop in status) {
-      state[prop] = status[prop]
+  /**
+   * Updates new lock options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New lock options.
+   */
+  lock (state, obj) {
+    for (const prop in obj) {
+      state.lock[prop] = obj[prop]
     }
+    this.commit('json/changed', true)
   }
 }
