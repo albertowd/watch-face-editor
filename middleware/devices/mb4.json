@@ -12,7 +12,13 @@
       "dnd": true,
       "lock": true
     },
-    "time": true
+    "time": {
+      "ampm": true,
+      "delimiter": true,
+      "hours": true,
+      "minutes": true,
+      "seconds": true
+    }
   },
   "model": "Mi Smarth Band 4",
   "packLimit": 320,

@@ -3,9 +3,15 @@
 <template>
   <v-layout class="editor-time" column>
     <br />
-    <numberEditor ref="hoursEditor" name="hours" @newImages="onNewImages" />
+    <ampm :v-if="hasAmPm" />
     <br />
-    <numberEditor ref="minutesEditor" name="minutes" @newImages="onNewImages" />
+    <numberEditor ref="hoursEditor" :v-if="hasHours" name="hours" @newImages="onNewImages" />
+    <br />
+    <delimiter :v-if="hasDelimiter" />
+    <br />
+    <numberEditor ref="minutesEditor" :v-if="hasMinutes" name="minutes" @newImages="onNewImages" />
+    <br />
+    <numberEditor ref="secondsEditor" :v-if="hasSeconds" name="seconds" @newImages="onNewImages" />
     <br />
   </v-layout>
 </template>

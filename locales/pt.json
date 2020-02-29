@@ -7,6 +7,7 @@
   },
   "app": {
     "by": "por",
+    "delimiter": "Delimitador",
     "devices": "Dispositivos",
     "errors": {
       "notFound": "Não encontrado",
@@ -33,7 +34,7 @@
     },
     "title": "Data",
     "weekDay": {
-      "error": "Os dias da semana só podem ter 7, 14 ou 21 imagens (chinês-1, chinês-2, internacional).",
+      "error": "Os dias da semana devem ter 7, 14 ou 21 imagens (chinês-1, chinês-2 e internacional).",
       "title": "Dia da Semana"
     }
   },
@@ -55,9 +56,14 @@
     "title": "Ícones"
   },
   "time": {
-    "error": "Números de hora precisam de 10 imagens (0-9).",
+    "ampm": "Manhã/Tarde",
+    "errors" : {
+      "ampm": "Manhã/Tarde deve ter entre 1 e 2 imagens (chinês e internacional)",
+      "numbers": "Números de hora precisam de exatamente 10 imagens (0-9)."
+    },
     "hours": "Horas",
     "minutes": "Minutos",
+    "seconds": "Segundos",
     "title": "Hora"
   },
   "weather": {

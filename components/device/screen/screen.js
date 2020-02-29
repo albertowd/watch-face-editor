@@ -1,6 +1,8 @@
 import background from './background/background.vue'
 import screenDate from './date/date.vue'
 import screenTime from './time/time.vue'
+import screenTimeAMPM from './time/ampm/ampm.vue'
+import screenTimeDelimiter from './time/delimiter/delimiter.vue'
 import status from './status/status.vue'
 
 export default {
@@ -8,6 +10,8 @@ export default {
     background,
     screenDate,
     screenTime,
+    screenTimeAMPM,
+    screenTimeDelimiter,
     status
   },
   computed: {

@@ -8,7 +8,7 @@
         <v-spacer />
         <v-btn @click="tensFilePick">
           {{ tTens }}
-          <v-icon :color="tensImages.length ? 'primary' : 'normal'">mdi-image-multiple</v-icon>
+          <v-icon class="ml-5" :color="tensImages.length ? 'primary' : 'normal'">mdi-dock-left mdi-image-multiple</v-icon>
         </v-btn>
         <input
           ref="tensInput"
@@ -20,7 +20,7 @@
         />
         <v-btn class="ml-5" @click="onesFilePick">
           {{ tOnes }}
-          <v-icon :color="onesImages.length ? 'primary' : 'normal'">mdi-image-multiple</v-icon>
+          <v-icon class="ml-5" :color="onesImages.length ? 'primary' : 'normal'">mdi-dock-right mdi-image-multiple</v-icon>
         </v-btn>
         <input
           ref="onesInput"

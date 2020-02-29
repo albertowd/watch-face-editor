@@ -76,7 +76,7 @@ export default {
 
       if (files.length) {
         if (files.length !== 10) {
-          this.onesError = this.$t('time.error')
+          this.onesError = this.$t('time.errors.numbers')
           return
         }
 
@@ -106,7 +106,7 @@ export default {
 
       if (files.length) {
         if (files.length !== 10) {
-          this.tensError = this.$t('time.error')
+          this.tensError = this.$t('time.errors.numbers')
           return
         }
 

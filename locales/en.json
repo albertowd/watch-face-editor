@@ -7,6 +7,7 @@
   },
   "app" : {
     "by": "by",
+    "delimiter": "Delimiter",
     "devices": "Devices",
     "errors": {
       "notFound": "Not found",
@@ -33,7 +34,7 @@
     },
     "title": "Date",
     "weekDay": {
-      "error": "Week day must have only 7, 14 or 21 images (chinese-1, chinese-2, international).",
+      "error": "Week day should have only 7, 14 or 21 images (chinese-1, chinese-2 and international).",
       "title": "Week Day"
     }
   },
@@ -55,9 +56,14 @@
     "title": "Status"
   },
   "time": {
-    "error": "Time numbers should have exactly 10 images (0-9).",
+    "ampm": "AM/PM",
+    "errors" : {
+      "ampm": "AM/PM should have 1 or 2 images (chinese and international)",
+      "number": "Time numbers should have exactly 10 images (0-9)."
+    },
     "hours": "Hours",
     "minutes": "Minutes",
+    "seconds": "Seconds",
     "title": "Time"
   },
   "weather": {

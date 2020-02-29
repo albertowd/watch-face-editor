@@ -1,31 +1,76 @@
 export const state = () => ({
+  ampm: {
+    imagesAM: [],
+    imagesPM: [],
+    x: 292,
+    y: 150
+  },
+  delimiter: {
+    image: null,
+    x: 152,
+    y: 50
+  },
   hours: {
     ones: {
       images: [],
-      x: 99,
+      x: 94,
       y: 50
     },
     tens: {
       images: [],
-      x: 13,
+      x: 8,
       y: 50
     }
   },
   minutes: {
     ones: {
       images: [],
-      x: 271,
+      x: 280,
       y: 50
     },
     tens: {
       images: [],
-      x: 185,
+      x: 204,
       y: 50
+    }
+  },
+  seconds: {
+    ones: {
+      images: [],
+      x: 232,
+      y: 150
+    },
+    tens: {
+      images: [],
+      x: 156,
+      y: 150
     }
   }
 })
 
 export const mutations = {
+  /**
+   * Updates new AM/PM options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New AM/PM options.
+   */
+  changeAmPm (state, obj) {
+    for (const prop in obj) {
+      state.ampm[prop] = obj[prop]
+    }
+    this.commit('json/changed', true)
+  },
+  /**
+   * Updates new delimiter options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New delimiter options.
+   */
+  changeDelimiter (state, obj) {
+    for (const prop in obj) {
+      state.delimiter[prop] = obj[prop]
+    }
+    this.commit('json/changed', true)
+  },
   /**
    * Updates new hour ones options over the existing ones.
    * @param {object} state Actual state to update.
@@ -54,10 +99,14 @@ export const mutations = {
    * @param {object} obj New time options.
    */
   import (state, obj) {
+    this.commit('time/changeAmPm', obj.ampm)
+    this.commit('time/changeDelimiter', obj.delimiter)
     this.commit('time/hoursOnes', obj.hours.ones)
     this.commit('time/hoursTens', obj.hours.tens)
     this.commit('time/minutesOnes', obj.minutes.ones)
     this.commit('time/minutesTens', obj.minutes.tens)
+    this.commit('time/secondsOnes', obj.seconds.ones)
+    this.commit('time/secondsTens', obj.seconds.tens)
   },
   /**
    * Updates new minutes ones options over the existing ones.
@@ -78,6 +127,28 @@ export const mutations = {
   minutesTens (state, obj) {
     for (const prop in obj) {
       state.minutes.tens[prop] = obj[prop]
+    }
+    this.commit('json/changed', true)
+  },
+  /**
+   * Updates new seconds ones options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New seconds ones options.
+   */
+  secondsOnes (state, obj) {
+    for (const prop in obj) {
+      state.seconds.ones[prop] = obj[prop]
+    }
+    this.commit('json/changed', true)
+  },
+  /**
+   * Updates new seconds tens options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New seconds tens options.
+   */
+  secondsTens (state, obj) {
+    for (const prop in obj) {
+      state.seconds.tens[prop] = obj[prop]
     }
     this.commit('json/changed', true)
   }

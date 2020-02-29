@@ -1,40 +1,43 @@
-<script src="./icon.js" />
-<style scoped src="./icon.css"></style>
+<script src="./ampm.js" />
+<style scoped src="./ampm.css"></style>
 <template>
   <v-card outlined>
     <v-card-title>
       <v-layout>
         <h2>{{ tTitle }}</h2>
         <v-spacer />
-        <v-btn @click="offFilePick">
-          <v-icon :color="imageOff ? 'primary' : 'normal'">mdi-power-plug-off</v-icon>
+        <v-btn @click="amFilePick">
+          <v-icon :color="amImages.length ? 'primary' : 'normal'">mdi-weather-sunset-up</v-icon>
         </v-btn>
         <input
-          ref="imageOffInput"
+          ref="amInput"
           accept=".png"
-          class="editor-status-icon-hidden"
+          class="editor-time-ampm-hidden"
+          multiple
           type="file"
-          @change="offFilePicked"
+          @change="amFilePicked"
         />
-        <v-btn class="ml-5" @click="onFilePick">
-          <v-icon :color="imageOn ? 'primary' : 'normal'">mdi-power-plug</v-icon>
+        <v-btn class="ml-5" @click="pmFilePick">
+          <v-icon :color="pmImages.length ? 'primary' : 'normal'">mdi-weather-sunset-down</v-icon>
         </v-btn>
         <input
-          ref="imageOnInput"
+          ref="pmInput"
           accept=".png"
-          class="editor-status-icon-hidden"
+          class="editor-time-ampm-hidden"
+          multiple
           type="file"
-          @change="onFilePicked"
+          @change="pmFilePicked"
         />
       </v-layout>
     </v-card-title>
     <v-card-text>
+      <v-alert v-if="error" type="error">{{ error }}</v-alert>
       <h3>{{ tPosition }}</h3>
       <v-slider
         label="X:"
         step="1"
         thumb-label
-        :disabled="!(imageOff || imageOn)"
+        :disabled="!(amImages.length || pmImages.length)"
         :min="0"
         :max="size.width"
         :value="position.x"
@@ -44,7 +47,7 @@
         label="Y:"
         step="1"
         thumb-label
-        :disabled="!(imageOff || imageOn)"
+        :disabled="!(amImages.length || pmImages.length)"
         :min="0"
         :max="size.height"
         :value="position.y"

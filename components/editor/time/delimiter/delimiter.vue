@@ -1,28 +1,18 @@
-<script src="./icon.js" />
-<style scoped src="./icon.css"></style>
+<script src="./delimiter.js" />
+<style scoped src="./delimiter.css"></style>
 <template>
   <v-card outlined>
     <v-card-title>
       <v-layout>
         <h2>{{ tTitle }}</h2>
         <v-spacer />
-        <v-btn @click="offFilePick">
-          <v-icon :color="imageOff ? 'primary' : 'normal'">mdi-power-plug-off</v-icon>
+        <v-btn @click="onFilePick">
+          <v-icon :color="image ? 'primary' : 'normal'">mdi-clock</v-icon>
         </v-btn>
         <input
-          ref="imageOffInput"
+          ref="delimiterInput"
           accept=".png"
-          class="editor-status-icon-hidden"
-          type="file"
-          @change="offFilePicked"
-        />
-        <v-btn class="ml-5" @click="onFilePick">
-          <v-icon :color="imageOn ? 'primary' : 'normal'">mdi-power-plug</v-icon>
-        </v-btn>
-        <input
-          ref="imageOnInput"
-          accept=".png"
-          class="editor-status-icon-hidden"
+          class="editor-time-delimiter-hidden"
           type="file"
           @change="onFilePicked"
         />
@@ -34,7 +24,7 @@
         label="X:"
         step="1"
         thumb-label
-        :disabled="!(imageOff || imageOn)"
+        :disabled="!image"
         :min="0"
         :max="size.width"
         :value="position.x"
@@ -44,7 +34,7 @@
         label="Y:"
         step="1"
         thumb-label
-        :disabled="!(imageOff || imageOn)"
+        :disabled="!image"
         :min="0"
         :max="size.height"
         :value="position.y"
