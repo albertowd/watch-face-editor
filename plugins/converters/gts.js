@@ -5,13 +5,15 @@
  * @param {obj} status Device status to be updated.
  */
 function _gtsToStatus (gts, name, status) {
-  status.x = gts.Status[name].Coordinates.X
-  status.y = gts.Status[name].Coordinates.Y
-  if (gts.Status[name].ImageIndexOff) {
-    status.imageOff = gts.images[gts.Status[name].ImageIndexOff]
-  }
-  if (gts.Status[name].ImageIndexOn) {
-    status.imageOn = gts.images[gts.Status[name].ImageIndexOn]
+  if (gts.Status && gts.Status[name]) {
+    status.x = gts.Status[name].Coordinates.X
+    status.y = gts.Status[name].Coordinates.Y
+    if (gts.Status[name].ImageIndexOff) {
+      status.imageOff = gts.images[gts.Status[name].ImageIndexOff]
+    }
+    if (gts.Status[name].ImageIndexOn) {
+      status.imageOn = gts.images[gts.Status[name].ImageIndexOn]
+    }
   }
 }
 
@@ -23,10 +25,12 @@ function _gtsToStatus (gts, name, status) {
  * @param {obj} time Device time to be updated.
  */
 function _gtsToTime (gts, name, sub, time) {
-  time.x = gts.Time[name][sub].X
-  time.y = gts.Time[name][sub].Y
-  if (gts.Time[name][sub].ImagesCount) {
-    time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
+  if (gts.Time && gts.Time[name] && gts.Time[name][sub]) {
+    time.x = gts.Time[name][sub].X
+    time.y = gts.Time[name][sub].Y
+    if (gts.Time[name][sub].ImagesCount) {
+      time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
+    }
   }
 }
 
@@ -140,11 +144,55 @@ function fromDevice (device, features) {
     _statusToGTS(gts, 'Lock', device.status.lock)
   }
 
-  if (features.time) {
+  if (features.time.ampm) {
+    if (device.time.ampm.imagesAM.length || device.time.ampm.imagesPM.length) {
+      if (!gts.Time) {
+        gts.Time = {}
+      }
+
+      gts.Time.AmPm = {
+        X: device.time.ampm.x,
+        Y: device.time.ampm.y
+      }
+
+      if (device.time.ampm.imagesAM.length) {
+        gts.Time.AmPm.ImageIndexAMCN = gts.images.length
+        gts.Time.AmPm.ImageIndexAMEN = device.time.ampm.imagesAM.length === 2 ? gts.images.length + 1 : 0
+        gts.images = gts.images.concat(device.time.ampm.imagesAM)
+      }
+
+      if (device.time.ampm.imagesPM.length) {
+        gts.Time.AmPm.ImageIndexPMCN = gts.images.length
+        gts.Time.AmPm.ImageIndexPMEN = device.time.ampm.imagesPM.length === 2 ? gts.images.length + 1 : 0
+        gts.images = gts.images.concat(device.time.ampm.imagesPM)
+      }
+    }
+  }
+  if (features.time.delimiter) {
+    if (device.time.delimiter.image) {
+      if (!gts.Time) {
+        gts.Time = {}
+      }
+
+      gts.Time.Delimiter = {
+        ImageIndex: gts.images.length,
+        X: device.time.delimiter.x,
+        Y: device.time.delimiter.y
+      }
+      gts.images.push(device.time.delimiter.image)
+    }
+  }
+  if (features.time.hours) {
     _timeToGTS(gts, 'Hours', 'Ones', device.time.hours.ones)
     _timeToGTS(gts, 'Hours', 'Tens', device.time.hours.tens)
+  }
+  if (features.time.minutes) {
     _timeToGTS(gts, 'Minutes', 'Ones', device.time.minutes.ones)
     _timeToGTS(gts, 'Minutes', 'Tens', device.time.minutes.tens)
+  }
+  if (features.time.seconds) {
+    _timeToGTS(gts, 'Seconds', 'Ones', device.time.seconds.ones)
+    _timeToGTS(gts, 'Seconds', 'Tens', device.time.seconds.tens)
   }
 
   return gts
@@ -158,14 +206,16 @@ function fromDevice (device, features) {
  * @returns {obj} The updated device object.
  */
 function toDevice (device, features, gts) {
-  if (features.background && gts.Background) {
-    device.background.image = gts.images[gts.Background.Image.ImageIndex]
-    device.background.x = gts.Background.Image.X
-    device.background.y = gts.Background.Image.Y
+  if (features.background) {
+    if (gts.Background) {
+      device.background.image = gts.images[gts.Background.Image.ImageIndex]
+      device.background.x = gts.Background.Image.X
+      device.background.y = gts.Background.Image.Y
+    }
   }
 
-  if (features.date.weekDay && gts.Date) {
-    if (gts.Date.WeekDay) {
+  if (features.date.weekDay) {
+    if (gts.Date && gts.Date.WeekDay) {
       device.date.weekDay.images = gts.images.filter((image, index) => {
         return index >= gts.Date.WeekDay.ImageIndex && index < (gts.Date.WeekDay.ImageIndex + gts.Date.WeekDay.ImagesCount)
       })
@@ -174,34 +224,51 @@ function toDevice (device, features, gts) {
     }
   }
 
-  if (gts.Status) {
-    if (features.status.alarm && gts.Status.Alarm) {
-      _gtsToStatus(gts, 'Alarm', device.status.alarm)
-    }
-    if (features.status.bluetooth && gts.Status.Bluetooth) {
-      _gtsToStatus(gts, 'Bluetooth', device.status.bluetooth)
-    }
-    if (features.status.dnd && gts.Status.DoNotDisturb) {
-      _gtsToStatus(gts, 'DoNotDisturb', device.status.dnd)
-    }
-    if (features.status.lock && gts.Status.Lock) {
-      _gtsToStatus(gts, 'Lock', device.status.lock)
-    }
+  if (features.status.alarm) {
+    _gtsToStatus(gts, 'Alarm', device.status.alarm)
+  }
+  if (features.status.bluetooth) {
+    _gtsToStatus(gts, 'Bluetooth', device.status.bluetooth)
+  }
+  if (features.status.dnd) {
+    _gtsToStatus(gts, 'DoNotDisturb', device.status.dnd)
+  }
+  if (features.status.lock) {
+    _gtsToStatus(gts, 'Lock', device.status.lock)
   }
 
-  if (gts.Time && features.time) {
-    if (gts.Time.Hours.Ones) {
-      _gtsToTime(gts, 'Hours', 'Ones', device.time.hours.ones)
+  if (features.time.ampm) {
+    if (gts.Time && gts.Time.AmPm) {
+      const imagesAM = (gts.Time.AmPm.ImageIndexAMCN ? [gts.images[gts.Time.AmPm.ImageIndexAMCN]] : []).concat(gts.Time.AmPm.ImageIndexAMEN ? [gts.images[gts.Time.AmPm.ImageIndexAMEN]] : [])
+      const imagesPM = (gts.Time.AmPm.ImageIndexPMCN ? [gts.images[gts.Time.AmPm.ImageIndexPMCN]] : []).concat(gts.Time.AmPm.ImageIndexPMEN ? [gts.images[gts.Time.AmPm.ImageIndexPMEN]] : [])
+      device.time.ampm = {
+        imagesAM,
+        imagesPM,
+        x: gts.Time.AmPm.X,
+        y: gts.Time.AmPm.Y
+      }
     }
-    if (gts.Time.Hours.Tens) {
-      _gtsToTime(gts, 'Hours', 'Tens', device.time.hours.tens)
+  }
+  if (features.time.delimiter) {
+    if (gts.Time && gts.Time.Delimiter) {
+      device.time.delimiter = {
+        image: gts.images[gts.Time.Delimiter.ImageIndex],
+        x: gts.Time.Delimiter.X,
+        y: gts.Time.Delimiter.Y
+      }
     }
-    if (gts.Time.Minutes.Ones) {
-      _gtsToTime(gts, 'Minutes', 'Ones', device.time.minutes.ones)
-    }
-    if (gts.Time.Minutes.Tens) {
-      _gtsToTime(gts, 'Minutes', 'Tens', device.time.minutes.tens)
-    }
+  }
+  if (features.time.hours) {
+    _gtsToTime(gts, 'Hours', 'Ones', device.time.hours.ones)
+    _gtsToTime(gts, 'Hours', 'Tens', device.time.hours.tens)
+  }
+  if (features.time.minutes) {
+    _gtsToTime(gts, 'Minutes', 'Ones', device.time.minutes.ones)
+    _gtsToTime(gts, 'Minutes', 'Tens', device.time.minutes.tens)
+  }
+  if (features.time.seconds) {
+    _gtsToTime(gts, 'Seconds', 'Ones', device.time.seconds.ones)
+    _gtsToTime(gts, 'Seconds', 'Tens', device.time.seconds.tens)
   }
 
   return device

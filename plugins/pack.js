@@ -36,10 +36,17 @@ function unpackDevice (device, store) {
  * @returns {object} Same object with values instead of observables.
  */
 function vuexToObj (vuex) {
-  const obj = {}
-  for (const prop in vuex) {
-    const val = vuex[prop]
-    obj[prop] = typeof val === 'object' && val !== null && !Array.isArray(val) ? vuexToObj(val) : val
+  const obj = Array.isArray(vuex) ? [] : {}
+  if (!Array.isArray(vuex)) {
+    for (const prop in vuex) {
+      const val = vuex[prop]
+      obj[prop] = typeof val === 'object' && val !== null ? vuexToObj(val) : val
+    }
+  } else {
+    for (const prop in vuex) {
+      const val = vuex[prop]
+      obj.push(typeof val === 'object' && val !== null ? vuexToObj(val) : val)
+    }
   }
   return obj
 }

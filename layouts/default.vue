@@ -72,7 +72,7 @@ export default {
           to: '/status'
         },
         {
-          disabled: !this.$store.state.device.features.time,
+          disabled: !(this.$store.state.device.features.time.ampm || this.$store.state.device.features.time.delimiter || this.$store.state.device.features.time.hours || this.$store.state.device.features.time.minutes || this.$store.state.device.features.time.seconds),
           icon: 'mdi-timer-sand-full',
           title: this.$t('time.title'),
           to: '/time'
