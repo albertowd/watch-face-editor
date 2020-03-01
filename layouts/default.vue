@@ -67,7 +67,7 @@ export default {
         },
         {
           disabled: !(this.$store.state.device.features.shortcuts.pulse || this.$store.state.device.features.shortcuts.state || this.$store.state.device.features.shortcuts.weather),
-          icon: 'mdi-cursor-pointer',
+          icon: 'mdi-hand-pointing-up',
           title: this.$t('shortcuts.title'),
           to: '/shortcuts'
         },

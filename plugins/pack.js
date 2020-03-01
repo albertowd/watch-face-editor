@@ -13,6 +13,7 @@ function packDevice (state) {
     battery: state.battery,
     clock: state.clock,
     date: state.date,
+    shortcuts: state.shortcuts,
     status: state.status,
     time: state.time,
     weather: state.weather

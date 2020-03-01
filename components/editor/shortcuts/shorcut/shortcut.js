@@ -12,8 +12,9 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    enabled () {
-      return this.$store.state.shortcuts[this.name].enabled
+    enabled: {
+      get () { return this.$store.state.shortcuts[this.name].enabled },
+      set (enabled) { this.$store.commit(`shortcuts/${this.name}`, { enabled }) }
     },
     position () {
       return {
