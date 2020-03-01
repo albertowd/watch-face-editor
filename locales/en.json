@@ -13,11 +13,14 @@
       "notFound": "Not found",
       "unknown": "Unknown error"
     },
+    "height": "Height",
     "languages": "Languages",
     "ones": "Ones",
     "position": "Position",
+    "size": "Size",
     "tens": "Tens",
-    "title": "Watch Face Editor"
+    "title": "Watch Face Editor",
+    "width": "Width"
   },
   "background": {
     "title": "Background"
@@ -48,11 +51,11 @@
   "json": {
     "title": "JSON Editor"
   },
-  "shortcut": {
+  "shortcuts": {
     "pulse": "Pulse",
     "state": "State",
     "title": "Shortcuts",
-    "weather": "weather"
+    "weather": "Weather"
   },
   "status": {
     "alarm": "Alarm",

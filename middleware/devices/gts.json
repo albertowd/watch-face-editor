@@ -6,7 +6,7 @@
       "monthAndDay": false,
       "weekDay": true
     },
-    "shortcut": {
+    "shortcuts": {
       "pulse": true,
       "state": true,
       "weather": true

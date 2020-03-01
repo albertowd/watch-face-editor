@@ -66,10 +66,10 @@ export default {
           to: '/json'
         },
         {
-          disabled: !(this.$store.state.device.features.shortcut.pulse || this.$store.state.device.features.shortcut.state || this.$store.state.device.features.shortcut.weather),
+          disabled: !(this.$store.state.device.features.shortcuts.pulse || this.$store.state.device.features.shortcuts.state || this.$store.state.device.features.shortcuts.weather),
           icon: 'mdi-cursor-pointer',
-          title: this.$t('shortcut.title'),
-          to: '/shortcut'
+          title: this.$t('shortcuts.title'),
+          to: '/shortcuts'
         },
         {
           disabled: !(this.$store.state.device.features.status.alarm || this.$store.state.device.features.status.bluetooth || this.$store.state.device.features.status.dnd || this.$store.state.device.features.status.lock),

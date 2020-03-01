@@ -13,11 +13,14 @@
       "notFound": "Não encontrado",
       "unknown": "Erro desconhecido"
     },
+    "height": "Altura",
     "languages": "Linguagens",
     "ones": "Unidades",
     "position": "Posição",
+    "size": "Tamanho",
     "tens": "Dezenas",
-    "title": "Editor de Faces"
+    "title": "Editor de Faces",
+    "width": "Largura"
   },
   "background": {
     "title": "Imagem de Fundo"
@@ -48,7 +51,7 @@
   "json": {
     "title": "Edição do JSON"
   },
-  "shortcut": {
+  "shortcuts": {
     "pulse": "Pulso",
     "state": "Estado",
     "title": "Atalhos",
