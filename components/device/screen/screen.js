@@ -3,6 +3,7 @@ import screenDate from './date/date.vue'
 import screenTime from './time/time.vue'
 import screenTimeAMPM from './time/ampm/ampm.vue'
 import screenTimeDelimiter from './time/delimiter/delimiter.vue'
+import shortcut from './shortcut/shortcut.vue'
 import status from './status/status.vue'
 
 export default {
@@ -12,6 +13,7 @@ export default {
     screenTime,
     screenTimeAMPM,
     screenTimeDelimiter,
+    shortcut,
     status
   },
   computed: {

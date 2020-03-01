@@ -16,5 +16,8 @@
     <screenTime :initial="Math.floor(new Date().getMinutes() / 10)" :max="5" name="seconds" sub="tens" />
     <screenTime :initial="new Date().getMinutes() % 10" name="seconds" sub="ones" />
     <screenDate />
+    <shortcut name="pulse" />
+    <shortcut name="state" />
+    <shortcut name="weather" />
   </div>
 </template>

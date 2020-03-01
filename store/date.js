@@ -1,25 +1,39 @@
 export const state = () => ({
   monthAndDay: {
-    day: {
-      align: 'TopLeft',
-      bottom: 55,
-      images: [],
-      left: 23,
-      right: 54,
-      spacing: 0,
-      top: 247
+    oneLine: {
+      number: {
+        align: 'TopLeft',
+        bottom: 0,
+        images: [],
+        left: 71,
+        right: 0,
+        spacing: 0,
+        top: 247
+      },
+      delimiterImage: null
     },
-    month: {
-      align: 'TopLeft',
-      bottom: 0,
-      images: [],
-      left: 71,
-      right: 0,
-      spacing: 0,
-      top: 247
-    },
-    twoDigitsMonth: true,
-    twoDigitsDay: true
+    separate: {
+      day: {
+        align: 'TopLeft',
+        bottom: 55,
+        images: [],
+        left: 23,
+        right: 54,
+        spacing: 0,
+        top: 247
+      },
+      month: {
+        align: 'TopLeft',
+        bottom: 0,
+        images: [],
+        left: 71,
+        right: 0,
+        spacing: 0,
+        top: 247
+      },
+      twoDigitsMonth: true,
+      twoDigitsDay: true
+    }
   },
   weekDay: {
     images: [],

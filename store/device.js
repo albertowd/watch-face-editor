@@ -6,13 +6,24 @@ export const state = () => ({
       monthAndDay: false,
       weekDay: false
     },
+    shortcut: {
+      pulse: false,
+      state: false,
+      weather: false
+    },
     status: {
       alarm: false,
       bluetooth: false,
       dnd: false,
       lock: false
     },
-    time: true
+    time: {
+      ampm: false,
+      delimiter: false,
+      hours: false,
+      minutes: false,
+      seconds: false
+    }
   },
   model: 'Unknown',
   packLimit: 1536,

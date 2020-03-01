@@ -6,6 +6,11 @@
       "monthAndDay": false,
       "weekDay": true
     },
+    "shortcut": {
+      "pulse": false,
+      "state": false,
+      "weather": false
+    },
     "status": {
       "alarm": false,
       "bluetooth": true,

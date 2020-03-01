@@ -48,6 +48,12 @@
   "json": {
     "title": "JSON Editor"
   },
+  "shortcut": {
+    "pulse": "Pulse",
+    "state": "State",
+    "title": "Shortcuts",
+    "weather": "weather"
+  },
   "status": {
     "alarm": "Alarm",
     "bluetooth": "Bluetooth",

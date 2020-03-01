@@ -6,6 +6,11 @@
       "monthAndDay": false,
       "weekDay": true
     },
+    "shortcut": {
+      "pulse": true,
+      "state": true,
+      "weather": true
+    },
     "status": {
       "alarm": true,
       "bluetooth": true,
@@ -20,7 +25,7 @@
       "seconds": true
     }
   },
-  "model": "GTS",
+  "model": "Amazfit GTS",
   "packLimit": 1536,
   "preview": {
     "screen": {
@@ -37,5 +42,5 @@
     "height": 442,
     "width": 348
   },
-  "vendor": "Amazfit"
+  "vendor": "Xioami"
 }

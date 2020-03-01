@@ -66,6 +66,12 @@ export default {
           to: '/json'
         },
         {
+          disabled: !(this.$store.state.device.features.shortcut.pulse || this.$store.state.device.features.shortcut.state || this.$store.state.device.features.shortcut.weather),
+          icon: 'mdi-cursor-pointer',
+          title: this.$t('shortcut.title'),
+          to: '/shortcut'
+        },
+        {
           disabled: !(this.$store.state.device.features.status.alarm || this.$store.state.device.features.status.bluetooth || this.$store.state.device.features.status.dnd || this.$store.state.device.features.status.lock),
           icon: 'mdi-eye',
           title: this.$t('status.title'),
