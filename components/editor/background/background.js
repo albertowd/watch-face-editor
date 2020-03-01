@@ -9,28 +9,24 @@ export default {
     image () {
       return this.$store.state.background.image
     },
-    position () {
-      return {
-        x: this.$store.state.background.x,
-        y: this.$store.state.background.y
-      }
-    },
     tPosition () {
       return this.$t('app.position')
     },
     tTitle () {
       return this.$t('background.title')
+    },
+    x: {
+      get () { return this.$store.state.background.x },
+      set (x) { this.changeBackground({ x }) }
+    },
+    y: {
+      get () { return this.$store.state.background.y },
+      set (y) { this.changeBackground({ y }) }
     }
   },
   methods: {
     changeBackground (obj) {
       this.$store.commit('background/import', obj)
-    },
-    changeX (x) {
-      this.changeBackground({ x })
-    },
-    changeY (y) {
-      this.changeBackground({ y })
     },
     pickImage () {
       if (this.image) {

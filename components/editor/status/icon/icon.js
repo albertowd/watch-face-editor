@@ -6,29 +6,31 @@ export default {
     }
   },
   computed: {
+    dimensions () {
+      return {
+        height: this.$store.state.device.size.height,
+        width: this.$store.state.device.size.width
+      }
+    },
     imageOff () {
       return this.$store.state.status[this.name].imageOff
     },
     imageOn () {
       return this.$store.state.status[this.name].imageOn
     },
-    position () {
-      return {
-        x: this.$store.state.status[this.name].x,
-        y: this.$store.state.status[this.name].y
-      }
-    },
-    size () {
-      return {
-        height: this.$store.state.device.size.height,
-        width: this.$store.state.device.size.width
-      }
-    },
     tPosition () {
       return this.$t('app.position')
     },
     tTitle () {
       return this.$t(`status.${this.name}`)
+    },
+    x: {
+      get () { return this.$store.state.status[this.name].x },
+      set (x) { this.$store.commit(`status/${this.name}`, { x }) }
+    },
+    y: {
+      get () { return this.$store.state.status[this.name].y },
+      set (y) { this.$store.commit(`status/${this.name}`, { y }) }
     }
   },
   methods: {
@@ -65,12 +67,6 @@ export default {
         this.$store.commit(`status/${this.name}`, { imageOn: event.target.result })
       }
       fileReader.readAsDataURL(file)
-    },
-    onXChange (x) {
-      this.$store.commit(`status/${this.name}`, { x })
-    },
-    onYChange (y) {
-      this.$store.commit(`status/${this.name}`, { y })
     }
   }
 }

@@ -12,29 +12,33 @@ export default {
     }
   },
   computed: {
-    onesImages () {
-      return this.$store.state.time[this.name].ones.images
-    },
-    onesPosition () {
-      return {
-        x: this.$store.state.time[this.name].ones.x,
-        y: this.$store.state.time[this.name].ones.y
-      }
-    },
-    tensImages () {
-      return this.$store.state.time[this.name].tens.images
-    },
-    tensPosition () {
-      return {
-        x: this.$store.state.time[this.name].tens.x,
-        y: this.$store.state.time[this.name].tens.y
-      }
-    },
-    size () {
+    dimensions () {
       return {
         height: this.$store.state.device.size.height,
         width: this.$store.state.device.size.width
       }
+    },
+    onesImages () {
+      return this.$store.state.time[this.name].ones.images
+    },
+    onesX: {
+      get () { return this.$store.state.time[this.name].ones.x },
+      set (x) { this.change({ x }, 'Ones') }
+    },
+    onesY: {
+      get () { return this.$store.state.time[this.name].ones.y },
+      set (y) { this.change({ y }, 'Ones') }
+    },
+    tensImages () {
+      return this.$store.state.time[this.name].tens.images
+    },
+    tensX: {
+      get () { return this.$store.state.time[this.name].tens.x },
+      set (x) { this.change({ x }, 'Tens') }
+    },
+    tensY: {
+      get () { return this.$store.state.time[this.name].tens.y },
+      set (y) { this.change({ y }, 'Tens') }
     },
     tOnes () {
       return this.$t('app.ones')
@@ -50,6 +54,9 @@ export default {
     }
   },
   methods: {
+    change (obj, sub = '') {
+      this.$store.commit(`time/${this.name}${sub}`, obj)
+    },
     changeImages (images, name, sub, store = this.$store) {
       store.commit(`time/${name}${sub}`, { images })
     },
@@ -64,7 +71,7 @@ export default {
     },
     onesFilePick () {
       if (this.onesImages.length) {
-        this.changeImages([], this.name, 'Ones')
+        this.change({ images: [] }, 'Ones')
       } else {
         this.$refs.onesInput.click()
       }
@@ -87,14 +94,14 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.changeImages(images, this.name, 'Ones')
+          this.change({ images }, 'Ones')
           this.$emit('newImages', images)
         })
       }
     },
     tensFilePick () {
       if (this.tensImages.length) {
-        this.changeImages([], this.name, 'Tens')
+        this.change({ images: [] }, 'Tens')
       } else {
         this.$refs.tensInput.click()
       }
@@ -117,22 +124,10 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.changeImages(images, this.name, 'Tens')
+          this.change({ images }, 'Tens')
           this.$emit('newImages', images)
         })
       }
-    },
-    onOnesXChange (x) {
-      this.$store.commit(`time/${this.name}Ones`, { x })
-    },
-    onOnesYChange (y) {
-      this.$store.commit(`time/${this.name}Ones`, { y })
-    },
-    onTensXChange (x) {
-      this.$store.commit(`time/${this.name}Tens`, { x })
-    },
-    onTensYChange (y) {
-      this.$store.commit(`time/${this.name}Tens`, { y })
     }
   }
 }

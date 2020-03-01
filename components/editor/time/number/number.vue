@@ -36,46 +36,42 @@
       <v-alert v-if="tensError" type="error">{{ tensError }}</v-alert>
       <h3>{{ tPosition }} - {{ tTens }}</h3>
       <v-slider
+        v-model="tensX"
         label="X:"
         step="1"
         thumb-label
-        :disabled="!tensImages"
+        :disabled="!tensImages.length"
         :min="0"
-        :max="size.width"
-        :value="tensPosition.x"
-        @change="onTensXChange"
+        :max="dimensions.width"
       />
       <v-slider
+        v-model="tensY"
         label="Y:"
         step="1"
         thumb-label
-        :disabled="!tensImages"
+        :disabled="!tensImages.length"
         :min="0"
-        :max="size.height"
-        :value="tensPosition.y"
-        @change="onTensYChange"
+        :max="dimensions.height"
       />
       <v-alert v-if="onesError" type="error">{{ onesError }}</v-alert>
       <h3>{{ tPosition }} - {{ tOnes }}</h3>
       <v-slider
+        v-model="onesX"
         label="X:"
         step="1"
         thumb-label
-        :disabled="!onesImages"
+        :disabled="!onesImages.length"
         :min="0"
-        :max="size.width"
-        :value="onesPosition.x"
-        @change="onOnesXChange"
+        :max="dimensions.width"
       />
       <v-slider
+        v-model="onesY"
         label="Y:"
         step="1"
         thumb-label
-        :disabled="!onesImages"
+        :disabled="!onesImages.length"
         :min="0"
-        :max="size.height"
-        :value="onesPosition.y"
-        @change="onOnesYChange"
+        :max="dimensions.height"
       />
     </v-card-text>
   </v-card>

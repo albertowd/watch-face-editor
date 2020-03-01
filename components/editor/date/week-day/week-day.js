@@ -5,6 +5,12 @@ export default {
     }
   },
   computed: {
+    dimensions () {
+      return {
+        height: this.$store.state.device.size.height,
+        width: this.$store.state.device.size.width
+      }
+    },
     images () {
       return this.$store.state.date.weekDay.images
     },
@@ -14,17 +20,19 @@ export default {
         y: this.$store.state.date.weekDay.y
       }
     },
-    size () {
-      return {
-        height: this.$store.state.device.size.height,
-        width: this.$store.state.device.size.width
-      }
-    },
     tPosition () {
       return this.$t('app.position')
     },
     tTitle () {
       return this.$t('date.weekDay.title')
+    },
+    x: {
+      get () { return this.$store.state.date.weekDay.x },
+      set (x) { this.$store.commit('date/weekDay', { x }) }
+    },
+    y: {
+      get () { return this.$store.state.date.weekDay.y },
+      set (y) { this.$store.commit('date/weekDay', { y }) }
     }
   },
   methods: {
@@ -65,12 +73,6 @@ export default {
           this.$store.commit('date/weekDay', { images })
         })
       }
-    },
-    onXChange (x) {
-      this.$store.commit('date/weekDay', { x })
-    },
-    onYChange (y) {
-      this.$store.commit('date/weekDay', { y })
     }
   }
 }

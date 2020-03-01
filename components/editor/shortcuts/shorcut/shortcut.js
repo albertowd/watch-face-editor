@@ -16,17 +16,9 @@ export default {
       get () { return this.$store.state.shortcuts[this.name].enabled },
       set (enabled) { this.$store.commit(`shortcuts/${this.name}`, { enabled }) }
     },
-    position () {
-      return {
-        x: this.$store.state.shortcuts[this.name].x,
-        y: this.$store.state.shortcuts[this.name].y
-      }
-    },
-    size () {
-      return {
-        height: this.$store.state.shortcuts[this.name].height,
-        width: this.$store.state.shortcuts[this.name].width
-      }
+    height: {
+      get () { return this.$store.state.shortcuts[this.name].height },
+      set (height) { this.$store.commit(`shortcuts/${this.name}`, { height }) }
     },
     tHeight () {
       return this.$t('app.height')
@@ -42,20 +34,18 @@ export default {
     },
     tWidth () {
       return this.$t('app.width')
-    }
-  },
-  methods: {
-    changeHeight (height) {
-      this.$store.commit(`shortcuts/${this.name}`, { height })
     },
-    changeWidth (width) {
-      this.$store.commit(`shortcuts/${this.name}`, { width })
+    width: {
+      get () { return this.$store.state.shortcuts[this.name].width },
+      set (width) { this.$store.commit(`shortcuts/${this.name}`, { width }) }
     },
-    changeX (x) {
-      this.$store.commit(`shortcuts/${this.name}`, { x })
+    x: {
+      get () { return this.$store.state.shortcuts[this.name].x },
+      set (x) { this.$store.commit(`shortcuts/${this.name}`, { x }) }
     },
-    changeY (y) {
-      this.$store.commit(`shortcuts/${this.name}`, { y })
+    y: {
+      get () { return this.$store.state.shortcuts[this.name].y },
+      set (y) { this.$store.commit(`shortcuts/${this.name}`, { y }) }
     }
   }
 }

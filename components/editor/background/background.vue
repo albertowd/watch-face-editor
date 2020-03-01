@@ -21,24 +21,22 @@
     <v-card-text>
       <h3>{{ tPosition }}</h3>
       <v-slider
+        v-model="x"
         label="X:"
         step="1"
         thumb-label
         :disabled="!image"
         :min="0"
         :max="dimensions.width"
-        :value="position.x"
-        @change="changeX"
       />
       <v-slider
+        v-model="y"
         label="Y:"
         step="1"
         thumb-label
         :disabled="!image"
         :min="0"
         :max="dimensions.height"
-        :value="position.y"
-        @change="changeY"
       />
     </v-card-text>
   </v-card>

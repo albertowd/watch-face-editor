@@ -28,22 +28,22 @@ export default {
   methods: {
     onNewImages (images) {
       if (!this.$refs.hoursEditor.onesImages.length) {
-        this.$refs.hoursEditor.changeImages(images, 'hours', 'Ones')
+        this.$refs.hoursEditor.change({ images }, 'Ones')
       }
       if (!this.$refs.hoursEditor.tensImages.length) {
-        this.$refs.hoursEditor.changeImages(images, 'hours', 'Tens')
+        this.$refs.hoursEditor.change({ images }, 'Tens')
       }
       if (!this.$refs.minutesEditor.onesImages.length) {
-        this.$refs.minutesEditor.changeImages(images, 'minutes', 'Ones')
+        this.$refs.minutesEditor.change({ images }, 'Ones')
       }
       if (!this.$refs.minutesEditor.tensImages.length) {
-        this.$refs.minutesEditor.changeImages(images, 'minutes', 'Tens')
+        this.$refs.minutesEditor.change({ images }, 'Tens')
       }
       if (!this.$refs.secondsEditor.onesImages.length) {
-        this.$refs.secondsEditor.changeImages(images, 'seconds', 'Ones')
+        this.$refs.secondsEditor.change({ images }, 'Ones')
       }
       if (!this.$refs.secondsEditor.tensImages.length) {
-        this.$refs.secondsEditor.changeImages(images, 'seconds', 'Tens')
+        this.$refs.secondsEditor.change({ images }, 'Tens')
       }
     }
   }

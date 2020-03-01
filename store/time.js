@@ -54,7 +54,7 @@ export const mutations = {
    * @param {object} state Actual state to update.
    * @param {object} obj New AM/PM options.
    */
-  changeAmPm (state, obj) {
+  ampm (state, obj) {
     for (const prop in obj) {
       state.ampm[prop] = obj[prop]
     }
@@ -65,7 +65,7 @@ export const mutations = {
    * @param {object} state Actual state to update.
    * @param {object} obj New delimiter options.
    */
-  changeDelimiter (state, obj) {
+  delimiter (state, obj) {
     for (const prop in obj) {
       state.delimiter[prop] = obj[prop]
     }
@@ -99,8 +99,8 @@ export const mutations = {
    * @param {object} obj New time options.
    */
   import (state, obj) {
-    this.commit('time/changeAmPm', obj.ampm)
-    this.commit('time/changeDelimiter', obj.delimiter)
+    this.commit('time/ampm', obj.ampm)
+    this.commit('time/delimiter', obj.delimiter)
     this.commit('time/hoursOnes', obj.hours.ones)
     this.commit('time/hoursTens', obj.hours.tens)
     this.commit('time/minutesOnes', obj.minutes.ones)

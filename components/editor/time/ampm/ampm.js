@@ -5,32 +5,37 @@ export default {
     }
   },
   computed: {
+    dimensions () {
+      return {
+        height: this.$store.state.device.size.height,
+        width: this.$store.state.device.size.width
+      }
+    },
     amImages () {
       return this.$store.state.time.ampm.imagesAM
     },
     pmImages () {
       return this.$store.state.time.ampm.imagesPM
     },
-    position () {
-      return {
-        x: this.$store.state.time.ampm.x,
-        y: this.$store.state.time.ampm.y
-      }
-    },
-    size () {
-      return {
-        height: this.$store.state.device.size.height,
-        width: this.$store.state.device.size.width
-      }
-    },
     tPosition () {
       return this.$t('app.position')
     },
     tTitle () {
       return this.$t('time.ampm')
+    },
+    x: {
+      get () { return this.$store.state.time.ampm.x },
+      set (x) { this.changeAmPm({ x }) }
+    },
+    y: {
+      get () { return this.$store.state.time.ampm.y },
+      set (y) { this.changeAmPm({ y }) }
     }
   },
   methods: {
+    changeAmPm (obj) {
+      this.$store.commit('time/ampm', obj)
+    },
     imagePromise (file) {
       return new Promise((resolve) => {
         const fileReader = new FileReader()
@@ -42,7 +47,7 @@ export default {
     },
     amFilePick () {
       if (this.amImages.length) {
-        this.$store.commit('time/changeAmPm', { imagesAM: [] })
+        this.changeAmPm({ imagesAM: [] })
       } else {
         this.$refs.amInput.click()
       }
@@ -60,7 +65,7 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.$store.commit('time/changeAmPm', { imagesAM: images })
+          this.changeAmPm({ imagesAM: images })
         })
       } else {
         this.error = this.$t('time.errors.ampm')
@@ -68,7 +73,7 @@ export default {
     },
     pmFilePick () {
       if (this.pmImages.length) {
-        this.$store.commit('time/changeAmPm', { imagesPM: [] })
+        this.changeAmPm({ imagesPM: [] })
       } else {
         this.$refs.pmInput.click()
       }
@@ -86,17 +91,11 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.$store.commit('time/changeAmPm', { imagesPM: images })
+          this.changeAmPm({ imagesPM: images })
         })
       } else {
         this.error = this.$t('time.errors.ampm')
       }
-    },
-    onXChange (x) {
-      this.$store.commit('time/changeAmPm', { x })
-    },
-    onYChange (y) {
-      this.$store.commit('time/changeAmPm', { y })
     }
   }
 }
