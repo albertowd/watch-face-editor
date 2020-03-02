@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  watch-face-editor:
+    build: .
+    container_name: watch-face-editor
+    ports:
+      - 5000:5000

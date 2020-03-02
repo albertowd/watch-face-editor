@@ -169,7 +169,7 @@ export default {
       </v-layout>
     </v-content>
     <v-footer app :fixed="true">
-      <v-spacer />{{ by }} Alberto Wollmann Dietrich
+      <a href="https://github.com/albertowd/watch-face-editor" target="_blank">https://github.com/albertowd/watch-face-editor</a><v-spacer />{{ by }} Alberto Wollmann Dietrich
     </v-footer>
   </v-app>
 </template>
