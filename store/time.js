@@ -13,7 +13,7 @@ export const state = () => ({
   hours: {
     ones: {
       images: [],
-      x: 94,
+      x: 84,
       y: 50
     },
     tens: {

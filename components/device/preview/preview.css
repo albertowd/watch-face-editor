@@ -15,6 +15,7 @@
 }
 
 .device-preview-draw-wrapper {
+  border-radius: 16%;
   position: absolute;
   overflow: hidden;
 }

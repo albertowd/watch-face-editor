@@ -1,3 +1,4 @@
+import { EventBus } from '../../event-bus'
 import screen from '~/components/device/screen/screen.vue'
 
 export default {
@@ -45,5 +46,18 @@ export default {
         width: `${preview.size.width * preview.zoom}px`
       }
     }
+  },
+  beforeDestroy () {
+    EventBus.$off('makePreview', this.makePreview)
+  },
+  methods: {
+    makePreview (callback) {
+      this.$html2canvas(this.$refs.devicePreviewDrawScreen).then(function (canvas) {
+        callback(canvas.toDataURL('image/png'))
+      })
+    }
+  },
+  mounted () {
+    EventBus.$on('makePreview', this.makePreview)
   }
 }

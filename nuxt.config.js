@@ -31,6 +31,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/i18n',
+    { src: '~/plugins/html2canvas', mode: 'client' },
     { src: '~/plugins/jszip', mode: 'client' },
     { src: '~/plugins/pack', mode: 'client' },
     { src: '~/plugins/converters/converters', mode: 'client' }

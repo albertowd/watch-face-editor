@@ -1,4 +1,20 @@
 /**
+ * Updates a device shortcut object with the available options on a GTS object.
+ * @param {object} gts A GTS object representing it's JSON.
+ * @param {string} name Name of the shortcut option (Pulse, State or Weather).
+ * @param {obj} shortcut Device shortcut to be updated.
+ */
+function _gtsToShortcuts (gts, name, shortcut) {
+  if (gts.ShortCuts && gts.ShortCuts[name] && gts.ShortCuts[name].Element) {
+    shortcut.enabled = true
+    shortcut.height = gts.ShortCuts[name].Element.Height
+    shortcut.width = gts.ShortCuts[name].Element.Width
+    shortcut.x = gts.ShortCuts[name].Element.TopLeftX
+    shortcut.y = gts.ShortCuts[name].Element.TopLeftY
+  }
+}
+
+/**
  * Updates a device status object with the available options on a GTS object.
  * @param {object} gts A GTS object representing it's JSON.
  * @param {string} name Name of the status option (Alarm, Bluetooth, DoNotDisturb, Lock).
@@ -30,6 +46,29 @@ function _gtsToTime (gts, name, sub, time) {
     time.y = gts.Time[name][sub].Y
     if (gts.Time[name][sub].ImagesCount) {
       time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
+    }
+  }
+}
+
+/**
+ * Updates a GTS object with the available options on a device shortcut object.
+ * @param {object} gts A GTS object representing it's JSON to be updated.
+ * @param {string} name Name of the shortcut option (Pulse, State or Weather).
+ * @param {obj} shortcut Device shortcut to be copied.
+ */
+function _shortcutToGTS (gts, name, shortcut) {
+  if (shortcut.enabled) {
+    if (!gts.ShortCuts) {
+      gts.ShortCuts = {}
+    }
+
+    gts.ShortCuts[name] = {
+      Element: {
+        Height: shortcut.height,
+        Width: shortcut.width,
+        TopLeftX: shortcut.x,
+        TopLeftY: shortcut.y
+      }
     }
   }
 }
@@ -76,9 +115,11 @@ function _timeToGTS (gts, name, sub, time) {
       gts.Time = {}
     }
 
+    const imgIndex = gts.images.indexOf(time.images[0])
+
     const obj = {
       ImagesCount: time.images.length,
-      ImageIndex: gts.images.length,
+      ImageIndex: imgIndex !== -1 ? imgIndex : gts.images.length,
       X: time.x,
       Y: time.y
     }
@@ -86,7 +127,10 @@ function _timeToGTS (gts, name, sub, time) {
       gts.Time[name] = {}
     }
     gts.Time[name][sub] = obj
-    gts.images = gts.images.concat(time.images)
+
+    if (imgIndex === -1) {
+      gts.images = gts.images.concat(time.images)
+    }
   }
 }
 
@@ -101,20 +145,34 @@ function fromDevice (device, features) {
     images: []
   }
 
-  if (features.background && device.background.image) {
-    gts.Background = {
-      Image: {
-        ImageIndex: gts.images.length,
-        X: device.background.x,
-        Y: device.background.y
-      },
-      Preview: {
-        ImageIndex: gts.images.length,
-        X: device.background.x,
-        Y: device.background.y
+  if (features.background) {
+    if (device.background.image) {
+      gts.Background = {
+        Image: {
+          ImageIndex: gts.images.length,
+          X: device.background.x,
+          Y: device.background.y
+        },
+        Preview: {
+          ImageIndex: gts.images.length,
+          X: device.background.x,
+          Y: device.background.y
+        }
       }
+      gts.images.push(device.background.image)
     }
-    gts.images.push(device.background.image)
+    if (device.preview) {
+      if (!gts.Background) {
+        gts.Background = {}
+      }
+
+      gts.Background.Preview = {
+        ImageIndex: gts.images.length,
+        X: 0,
+        Y: 0
+      }
+      gts.images.push(device.preview)
+    }
   }
 
   if (features.date.weekDay) {
@@ -129,6 +187,16 @@ function fromDevice (device, features) {
       }
       gts.images = gts.images.concat(device.date.weekDay.images)
     }
+  }
+
+  if (features.shortcuts.pulse) {
+    _shortcutToGTS(gts, 'Pulse', device.shortcuts.pulse)
+  }
+  if (features.shortcuts.state) {
+    _shortcutToGTS(gts, 'State', device.shortcuts.state)
+  }
+  if (features.shortcuts.weather) {
+    _shortcutToGTS(gts, 'Weather', device.shortcuts.weather)
   }
 
   if (features.status.alarm) {
@@ -222,6 +290,16 @@ function toDevice (device, features, gts) {
       device.date.weekDay.x = gts.Date.WeekDay.X
       device.date.weekDay.y = gts.Date.WeekDay.Y
     }
+  }
+
+  if (features.shortcuts.pulse) {
+    _gtsToShortcuts(gts, 'Pulse', device.shortcuts.pulse)
+  }
+  if (features.shortcuts.state) {
+    _gtsToShortcuts(gts, 'State', device.shortcuts.state)
+  }
+  if (features.shortcuts.weather) {
+    _gtsToShortcuts(gts, 'Weather', device.shortcuts.weather)
   }
 
   if (features.status.alarm) {

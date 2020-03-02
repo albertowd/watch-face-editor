@@ -5,7 +5,7 @@ import JSZip from 'jszip'
  * @param {VueX.Store} state A VueX store to get the options from.
  * @returns {object} A new option with store values instead of observables.
  */
-function packDevice (state) {
+function packDevice (state, preview) {
   return vuexToObj({
     activity: state.activity,
     animation: state.animation,
@@ -15,6 +15,7 @@ function packDevice (state) {
     date: state.date,
     shortcuts: state.shortcuts,
     status: state.status,
+    preview,
     time: state.time,
     weather: state.weather
   })

@@ -3,7 +3,10 @@
   "features": {
     "background": true,
     "date": {
-      "monthAndDay": false,
+      "monthAndDay": {
+        "oneLine": true,
+        "separate": true
+      },
       "weekDay": true
     },
     "shortcuts": {

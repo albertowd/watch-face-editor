@@ -57,7 +57,7 @@ export default {
       this.$refs.amInput.value = null
       this.error = ''
 
-      if (files && (files.length === 1 || files.length === 2)) {
+      if (files && [1, 2].includes(files.length)) {
         const promises = []
 
         for (const file of files) {
@@ -65,6 +65,9 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
+          if (images.length === 1) {
+            images = images.concat(images)
+          }
           this.changeAmPm({ imagesAM: images })
         })
       } else {
@@ -83,7 +86,7 @@ export default {
       this.$refs.pmInput.value = null
       this.error = ''
 
-      if (files && (files.length === 1 || files.length === 2)) {
+      if (files && [1, 2].includes(files.length)) {
         const promises = []
 
         for (const file of files) {
@@ -91,6 +94,9 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
+          if (images.length === 1) {
+            images = images.concat(images)
+          }
           this.changeAmPm({ imagesPM: images })
         })
       } else {

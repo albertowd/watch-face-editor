@@ -5,7 +5,7 @@
     <v-img class="device-preview-watch" :src="'/devices/' + alias + '.watch.png'" :style="size" />
     <div class="device-preview-draw-wrapper" :style="position">
       <div class="device-preview-draw" :style="relativePosition">
-        <div class="device-preview-draw-screen">
+        <div ref="devicePreviewDrawScreen" class="device-preview-draw-screen">
           <screen />
         </div>
         <v-img v-if="showExample" class="device-preview-example" :src="`/devices/${alias}.example.png`" />

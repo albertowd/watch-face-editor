@@ -1,3 +1,5 @@
+import { EventBus } from '../../event-bus.js'
+
 export default {
   data () {
     return {
@@ -37,16 +39,18 @@ export default {
   methods: {
     exportZip () {
       const converter = this.$converters[this.$store.state.device.alias]
-      const device = this.$packDevice(this.$store.state)
-      const pack = converter.fromDevice(device, this.$store.state.device.features)
-      this.$zipUnpacked(pack, undefined, (content, name) => {
-        const link = document.createElement('a')
-        link.href = window.URL.createObjectURL(content)
-        link.download = name
+      EventBus.$emit('makePreview', (preview) => {
+        const device = this.$packDevice(this.$store.state, preview)
+        const pack = converter.fromDevice(device, this.$store.state.device.features)
+        this.$zipUnpacked(pack, undefined, (content, name) => {
+          const link = document.createElement('a')
+          link.href = window.URL.createObjectURL(content)
+          link.download = name
 
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        })
       })
     },
     pickFiles () {

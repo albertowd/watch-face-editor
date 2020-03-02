@@ -3,7 +3,10 @@
   "features": {
     "background": true,
     "date": {
-      "monthAndDay": false,
+      "monthAndDay": {
+        "oneLine": false,
+        "separate": false
+      },
       "weekDay": true
     },
     "shortcuts": {
@@ -13,19 +16,19 @@
     },
     "status": {
       "alarm": false,
-      "bluetooth": true,
-      "dnd": true,
-      "lock": true
+      "bluetooth": false,
+      "dnd": false,
+      "lock": false
     },
     "time": {
-      "ampm": true,
-      "delimiter": true,
-      "hours": true,
-      "minutes": true,
-      "seconds": true
+      "ampm": false,
+      "delimiter": false,
+      "hours": false,
+      "minutes": false,
+      "seconds": false
     }
   },
-  "model": "Mi Smarth Band 4",
+  "model": "Mi Band 4",
   "packLimit": 320,
   "preview": {
     "screen": {

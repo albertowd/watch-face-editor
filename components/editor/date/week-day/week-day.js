@@ -58,20 +58,25 @@ export default {
       this.error = ''
 
       if (files.length) {
-        if (files.length !== 7 && files.length !== 14 && files.length !== 21) {
+        if ([7, 14, 21].includes(files.length)) {
+          const promises = []
+
+          for (const file of files) {
+            promises.push(this.imagePromise(file))
+          }
+
+          Promise.all(promises).then((images) => {
+            if (images.length === 7) {
+              images = images.concat(images)
+            }
+            if (images.length === 14) {
+              images = images.concat(images.slice(7))
+            }
+            this.$store.commit('date/weekDay', { images })
+          })
+        } else {
           this.error = this.$t('date.weekDay.error')
-          return
         }
-
-        const promises = []
-
-        for (const file of files) {
-          promises.push(this.imagePromise(file))
-        }
-
-        Promise.all(promises).then((images) => {
-          this.$store.commit('date/weekDay', { images })
-        })
       }
     }
   }
