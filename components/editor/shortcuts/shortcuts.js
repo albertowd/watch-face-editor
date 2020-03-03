@@ -5,6 +5,9 @@ export default {
     shortcutEditor
   },
   computed: {
+    hasEnergy () {
+      return this.$store.state.device.features.shortcuts.energy
+    },
     hasPulse () {
       return this.$store.state.device.features.shortcuts.pulse
     },

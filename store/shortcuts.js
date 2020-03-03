@@ -1,34 +1,53 @@
 export const state = () => ({
+  energy: {
+    enabled: false,
+    height: 77,
+    width: 77,
+    x: 20,
+    y: 367
+  },
   pulse: {
     enabled: false,
-    height: 50,
-    width: 50,
-    x: 33,
-    y: 392
+    height: 77,
+    width: 77,
+    x: 97,
+    y: 367
   },
   state: {
     enabled: false,
-    height: 50,
-    width: 50,
-    x: 149,
-    y: 392
+    height: 77,
+    width: 77,
+    x: 174,
+    y: 367
   },
   weather: {
     enabled: false,
-    height: 50,
-    width: 50,
-    x: 265,
-    y: 392
+    height: 77,
+    width: 77,
+    x: 251,
+    y: 367
   }
 })
 
 export const mutations = {
+  /**
+   * Updates new energy options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New energy tens options.
+   */
+  energy (state, obj) {
+    for (const prop in obj) {
+      state.energy[prop] = obj[prop]
+    }
+    this.commit('json/changed', true)
+  },
   /**
    * Imports shortcut options over the existing ones.
    * @param {object} state Actual state to update.
    * @param {object} obj New shortcut options.
    */
   import (state, obj) {
+    this.commit('shortcuts/energy', obj.energy)
     this.commit('shortcuts/pulse', obj.pulse)
     this.commit('shortcuts/state', obj.state)
     this.commit('shortcuts/weather', obj.weather)

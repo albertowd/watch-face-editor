@@ -3,6 +3,8 @@
 <template>
   <v-layout class="editor-shortcuts" column>
     <br />
+    <shortcutEditor v-if="hasEnergy" name="energy" />
+    <br />
     <shortcutEditor v-if="hasPulse" name="pulse" />
     <br />
     <shortcutEditor v-if="hasState" name="state" />

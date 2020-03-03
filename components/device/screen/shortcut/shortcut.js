@@ -7,7 +7,17 @@ export default {
   },
   computed: {
     color () {
-      return this.name === 'pulse' ? '#ff5252' : (this.name === 'state' ? '#4caf50' : '#2196f3')
+      switch (this.name) {
+        case 'energy':
+          return '#fb8c00'
+        case 'state':
+          return '#4caf50'
+        case 'weather':
+          return '#2196f3'
+        case 'pulse':
+        default:
+          return '#ff5252'
+      }
     },
     enabled () {
       return this.$store.state.shortcuts[this.name].enabled

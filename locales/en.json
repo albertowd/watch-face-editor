@@ -52,6 +52,7 @@
     "title": "JSON Editor"
   },
   "shortcuts": {
+    "energy": "Energy Saver",
     "pulse": "Pulse",
     "state": "State",
     "title": "Shortcuts",

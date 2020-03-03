@@ -7,6 +7,7 @@ export const state = () => ({
       weekDay: false
     },
     shortcut: {
+      energy: false,
       pulse: false,
       state: false,
       weather: false

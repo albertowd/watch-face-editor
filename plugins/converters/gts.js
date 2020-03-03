@@ -189,6 +189,9 @@ function fromDevice (device, features) {
     }
   }
 
+  if (features.shortcuts.energy) {
+    _shortcutToGTS(gts, 'Unknown4', device.shortcuts.energy)
+  }
   if (features.shortcuts.pulse) {
     _shortcutToGTS(gts, 'Pulse', device.shortcuts.pulse)
   }
@@ -292,6 +295,9 @@ function toDevice (device, features, gts) {
     }
   }
 
+  if (features.shortcuts.energy) {
+    _gtsToShortcuts(gts, 'Unknown4', device.shortcuts.energy)
+  }
   if (features.shortcuts.pulse) {
     _gtsToShortcuts(gts, 'Pulse', device.shortcuts.pulse)
   }
