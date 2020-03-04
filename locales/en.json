@@ -37,7 +37,7 @@
     },
     "title": "Date",
     "weekDay": {
-      "error": "Week day should have only 7, 14 or 21 images (chinese-1, chinese-2 and international).",
+      "error": "Week day should have only 7, 14 or 21 images (chinese-1, chinese-2 and global).",
       "title": "Week Day"
     }
   },
@@ -68,7 +68,7 @@
   "time": {
     "ampm": "AM/PM",
     "errors" : {
-      "ampm": "AM/PM should have 1 or 2 images (chinese and international)",
+      "ampm": "AM/PM should have 1 or 2 images (chinese and global).",
       "number": "Time numbers should have exactly 10 images (0-9)."
     },
     "hours": "Hours",

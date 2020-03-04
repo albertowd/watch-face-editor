@@ -1,7 +1,7 @@
-version: '3.7'
+version: '3'
 services:
   watch-face-editor:
     build: .
     container_name: watch-face-editor
     ports:
-      - 5000:5000
+      - 8080:3000

@@ -169,7 +169,8 @@ export default {
       </v-layout>
     </v-content>
     <v-footer app :fixed="true">
-      <a href="https://github.com/albertowd/watch-face-editor" target="_blank">https://github.com/albertowd/watch-face-editor</a><v-spacer />{{ by }} Alberto Wollmann Dietrich
+      <v-btn class="purple" href="https://github.com/albertowd/watch-face-editor" target="_blank"><v-icon>mdi-github-circle</v-icon></v-btn>
+      <v-spacer />{{ by }} Alberto Wollmann Dietrich
     </v-footer>
   </v-app>
 </template>

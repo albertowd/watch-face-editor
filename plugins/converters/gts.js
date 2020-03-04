@@ -152,26 +152,9 @@ function fromDevice (device, features) {
           ImageIndex: gts.images.length,
           X: device.background.x,
           Y: device.background.y
-        },
-        Preview: {
-          ImageIndex: gts.images.length,
-          X: device.background.x,
-          Y: device.background.y
         }
       }
       gts.images.push(device.background.image)
-    }
-    if (device.preview) {
-      if (!gts.Background) {
-        gts.Background = {}
-      }
-
-      gts.Background.Preview = {
-        ImageIndex: gts.images.length,
-        X: 0,
-        Y: 0
-      }
-      gts.images.push(device.preview)
     }
   }
 
@@ -189,9 +172,6 @@ function fromDevice (device, features) {
     }
   }
 
-  if (features.shortcuts.energy) {
-    _shortcutToGTS(gts, 'Unknown4', device.shortcuts.energy)
-  }
   if (features.shortcuts.pulse) {
     _shortcutToGTS(gts, 'Pulse', device.shortcuts.pulse)
   }
@@ -295,9 +275,6 @@ function toDevice (device, features, gts) {
     }
   }
 
-  if (features.shortcuts.energy) {
-    _gtsToShortcuts(gts, 'Unknown4', device.shortcuts.energy)
-  }
   if (features.shortcuts.pulse) {
     _gtsToShortcuts(gts, 'Pulse', device.shortcuts.pulse)
   }

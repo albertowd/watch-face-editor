@@ -37,7 +37,7 @@
     },
     "title": "Data",
     "weekDay": {
-      "error": "Os dias da semana devem ter 7, 14 ou 21 imagens (chinês-1, chinês-2 e internacional).",
+      "error": "Os dias da semana devem ter 7, 14 ou 21 imagens (chinês-1, chinês-2 e global).",
       "title": "Dia da Semana"
     }
   },
@@ -68,7 +68,7 @@
   "time": {
     "ampm": "Manhã/Tarde",
     "errors" : {
-      "ampm": "Manhã/Tarde deve ter entre 1 e 2 imagens (chinês e internacional)",
+      "ampm": "Manhã/Tarde deve ter entre 1 ou 2 imagens (chinês e global)",
       "numbers": "Números de hora precisam de exatamente 10 imagens (0-9)."
     },
     "hours": "Horas",

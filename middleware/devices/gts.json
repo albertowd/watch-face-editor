@@ -10,7 +10,6 @@
       "weekDay": true
     },
     "shortcuts": {
-      "energy": true,
       "pulse": true,
       "state": true,
       "weather": true
@@ -29,7 +28,7 @@
       "seconds": true
     }
   },
-  "model": "Amazfit GTS",
+  "model": "GTS",
   "packLimit": 1536,
   "preview": {
     "screen": {
@@ -46,5 +45,5 @@
     "height": 442,
     "width": 348
   },
-  "vendor": "Xioami"
+  "vendor": "Amazfit"
 }
