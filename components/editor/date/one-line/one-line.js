@@ -5,13 +5,21 @@ export default {
     }
   },
   computed: {
+    alignment: {
+      get () { return this.$store.state.date.monthAndDay.oneLine.number.alignment },
+      set (alignment) {
+        this.$store.commit('date/monthAndDayOneLine', { number: { alignment } })
+      }
+    },
     bottom: {
-      get () { return this.$store.state.date.monthAndDay.oneLine.number.bottom },
-      set (bottom) { this.$store.commit('date/monthAndDayOneLine', { number: { bottom } }) }
+      get () { return this.dimensions.height - this.$store.state.date.monthAndDay.oneLine.number.bottom },
+      set (bottom) { this.$store.commit('date/monthAndDayOneLine', { number: { bottom: this.dimensions.height - bottom } }) }
     },
     delimiterImage: {
       get () { return this.$store.state.date.monthAndDay.oneLine.delimiterImage },
-      set (delimiterImage) { this.$store.commit('date/monthAndDayOneLine', { delimiterImage }) }
+      set (delimiterImage) {
+        this.$store.commit('date/monthAndDayOneLine', { delimiterImage })
+      }
     },
     dimensions () {
       return {
@@ -28,8 +36,8 @@ export default {
       set (left) { this.$store.commit('date/monthAndDayOneLine', { number: { left } }) }
     },
     right: {
-      get () { return this.$store.state.date.monthAndDay.oneLine.number.right },
-      set (right) { this.$store.commit('date/monthAndDayOneLine', { number: { right } }) }
+      get () { return this.dimensions.width - this.$store.state.date.monthAndDay.oneLine.number.right },
+      set (right) { this.$store.commit('date/monthAndDayOneLine', { number: { right: this.dimensions.width - right } }) }
     },
     spacing: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.spacing },

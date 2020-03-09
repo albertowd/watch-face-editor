@@ -2,34 +2,34 @@ export const state = () => ({
   monthAndDay: {
     oneLine: {
       number: {
-        align: 'TopLeft',
+        alignment: 'Center Center',
         bottom: 0,
         images: [],
-        left: 71,
+        left: 0,
         right: 0,
         spacing: 0,
-        top: 247
+        top: 0
       },
       delimiterImage: null
     },
     separate: {
       day: {
-        align: 'TopLeft',
-        bottom: 55,
-        images: [],
-        left: 23,
-        right: 54,
-        spacing: 0,
-        top: 247
-      },
-      month: {
-        align: 'TopLeft',
+        align: 'Center Right',
         bottom: 0,
         images: [],
-        left: 71,
+        left: 0,
         right: 0,
         spacing: 0,
-        top: 247
+        top: 0
+      },
+      month: {
+        align: 'Center Left',
+        bottom: 0,
+        images: [],
+        left: 0,
+        right: 0,
+        spacing: 0,
+        top: 0
       },
       twoDigitsMonth: true,
       twoDigitsDay: true

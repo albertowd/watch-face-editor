@@ -1,5 +1,6 @@
 import background from './background/background.vue'
-import screenDate from './date/date.vue'
+import screenDateOneLine from './date/one-line/one-line.vue'
+import screenDateWeekDay from './date/week-day/week-day.vue'
 import screenTime from './time/time.vue'
 import screenTimeAMPM from './time/ampm/ampm.vue'
 import screenTimeDelimiter from './time/delimiter/delimiter.vue'
@@ -9,7 +10,8 @@ import status from './status/status.vue'
 export default {
   components: {
     background,
-    screenDate,
+    screenDateOneLine,
+    screenDateWeekDay,
     screenTime,
     screenTimeAMPM,
     screenTimeDelimiter,

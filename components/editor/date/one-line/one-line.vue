@@ -32,7 +32,8 @@
     <v-card-text>
       <v-alert v-if="error" type="error">{{ error }}</v-alert>
       <v-select
-        :items="['Bottom Center', 'Bottom Left', 'Bottom Right', 'Center', 'Center Left', 'Center Right', 'Top Center', 'Top Left', 'Top Right']"
+        v-model="alignment"
+        :items="['Bottom Center', 'Bottom Left', 'Bottom Right', 'Center Center', 'Center Left', 'Center Right', 'Top Center', 'Top Left', 'Top Right']"
         :disabled="!numberImages.length"
         :label="tAlignment"
       ></v-select>
@@ -72,7 +73,7 @@
         :disabled="!numberImages.length"
         :label="`${tHeight}:`"
         :min="0"
-        :max="dimensions.width"
+        :max="dimensions.height"
       />
       <v-slider
         v-model="right"
@@ -81,7 +82,7 @@
         :disabled="!numberImages.length"
         :label="`${tWidth}:`"
         :min="0"
-        :max="dimensions.height"
+        :max="dimensions.width"
       />
     </v-card-text>
   </v-card>
