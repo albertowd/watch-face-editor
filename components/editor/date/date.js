@@ -1,12 +1,17 @@
+import oneLine from './one-line/one-line.vue'
 import weekDayEditor from './week-day/week-day.vue'
 
 export default {
   components: {
+    oneLine,
     weekDayEditor
   },
   computed: {
-    hasMonthAndDay () {
-      return this.$store.state.device.features.date.monthAndDay
+    hasOneLine () {
+      return this.$store.state.device.features.date.monthAndDay.oneLine
+    },
+    hasSeparate () {
+      return this.$store.state.device.features.date.monthAndDay.separate
     },
     hasWeekDay () {
       return this.$store.state.device.features.date.weekDay

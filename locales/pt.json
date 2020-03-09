@@ -6,6 +6,7 @@
     "title": "Animação"
   },
   "app": {
+    "alignment": "Alinhamento",
     "by": "por",
     "delimiter": "Delimitador",
     "devices": "Dispositivos",
@@ -15,9 +16,11 @@
     },
     "height": "Altura",
     "languages": "Linguagens",
+    "numbers": "Números",
     "ones": "Unidades",
     "position": "Posição",
     "size": "Tamanho",
+    "spacing": "Espaçamento",
     "tens": "Dezenas",
     "title": "Editor de Faces",
     "width": "Largura"
@@ -33,7 +36,10 @@
   },
   "date": {
     "monthAndDay": {
-      "title": "Mês e Dia"
+      "oneLine": {
+        "error": "Mês e dia em linha deve ter 10 imagens (0-9).",
+        "title": "Em Linha"
+      }
     },
     "title": "Data",
     "weekDay": {

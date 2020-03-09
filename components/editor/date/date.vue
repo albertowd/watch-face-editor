@@ -3,7 +3,9 @@
 <template>
   <v-layout class="editor-date" column>
     <br />
-    <weekDayEditor v-if="hasWeekDay" name="weekDay" />
+    <oneLine v-if="hasOneLine" />
+    <br />
+    <weekDayEditor v-if="hasWeekDay" />
     <br />
   </v-layout>
 </template>

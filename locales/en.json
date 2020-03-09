@@ -6,6 +6,7 @@
     "title": "Animation"
   },
   "app" : {
+    "alignment": "Alignment",
     "by": "by",
     "delimiter": "Delimiter",
     "devices": "Devices",
@@ -15,9 +16,11 @@
     },
     "height": "Height",
     "languages": "Languages",
+    "numbers": "Numbers",
     "ones": "Ones",
     "position": "Position",
     "size": "Size",
+    "spacing": "Spacing",
     "tens": "Tens",
     "title": "Watch Face Editor",
     "width": "Width"
@@ -33,7 +36,10 @@
   },
   "date": {
     "monthAndDay": {
-      "title": "Month and Day"
+      "oneLine": {
+        "error": "One line month and day shot have 10 images (0-9).",
+        "title": "One Line"
+      }
     },
     "title": "Date",
     "weekDay": {

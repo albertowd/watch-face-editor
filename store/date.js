@@ -50,15 +50,32 @@ export const mutations = {
    */
   import (state, obj) {
     this.commit('date/weekDay', obj.weekDay)
-    // this.commit('date/monthAndDay', obj.monthAndDay)
+    this.commit('date/monthAndDayOneLine', obj.monthAndDay.oneLine)
   },
   /**
    * Updates new month and day options over the existing ones.
    * @param {object} state Actual state to update.
    * @param {object} weekDay New month and day options.
    */
-  monthAndDay (state, monthAndDay) {
-    // TODO: implement the monthAnDay updater!
+  monthAndDayOneLine (state, obj) {
+    for (const prop in obj) {
+      if (prop === 'number') {
+        this.commit('date/monthAndDayOneLineNumber', obj[prop])
+      } else {
+        state.monthAndDay.oneLine[prop] = obj[prop]
+      }
+    }
+    this.commit('json/changed', true)
+  },
+  /**
+   * Updates new month and day options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} weekDay New month and day options.
+   */
+  monthAndDayOneLineNumber (state, obj) {
+    for (const prop in obj) {
+      state.monthAndDay.oneLine.number[prop] = obj[prop]
+    }
     this.commit('json/changed', true)
   },
   /**

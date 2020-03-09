@@ -3,7 +3,10 @@ export const state = () => ({
   features: {
     background: false,
     date: {
-      monthAndDay: false,
+      monthAndDay: {
+        oneLine: true,
+        separate: true
+      },
       weekDay: false
     },
     shortcut: {
