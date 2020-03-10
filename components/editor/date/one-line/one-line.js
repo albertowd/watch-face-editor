@@ -7,19 +7,15 @@ export default {
   computed: {
     alignment: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.alignment },
-      set (alignment) {
-        this.$store.commit('date/monthAndDayOneLine', { number: { alignment } })
-      }
+      set (alignment) { this.changeOneLine({ number: { alignment } }) }
     },
     bottom: {
       get () { return this.dimensions.height - this.$store.state.date.monthAndDay.oneLine.number.bottom },
-      set (bottom) { this.$store.commit('date/monthAndDayOneLine', { number: { bottom: this.dimensions.height - bottom } }) }
+      set (bottom) { this.changeOneLine({ number: { bottom: this.dimensions.height - bottom } }) }
     },
     delimiterImage: {
       get () { return this.$store.state.date.monthAndDay.oneLine.delimiterImage },
-      set (delimiterImage) {
-        this.$store.commit('date/monthAndDayOneLine', { delimiterImage })
-      }
+      set (delimiterImage) { this.changeOneLine({ delimiterImage }) }
     },
     dimensions () {
       return {
@@ -29,50 +25,53 @@ export default {
     },
     numberImages: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.images },
-      set (images) { this.$store.commit('date/monthAndDayOneLine', { number: { images } }) }
+      set (images) { this.changeOneLine({ number: { images } }) }
     },
     left: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.left },
-      set (left) { this.$store.commit('date/monthAndDayOneLine', { number: { left } }) }
+      set (left) { this.changeOneLine({ number: { left } }) }
     },
     right: {
       get () { return this.dimensions.width - this.$store.state.date.monthAndDay.oneLine.number.right },
-      set (right) { this.$store.commit('date/monthAndDayOneLine', { number: { right: this.dimensions.width - right } }) }
+      set (right) { this.changeOneLine({ number: { right: this.dimensions.width - right } }) }
     },
     spacing: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.spacing },
-      set (spacing) { this.$store.commit('date/monthAndDayOneLine', { number: { spacing } }) }
+      set (spacing) { this.changeOneLine({ number: { spacing } }) }
     },
     top: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.top },
-      set (top) { this.$store.commit('date/monthAndDayOneLine', { number: { top } }) }
+      set (top) { this.changeOneLine({ number: { top } }) }
     },
     tAlignment () {
       return this.$t('app.alignment')
     },
-    tHeight () {
-      return this.$t('app.height')
+    tBottom () {
+      return this.$t('app.bottom')
     },
-    tNumbers () {
-      return this.$t('app.numbers')
+    tDimension () {
+      return this.$t('app.dimensions')
     },
-    tPosition () {
-      return this.$t('app.position')
+    tLeft () {
+      return this.$t('app.left')
+    },
+    tRight () {
+      return this.$t('app.right')
     },
     tSpacing () {
       return this.$t('app.spacing')
     },
-    tSize () {
-      return this.$t('app.size')
-    },
     tTitle () {
       return this.$t('date.monthAndDay.oneLine.title')
     },
-    tWidth () {
-      return this.$t('app.width')
+    tTop () {
+      return this.$t('app.top')
     }
   },
   methods: {
+    changeOneLine (obj) {
+      this.$store.commit('date/monthAndDayOneLine', obj)
+    },
     imagePromise (file) {
       return new Promise((resolve) => {
         const fileReader = new FileReader()

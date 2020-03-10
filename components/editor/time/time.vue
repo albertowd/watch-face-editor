@@ -3,11 +3,11 @@
 <template>
   <v-layout class="editor-time" column>
     <br />
-    <ampm :v-if="hasAmPm" />
+    <ampmEditor :v-if="hasAmPm" />
     <br />
     <numberEditor ref="hoursEditor" :v-if="hasHours" name="hours" @newImages="onNewImages" />
     <br />
-    <delimiter :v-if="hasDelimiter" />
+    <delimiterEditor :v-if="hasDelimiter" />
     <br />
     <numberEditor ref="minutesEditor" :v-if="hasMinutes" name="minutes" @newImages="onNewImages" />
     <br />

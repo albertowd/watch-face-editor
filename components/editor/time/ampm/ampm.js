@@ -11,11 +11,13 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    amImages () {
-      return this.$store.state.time.ampm.imagesAM
+    amImages: {
+      get () { return this.$store.state.time.ampm.imagesAM },
+      set (imagesAM) { this.changeAmPm({ imagesAM }) }
     },
-    pmImages () {
-      return this.$store.state.time.ampm.imagesPM
+    pmImages: {
+      get () { return this.$store.state.time.ampm.imagesPM },
+      set (imagesPM) { this.changeAmPm({ imagesPM }) }
     },
     tPosition () {
       return this.$t('app.position')
@@ -47,7 +49,7 @@ export default {
     },
     amFilePick () {
       if (this.amImages.length) {
-        this.changeAmPm({ imagesAM: [] })
+        this.amImages = []
       } else {
         this.$refs.amInput.click()
       }
@@ -68,7 +70,7 @@ export default {
           if (images.length === 1) {
             images = images.concat(images)
           }
-          this.changeAmPm({ imagesAM: images })
+          this.amImages = images
         })
       } else {
         this.error = this.$t('time.errors.ampm')
@@ -76,7 +78,7 @@ export default {
     },
     pmFilePick () {
       if (this.pmImages.length) {
-        this.changeAmPm({ imagesPM: [] })
+        this.pmImages = []
       } else {
         this.$refs.pmInput.click()
       }
@@ -97,7 +99,7 @@ export default {
           if (images.length === 1) {
             images = images.concat(images)
           }
-          this.changeAmPm({ imagesPM: images })
+          this.pmImages = images
         })
       } else {
         this.error = this.$t('time.errors.ampm')

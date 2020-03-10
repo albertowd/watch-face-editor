@@ -7,8 +7,10 @@
   },
   "app": {
     "alignment": "Alinhamento",
+    "bottom": "Baixo",
     "by": "por",
     "delimiter": "Delimitador",
+    "dimensions": "Dimensões",
     "devices": "Dispositivos",
     "errors": {
       "notFound": "Não encontrado",
@@ -16,13 +18,15 @@
     },
     "height": "Altura",
     "languages": "Linguagens",
-    "numbers": "Números",
+    "left": "Esquerda",
     "ones": "Unidades",
     "position": "Posição",
+    "right": "Direita",
     "size": "Tamanho",
     "spacing": "Espaçamento",
     "tens": "Dezenas",
     "title": "Editor de Faces",
+    "top": "Cima",
     "width": "Largura"
   },
   "background": {
@@ -39,6 +43,20 @@
       "oneLine": {
         "error": "Mês e dia em linha deve ter 10 imagens (0-9).",
         "title": "Em Linha"
+      },
+      "separate": {
+        "day": {
+          "error": "Dia deve ter 10 imagens (0-9).",
+          "title": "Dia"
+        },
+        "month": {
+          "error": "Mês deve ter 10 imagens (0-9).",
+          "title": "Mês"
+        },
+        "monthName": {
+          "error": "Nome do mês deve ter 12 imagens (Jan-Dez).",
+          "title": "Nome do Mês"
+        }
       }
     },
     "title": "Data",

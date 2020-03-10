@@ -5,7 +5,11 @@
     "date": {
       "monthAndDay": {
         "oneLine": true,
-        "separate": true
+        "separate": {
+          "day": true,
+          "month": true,
+          "monthName": true
+        }
       },
       "weekDay": true
     },
@@ -39,7 +43,7 @@
       "height": 888,
       "width": 502
     },
-    "zoom": 0.5
+    "zoom": 1
   },
   "size": {
     "height": 442,

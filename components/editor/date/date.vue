@@ -3,7 +3,13 @@
 <template>
   <v-layout class="editor-date" column>
     <br />
-    <oneLine v-if="hasOneLine" />
+    <numberEditor v-if="hasDay" name="day" />
+    <br />
+    <numberEditor v-if="hasMonth" name="month" />
+    <br />
+    <monthNameEditor v-if="hasMonthName" />
+    <br />
+    <oneLineEditor v-if="hasOneLine" />
     <br />
     <weekDayEditor v-if="hasWeekDay" />
     <br />

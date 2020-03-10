@@ -7,8 +7,10 @@
   },
   "app" : {
     "alignment": "Alignment",
+    "bottom": "Bottom",
     "by": "by",
     "delimiter": "Delimiter",
+    "dimensions": "Dimensions",
     "devices": "Devices",
     "errors": {
       "notFound": "Not found",
@@ -16,13 +18,15 @@
     },
     "height": "Height",
     "languages": "Languages",
-    "numbers": "Numbers",
+    "left": "Left",
     "ones": "Ones",
     "position": "Position",
+    "right": "Right",
     "size": "Size",
     "spacing": "Spacing",
     "tens": "Tens",
     "title": "Watch Face Editor",
+    "top": "Top",
     "width": "Width"
   },
   "background": {
@@ -37,8 +41,22 @@
   "date": {
     "monthAndDay": {
       "oneLine": {
-        "error": "One line month and day shot have 10 images (0-9).",
+        "error": "One line month and day should have 10 images (0-9).",
         "title": "One Line"
+      },
+      "separate": {
+        "day": {
+          "error": "Day should have 10 images (0-9).",
+          "title": "Day"
+        },
+        "month": {
+          "error": "Month should have 10 images (0-9).",
+          "title": "Month"
+        },
+        "monthName": {
+          "error": "Month name should have 12 images (Jan-Dec).",
+          "title": "Month Name"
+        }
       }
     },
     "title": "Date",

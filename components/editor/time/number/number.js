@@ -18,8 +18,9 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    onesImages () {
-      return this.$store.state.time[this.name].ones.images
+    onesImages: {
+      get () { return this.$store.state.time[this.name].ones.images },
+      set (images) { this.change({ images }, 'Ones') }
     },
     onesX: {
       get () { return this.$store.state.time[this.name].ones.x },
@@ -29,8 +30,9 @@ export default {
       get () { return this.$store.state.time[this.name].ones.y },
       set (y) { this.change({ y }, 'Ones') }
     },
-    tensImages () {
-      return this.$store.state.time[this.name].tens.images
+    tensImages: {
+      get () { return this.$store.state.time[this.name].tens.images },
+      set (images) { this.change({ images }, 'Tens') }
     },
     tensX: {
       get () { return this.$store.state.time[this.name].tens.x },
@@ -57,9 +59,6 @@ export default {
     change (obj, sub = '') {
       this.$store.commit(`time/${this.name}${sub}`, obj)
     },
-    changeImages (images, name, sub, store = this.$store) {
-      store.commit(`time/${name}${sub}`, { images })
-    },
     imagePromise (file) {
       return new Promise((resolve) => {
         const fileReader = new FileReader()
@@ -71,7 +70,7 @@ export default {
     },
     onesFilePick () {
       if (this.onesImages.length) {
-        this.change({ images: [] }, 'Ones')
+        this.onesImages = []
       } else {
         this.$refs.onesInput.click()
       }
@@ -94,14 +93,14 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.change({ images }, 'Ones')
+          this.onesImages = images
           this.$emit('newImages', images)
         })
       }
     },
     tensFilePick () {
       if (this.tensImages.length) {
-        this.change({ images: [] }, 'Tens')
+        this.tensImages = []
       } else {
         this.$refs.tensInput.click()
       }
@@ -124,7 +123,7 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          this.change({ images }, 'Tens')
+          this.tensImages = images
           this.$emit('newImages', images)
         })
       }

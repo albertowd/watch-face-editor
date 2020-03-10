@@ -54,7 +54,7 @@ export default {
           to: '/clock'
         },
         {
-          disabled: !(this.$store.state.device.features.date.monthAndDay || this.$store.state.device.features.date.weekDay),
+          disabled: !(this.$store.state.device.features.date.monthAndDay.oneline || this.$store.state.device.features.date.monthAndDay.separate.day || this.$store.state.device.features.date.monthAndDay.separate.month || this.$store.state.device.features.date.monthAndDay.separate.monthName || this.$store.state.device.features.date.weekDay),
           icon: 'mdi-calendar',
           title: this.$t('date.title'),
           to: '/date'

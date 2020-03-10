@@ -6,8 +6,9 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    image () {
-      return this.$store.state.background.image
+    image: {
+      get () { return this.$store.state.background.image },
+      set (image) { this.changeBackground({ image }) }
     },
     tPosition () {
       return this.$t('app.position')
@@ -41,7 +42,7 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
-        this.changeBackground({ image: event.target.result })
+        this.image = event.target.result
       }
       fileReader.readAsDataURL(file)
     }

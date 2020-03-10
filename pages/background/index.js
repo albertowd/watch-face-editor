@@ -1,8 +1,8 @@
-import background from '~/components/editor/background/background.vue'
+import backgroundEditor from '~/components/editor/background/background.vue'
 
 export default {
   components: {
-    background
+    backgroundEditor
   },
   computed: {
     model () {

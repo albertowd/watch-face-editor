@@ -12,11 +12,13 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    imageOff () {
-      return this.$store.state.status[this.name].imageOff
+    imageOff: {
+      get () { return this.$store.state.status[this.name].imageOff },
+      set (imageOff) { this.changeStatus({ imageOff }) }
     },
-    imageOn () {
-      return this.$store.state.status[this.name].imageOn
+    imageOn: {
+      get () { return this.$store.state.status[this.name].imageOn },
+      set (imageOn) { this.changeStatus({ imageOn }) }
     },
     tPosition () {
       return this.$t('app.position')
@@ -26,17 +28,20 @@ export default {
     },
     x: {
       get () { return this.$store.state.status[this.name].x },
-      set (x) { this.$store.commit(`status/${this.name}`, { x }) }
+      set (x) { this.changeStatus({ x }) }
     },
     y: {
       get () { return this.$store.state.status[this.name].y },
-      set (y) { this.$store.commit(`status/${this.name}`, { y }) }
+      set (y) { this.changeStatus({ y }) }
     }
   },
   methods: {
+    changeStatus (obj) {
+      this.$store.commit(`status/${this.name}`, obj)
+    },
     offFilePick () {
       if (this.imageOff) {
-        this.$store.commit(`status/${this.name}`, { imageOff: null })
+        this.imageOff = null
       } else {
         this.$refs.imageOffInput.click()
       }
@@ -47,13 +52,13 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
-        this.$store.commit(`status/${this.name}`, { imageOff: event.target.result })
+        this.imageOff = event.target.result
       }
       fileReader.readAsDataURL(file)
     },
     onFilePick () {
       if (this.imageOn) {
-        this.$store.commit(`status/${this.name}`, { imageOn: null })
+        this.imageOn = null
       } else {
         this.$refs.imageOnInput.click()
       }
@@ -64,7 +69,7 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
-        this.$store.commit(`status/${this.name}`, { imageOn: event.target.result })
+        this.imageOn = event.target.result
       }
       fileReader.readAsDataURL(file)
     }

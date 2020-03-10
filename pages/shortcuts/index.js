@@ -1,8 +1,8 @@
-import shortcuts from '~/components/editor/shortcuts/shortcuts.vue'
+import shortcutsEditor from '~/components/editor/shortcuts/shortcuts.vue'
 
 export default {
   components: {
-    shortcuts
+    shortcutsEditor
   },
   computed: {
     model () {

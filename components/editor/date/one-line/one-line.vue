@@ -46,43 +46,42 @@
         :min="-50"
         :max="50"
       />
-      <h3>{{ tPosition }}</h3>
-      <v-slider
-        v-model="left"
-        label="X:"
-        step="1"
-        thumb-label
-        :disabled="!numberImages.length"
-        :min="0"
-        :max="dimensions.width"
-      />
-      <v-slider
-        v-model="top"
-        label="Y:"
-        step="1"
-        thumb-label
-        :disabled="!numberImages.length"
-        :min="0"
-        :max="dimensions.height"
-      />
-      <h3>{{ tSize }}</h3>
+      <h3>{{ tDimension }}</h3>
       <v-slider
         v-model="bottom"
         step="1"
         thumb-label
         :disabled="!numberImages.length"
-        :label="`${tHeight}:`"
+        :label="`${tBottom}:`"
         :min="0"
         :max="dimensions.height"
+      />
+      <v-slider
+        v-model="left"
+        step="1"
+        thumb-label
+        :disabled="!numberImages.length"
+        :label="`${tLeft}:`"
+        :min="0"
+        :max="dimensions.width"
       />
       <v-slider
         v-model="right"
         step="1"
         thumb-label
         :disabled="!numberImages.length"
-        :label="`${tWidth}:`"
+        :label="`${tRight}:`"
         :min="0"
         :max="dimensions.width"
+      />
+      <v-slider
+        v-model="top"
+        step="1"
+        thumb-label
+        :disabled="!numberImages.length"
+        :label="`${tTop}:`"
+        :min="0"
+        :max="dimensions.height"
       />
     </v-card-text>
   </v-card>

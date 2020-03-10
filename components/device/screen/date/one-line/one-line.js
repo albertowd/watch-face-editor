@@ -17,7 +17,7 @@ export default {
       }
     },
     dayMajorImage () {
-      return this.$store.state.date.monthAndDay.oneLine.number.images[this.dayIndex > 9 ? Math.floor(this.dayIndex / 10) : 0]
+      return this.twoDigitsDay ? this.$store.state.date.monthAndDay.oneLine.number.images[Math.floor(this.dayIndex / 10)] : null
     },
     delimiterImage () {
       return this.$store.state.date.monthAndDay.oneLine.delimiterImage
@@ -33,7 +33,7 @@ export default {
       }
     },
     monthMajorImage () {
-      return this.$store.state.date.monthAndDay.oneLine.number.images[this.monthIndex > 9 ? Math.floor(this.monthIndex / 10) : 0]
+      return this.twoDigitsMonth ? this.$store.state.date.monthAndDay.oneLine.number.images[Math.floor(this.monthIndex / 10)] : null
     },
     numberImages () {
       return this.$store.state.date.monthAndDay.oneLine.number.images
@@ -42,11 +42,11 @@ export default {
       const spacing = this.$store.state.date.monthAndDay.oneLine.number.spacing
       return `margin-left: ${spacing}px;margin-right: ${spacing}px;`
     },
-    twoDigitDay () {
-      return this.$store.state.date.monthAndDay.twoDigitDay
+    twoDigitsDay () {
+      return this.$store.state.date.monthAndDay.twoDigitsDay || this.dayIndex > 9
     },
-    twoDigitMonth () {
-      return this.$store.state.date.monthAndDay.twoDigitMonth
+    twoDigitsMonth () {
+      return this.$store.state.date.monthAndDay.twoDigitsMonth || this.monthIndex > 9
     },
     position () {
       return {

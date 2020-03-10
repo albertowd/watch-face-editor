@@ -14,12 +14,6 @@ export default {
     images () {
       return this.$store.state.date.weekDay.images
     },
-    position () {
-      return {
-        x: this.$store.state.date.weekDay.x,
-        y: this.$store.state.date.weekDay.y
-      }
-    },
     tPosition () {
       return this.$t('app.position')
     },

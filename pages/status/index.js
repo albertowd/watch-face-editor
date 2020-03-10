@@ -1,8 +1,8 @@
-import status from '~/components/editor/status/status.vue'
+import statusEditor from '~/components/editor/status/status.vue'
 
 export default {
   components: {
-    status
+    statusEditor
   },
   computed: {
     model () {

@@ -1,11 +1,11 @@
-import ampm from './ampm/ampm.vue'
-import delimiter from './delimiter/delimiter.vue'
+import ampmEditor from './ampm/ampm.vue'
+import delimiterEditor from './delimiter/delimiter.vue'
 import numberEditor from './number/number.vue'
 
 export default {
   components: {
-    ampm,
-    delimiter,
+    ampmEditor,
+    delimiterEditor,
     numberEditor
   },
   computed: {

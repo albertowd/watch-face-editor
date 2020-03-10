@@ -6,8 +6,9 @@ export default {
         width: this.$store.state.device.size.width
       }
     },
-    image () {
-      return this.$store.state.time.delimiter.image
+    image: {
+      get () { return this.$store.state.time.delimiter.image },
+      set (image) { this.changeDelimiter({ image }) }
     },
     tPosition () {
       return this.$t('app.position')
@@ -30,7 +31,7 @@ export default {
     },
     onFilePick () {
       if (this.image) {
-        this.changeDelimiter({ image: null })
+        this.image = null
       } else {
         this.$refs.delimiterInput.click()
       }
@@ -41,7 +42,7 @@ export default {
 
       const fileReader = new FileReader()
       fileReader.onload = (event) => {
-        this.changeDelimiter({ image: event.target.result })
+        this.image = event.target.result
       }
       fileReader.readAsDataURL(file)
     }

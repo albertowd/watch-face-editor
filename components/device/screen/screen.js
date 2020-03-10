@@ -1,4 +1,6 @@
 import background from './background/background.vue'
+import screenDateMonthName from './date/month-name/month-name.vue'
+import screenDateNumber from './date/number/number.vue'
 import screenDateOneLine from './date/one-line/one-line.vue'
 import screenDateWeekDay from './date/week-day/week-day.vue'
 import screenTime from './time/time.vue'
@@ -10,6 +12,8 @@ import status from './status/status.vue'
 export default {
   components: {
     background,
+    screenDateMonthName,
+    screenDateNumber,
     screenDateOneLine,
     screenDateWeekDay,
     screenTime,
