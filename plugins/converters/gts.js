@@ -50,6 +50,38 @@ function _gtsToTime (gts, name, sub, time) {
   }
 }
 
+function _monthAndDayToGTS (gts, name, monthAndDay) {
+  if (monthAndDay.images.length) {
+    if (!gts.Date) {
+      gts.Date = {}
+    }
+
+    if (!gts.Date.MonthAndDay) {
+      gts.Date.MonthAndDay = {}
+    }
+
+    if (!gts.Date.MonthAndDay.Separate) {
+      gts.Date.MonthAndDay.Separate = {}
+    }
+
+    const imgIndex = gts.images.indexOf(monthAndDay.images[0])
+
+    gts.Date.MonthAndDay.Separate[name] = {
+      BottomRightX: monthAndDay.right,
+      BottomRightY: monthAndDay.bottom,
+      ImageIndex: imgIndex === -1 ? gts.images.length : imgIndex,
+      ImagesCount: monthAndDay.images.length,
+      Spacing: monthAndDay.spacing,
+      TopLeftX: monthAndDay.left,
+      TopLeftY: monthAndDay.top
+    }
+
+    if (imgIndex !== -1) {
+      gts.images = gts.concat(monthAndDay.images)
+    }
+  }
+}
+
 /**
  * Updates a GTS object with the available options on a device shortcut object.
  * @param {object} gts A GTS object representing it's JSON to be updated.
@@ -119,7 +151,7 @@ function _timeToGTS (gts, name, sub, time) {
 
     const obj = {
       ImagesCount: time.images.length,
-      ImageIndex: imgIndex !== -1 ? imgIndex : gts.images.length,
+      ImageIndex: imgIndex === -1 ? gts.images.length : imgIndex,
       X: time.x,
       Y: time.y
     }
@@ -156,6 +188,21 @@ function fromDevice (device, features) {
       }
       gts.images.push(device.background.image)
     }
+  }
+
+  if (features.date.monthAndDay.oneLine) {
+    _monthAndDayOneLineToGTS(gts, 'OneLine', device.date.monthAndDay.oneLine)
+  }
+
+  if (features.date.monthAndDay.separate.day) {
+    _monthAndDayToGTS(gts, 'Day', device.date.monthAndDay.separate.day)
+  }
+
+  if (features.date.monthAndDay.separate.month) {
+    _monthAndDayToGTS(gts, 'Month', device.date.monthAndDay.separate.month)
+  }
+
+  if (features.date.monthAndDay.separate.monthName) {
   }
 
   if (features.date.weekDay) {

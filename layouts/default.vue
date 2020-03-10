@@ -143,13 +143,13 @@ export default {
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-        <v-subheader>{{ tDevices }}</v-subheader>
+        <!-- <v-subheader>{{ tDevices }}</v-subheader>
         <v-list>
           <v-list-item-group v-model="modelIndex">
             <v-list-item exact to="?device=gts">Amazfit GTS</v-list-item>
             <v-list-item exact to="?device=mb4">Mi Band 4</v-list-item>
           </v-list-item-group>
-        </v-list>
+        </v-list> -->
         <v-divider />
         <v-subheader>{{ tLanguages }}</v-subheader>
         <v-list>
