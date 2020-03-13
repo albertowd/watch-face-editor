@@ -1,30 +1,40 @@
-import numberEditor from './number/number.vue'
-import monthNameEditor from './month-name/month-name.vue'
-import oneLineEditor from './one-line/one-line.vue'
+import monthAndDayTwoDigitsEditor from './month-and-day/two-digits/two-digits.vue'
+import monthAndDayOneLineEditor from './month-and-day/one-line/one-line.vue'
+import monthAndDaySeparateMonthNameEditor from './month-and-day/separate/month-name/month-name.vue'
+import monthAndDaySeparateNumberEditor from './month-and-day/separate/number/number.vue'
 import weekDayEditor from './week-day/week-day.vue'
+import yearOneLineEditor from './year/one-line/one-line.vue'
 
 export default {
   components: {
-    numberEditor,
-    monthNameEditor,
-    oneLineEditor,
-    weekDayEditor
+    monthAndDayTwoDigitsEditor,
+    monthAndDayOneLineEditor,
+    monthAndDaySeparateMonthNameEditor,
+    monthAndDaySeparateNumberEditor,
+    weekDayEditor,
+    yearOneLineEditor
   },
   computed: {
-    hasDay () {
-      return this.$store.state.device.features.date.monthAndDay.separate.day
-    },
-    hasOneLine () {
+    hasMonthAndDayOneLine () {
       return this.$store.state.device.features.date.monthAndDay.oneLine
     },
-    hasMonth () {
+    hasMonthAndDaySeparateDay () {
+      return this.$store.state.device.features.date.monthAndDay.separate.day
+    },
+    hasMonthAndDaySeparateMonth () {
       return this.$store.state.device.features.date.monthAndDay.separate.month
     },
-    hasMonthName () {
+    hasMonthAndDaySeparateMonthName () {
       return this.$store.state.device.features.date.monthAndDay.separate.monthName
     },
     hasWeekDay () {
       return this.$store.state.device.features.date.weekDay
+    },
+    hasWeekDayProgress () {
+      return this.$store.state.device.features.date.weekDayProgress
+    },
+    hasYearOneLine () {
+      return this.$store.state.device.features.date.year.oneLine
     }
   }
 }

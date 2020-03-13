@@ -22,7 +22,7 @@ export default {
   },
   mounted () {
     const device = this.$packDevice(this.$store.state)
-    const obj = this.$converters[this.$store.state.device.alias].fromDevice(device, this.$store.state.device.features)
+    const obj = this.$converters[this.$store.state.device.alias].export(device, this.$store.state.device.features)
     delete obj.images
     this.json = JSON.stringify(obj, null, 4)
   }

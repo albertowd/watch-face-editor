@@ -3,15 +3,19 @@
 <template>
   <v-layout class="editor-date" column>
     <br />
-    <numberEditor v-if="hasDay" name="day" />
+    <monthAndDayTwoDigitsEditor :v-if="hasMonthAndDayOneLine || hasMonthAndDaySeparateDay || hasMonthAndDaySeparateMonth" />
     <br />
-    <numberEditor v-if="hasMonth" name="month" />
+    <monthAndDayOneLineEditor v-if="hasMonthAndDayOneLine" />
     <br />
-    <monthNameEditor v-if="hasMonthName" />
+    <monthAndDaySeparateNumberEditor v-if="hasMonthAndDaySeparateDay" name="day" />
     <br />
-    <oneLineEditor v-if="hasOneLine" />
+    <monthAndDaySeparateNumberEditor v-if="hasMonthAndDaySeparateMonth" name="month" />
+    <br />
+    <monthAndDaySeparateMonthNameEditor v-if="hasMonthAndDaySeparateMonthName" />
     <br />
     <weekDayEditor v-if="hasWeekDay" />
+    <br />
+    <yearOneLineEditor v-if="hasYearOneLine" />
     <br />
   </v-layout>
 </template>

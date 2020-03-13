@@ -15,11 +15,12 @@
     <screenTimeAMPM />
     <screenTime :initial="Math.floor(new Date().getMinutes() / 10)" :max="5" name="seconds" sub="tens" />
     <screenTime :initial="new Date().getMinutes() % 10" name="seconds" sub="ones" />
-    <screenDateNumber name="day" />
-    <screenDateNumber name="month" />
-    <screenDateMonthName />
-    <screenDateOneLine />
+    <screenDateMonthAndDayOneLine />
+    <screenDateMonthAndDaySeparateMonthName />
+    <screenDateMonthAndDaySeparateNumber name="day" />
+    <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
+    <screenDateYearOneLine />
     <shortcut name="energy" />
     <shortcut name="pulse" />
     <shortcut name="state" />

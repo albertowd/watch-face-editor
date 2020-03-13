@@ -6,26 +6,16 @@
       <v-layout>
         <h2>{{ tTitle }}</h2>
         <v-spacer />
-        <v-btn class="ml-5" @click="numberFilePick">
-          <v-icon :color="numberImages.length ? 'primary' : 'normal'">{{ numberImages.length ? 'mdi-image-off' : 'mdi-image-multiple' }}</v-icon>
+        <v-btn class="ml-5" @click="yearFilePick">
+          <v-icon :color="images.length ? 'primary' : 'normal'">{{ images.length ? 'mdi-image-off' : 'mdi-image-multiple' }}</v-icon>
         </v-btn>
         <input
-          ref="numberInput"
+          ref="yearInput"
           accept=".png"
-          class="editor-date-one-line-icon-hidden"
+          class="editor-date-year-one-line-icon-hidden"
           multiple
           type="file"
-          @change="numberFilePicked"
-        />
-        <v-btn class="ml-5" @click="delimiterFilePick">
-          <v-icon :color="delimiterImage ? 'primary' : 'normal'">mdi-slash-forward</v-icon>
-        </v-btn>
-        <input
-          ref="delimiterInput"
-          accept=".png"
-          class="editor-date-one-line-icon-hidden"
-          type="file"
-          @change="delimiterFilePicked"
+          @change="yearFilePicked"
         />
       </v-layout>
     </v-card-title>
@@ -34,14 +24,14 @@
       <v-select
         v-model="alignment"
         :items="['Bottom Center', 'Bottom Left', 'Bottom Right', 'Center Center', 'Center Left', 'Center Right', 'Top Center', 'Top Left', 'Top Right']"
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="tAlignment"
       ></v-select>
       <v-slider
         v-model="spacing"
         step="1"
         thumb-label
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="`${tSpacing}:`"
         :min="-50"
         :max="50"
@@ -51,7 +41,7 @@
         v-model="bottom"
         step="1"
         thumb-label
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="`${tBottom}:`"
         :min="0"
         :max="dimensions.height"
@@ -60,7 +50,7 @@
         v-model="left"
         step="1"
         thumb-label
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="`${tLeft}:`"
         :min="0"
         :max="dimensions.width"
@@ -69,7 +59,7 @@
         v-model="right"
         step="1"
         thumb-label
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="`${tRight}:`"
         :min="0"
         :max="dimensions.width"
@@ -78,7 +68,7 @@
         v-model="top"
         step="1"
         thumb-label
-        :disabled="!numberImages.length"
+        :disabled="!images.length"
         :label="`${tTop}:`"
         :min="0"
         :max="dimensions.height"

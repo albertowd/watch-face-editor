@@ -11,9 +11,14 @@
           "monthName": true
         }
       },
-      "weekDay": true
+      "weekDay": true,
+      "weekDayProgress": true,
+      "year": {
+        "oneLine": true
+      }
     },
     "shortcuts": {
+      "energy": false,
       "pulse": true,
       "state": true,
       "weather": true

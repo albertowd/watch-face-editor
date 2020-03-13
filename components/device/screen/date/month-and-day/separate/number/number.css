@@ -1,0 +1,9 @@
+.device-screen-date-month-and-day-separate-number {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.device-screen-date-month-and-day-separate-number-border {
+  border: 3px dashed gray;
+}

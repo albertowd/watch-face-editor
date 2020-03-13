@@ -4,7 +4,7 @@
   <v-row
     v-if="numberImages.length"
     :align="alignment"
-    :class="`device-screen-date-one-line ${$route.path === '/date' ? 'device-screen-date-one-line-border' : ''}`"
+    :class="`device-screen-date-month-and-day-one-line ${$route.path === '/date' ? 'device-screen-date-month-and-day-one-line-border' : ''}`"
     :justify="justify"
     :style="position"
   >

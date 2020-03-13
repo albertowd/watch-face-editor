@@ -7,7 +7,7 @@ export const state = () => ({
   },
   delimiter: {
     image: null,
-    x: 152,
+    x: 145,
     y: 50
   },
   hours: {

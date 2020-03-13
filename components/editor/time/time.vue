@@ -5,9 +5,9 @@
     <br />
     <ampmEditor :v-if="hasAmPm" />
     <br />
-    <numberEditor ref="hoursEditor" :v-if="hasHours" name="hours" @newImages="onNewImages" />
-    <br />
     <delimiterEditor :v-if="hasDelimiter" />
+    <br />
+    <numberEditor ref="hoursEditor" :v-if="hasHours" name="hours" @newImages="onNewImages" />
     <br />
     <numberEditor ref="minutesEditor" :v-if="hasMinutes" name="minutes" @newImages="onNewImages" />
     <br />

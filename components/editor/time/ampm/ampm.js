@@ -67,9 +67,6 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          if (images.length === 1) {
-            images = images.concat(images)
-          }
           this.amImages = images
         })
       } else {
@@ -96,9 +93,6 @@ export default {
         }
 
         Promise.all(promises).then((images) => {
-          if (images.length === 1) {
-            images = images.concat(images)
-          }
           this.pmImages = images
         })
       } else {

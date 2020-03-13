@@ -3,7 +3,7 @@
 <template>
   <img
     v-if="images.length"
-    class="device-screen-date-month-name"
+    class="device-screen-date-month-and-day-separate-month-name"
     :src="images[index]"
     :style="position"
     @click="circle"

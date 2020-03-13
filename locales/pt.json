@@ -41,28 +41,40 @@
   "date": {
     "monthAndDay": {
       "oneLine": {
-        "error": "Mês e dia em linha deve ter 10 imagens (0-9).",
-        "title": "Em Linha"
+        "error": "Requer 10 imagens (0-9).",
+        "title": "MM/DD"
       },
       "separate": {
         "day": {
-          "error": "Dia deve ter 10 imagens (0-9).",
+          "error": "Requer 10 imagens (0-9).",
           "title": "Dia"
         },
         "month": {
-          "error": "Mês deve ter 10 imagens (0-9).",
+          "error": "Requer 10 imagens (0-9).",
           "title": "Mês"
         },
         "monthName": {
-          "error": "Nome do mês deve ter 12 imagens (Jan-Dez).",
+          "error": "Requer 12 imagens (Jan-Dez).",
           "title": "Nome do Mês"
         }
-      }
+      },
+      "twoDigitsDay": "Dia de Dois Dígitos",
+      "twoDigitsMonth": "Mês de Dois Dígitos"
     },
     "title": "Data",
     "weekDay": {
-      "error": "Os dias da semana devem ter 7, 14 ou 21 imagens (chinês-1, chinês-2 e global).",
+      "error": "Requer 7 imagens (Seg-Dom).",
       "title": "Dia da Semana"
+    },
+    "weekDayProgress": {
+      "error": "Requer 7 imagens (Seg-Dom).",
+      "title": "Progresso do Dia da Semana"
+    },
+    "year": {
+      "oneLine": {
+        "error": "Requer 7 imagens (Seg-Dom).",
+        "title": "Ano"
+      }
     }
   },
   "device": {
@@ -73,7 +85,7 @@
     "title": "Relógio"
   },
   "json": {
-    "title": "Edição do JSON"
+    "title": "JSON"
   },
   "shortcuts": {
     "energy": "Economia de Energia",
@@ -92,8 +104,8 @@
   "time": {
     "ampm": "Manhã/Tarde",
     "errors" : {
-      "ampm": "Manhã/Tarde deve ter entre 1 ou 2 imagens (chinês e global)",
-      "numbers": "Números de hora precisam de exatamente 10 imagens (0-9)."
+      "ampm": "Requer 1 ou 2 imagens (chinês e global)",
+      "numbers": "Requer 10 imagens (0-9)."
     },
     "hours": "Horas",
     "minutes": "Minutos",

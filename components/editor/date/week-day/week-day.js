@@ -52,7 +52,7 @@ export default {
       this.error = ''
 
       if (files.length) {
-        if ([7, 14, 21].includes(files.length)) {
+        if (files.length === 7) {
           const promises = []
 
           for (const file of files) {
@@ -60,12 +60,6 @@ export default {
           }
 
           Promise.all(promises).then((images) => {
-            if (images.length === 7) {
-              images = images.concat(images)
-            }
-            if (images.length === 14) {
-              images = images.concat(images.slice(7))
-            }
             this.$store.commit('date/weekDay', { images })
           })
         } else {

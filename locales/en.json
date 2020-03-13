@@ -41,28 +41,40 @@
   "date": {
     "monthAndDay": {
       "oneLine": {
-        "error": "One line month and day should have 10 images (0-9).",
-        "title": "One Line"
+        "error": "Required 10 images (0-9).",
+        "title": "MM/DD"
       },
       "separate": {
         "day": {
-          "error": "Day should have 10 images (0-9).",
+          "error": "Required 10 images (0-9).",
           "title": "Day"
         },
         "month": {
-          "error": "Month should have 10 images (0-9).",
+          "error": "Required 10 images (0-9).",
           "title": "Month"
         },
         "monthName": {
-          "error": "Month name should have 12 images (Jan-Dec).",
+          "error": "Required 12 images (Jan-Dec).",
           "title": "Month Name"
         }
-      }
+      },
+      "twoDigitsDay": "Two Digits Day",
+      "twoDigitsMonth": "Two Digits Month"
     },
     "title": "Date",
     "weekDay": {
-      "error": "Week day should have only 7, 14 or 21 images (chinese-1, chinese-2 and global).",
+      "error": "Required 7 images (Mon-Sun).",
       "title": "Week Day"
+    },
+    "weekDayProgress": {
+      "error": "Required 7 images (Mon-Sun).",
+      "title": "Week Day Progress"
+    },
+    "year": {
+      "oneLine": {
+        "error": "Required 10 images (0-9).",
+        "title": "Year"
+      }
     }
   },
   "device": {
@@ -73,7 +85,7 @@
     "title": "Device"
   },
   "json": {
-    "title": "JSON Editor"
+    "title": "JSON"
   },
   "shortcuts": {
     "energy": "Energy Saver",
@@ -92,8 +104,8 @@
   "time": {
     "ampm": "AM/PM",
     "errors" : {
-      "ampm": "AM/PM should have 1 or 2 images (chinese and global).",
-      "number": "Time numbers should have exactly 10 images (0-9)."
+      "ampm": "Required 1 or 2 images (chinese and global).",
+      "number": "Required 10 images (0-9)."
     },
     "hours": "Hours",
     "minutes": "Minutes",

@@ -1,10 +1,10 @@
-import gts from './gts'
-import mb4 from './mb4'
+import exportGTS from './gts.export'
+//  import importGTS from './gts.import'
 
 export default ({ app, store }, inject) => {
   // Injects into the Application all available converters.
   inject('converters', {
-    gts,
-    mb4
+    // gts: { export: exportGTS, import: importGTS }
+    gts: { export: exportGTS }
   })
 }

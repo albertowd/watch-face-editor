@@ -15,7 +15,7 @@
         <span>{{ limit }} kb</span>
       </p>
       <v-layout>
-        <v-btn color="primary" @click="pickFiles">{{ tImport }}</v-btn>
+        <v-btn color="primary" disabled @click="pickFiles">{{ tImport }}</v-btn>
         <input
           ref="jsonInput"
           accept=".json"

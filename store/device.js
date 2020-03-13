@@ -5,9 +5,17 @@ export const state = () => ({
     date: {
       monthAndDay: {
         oneLine: true,
-        separate: true
+        separate: {
+          day: false,
+          month: false,
+          monthName: false
+        }
       },
-      weekDay: false
+      weekDay: false,
+      weekDayProgress: false,
+      year: {
+        oneLine: false
+      }
     },
     shortcut: {
       energy: false,
