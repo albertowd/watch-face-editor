@@ -2,34 +2,34 @@ export const state = () => ({
   monthAndDay: {
     oneLine: {
       number: {
-        alignment: 'Center Center',
-        bottom: 92,
+        alignment: 'Center',
+        bottom: 245,
         images: [],
         left: 15,
-        right: 248,
+        right: 100,
         spacing: 0,
-        top: 300
+        top: 205
       },
       delimiterImage: null
     },
     separate: {
       day: {
-        alignment: 'Center Center',
-        bottom: 197,
+        alignment: 'Center',
+        bottom: 245,
         images: [],
-        left: 0,
-        right: 300,
+        left: 70,
+        right: 100,
         spacing: 0,
-        top: 200
+        top: 205
       },
       month: {
-        alignment: 'Center Center',
-        bottom: 197,
+        alignment: 'Center',
+        bottom: 245,
         images: [],
-        left: 270,
-        right: 142,
+        left: 15,
+        right: 50,
         spacing: 0,
-        top: 200
+        top: 205
       },
       monthName: {
         images: [],
@@ -47,26 +47,26 @@ export const state = () => ({
   },
   weekDayProgress: {
     coords: [
-      [0, 0],
-      [1, 1],
-      [2, 2],
-      [3, 3],
-      [4, 4],
-      [5, 5],
-      [6, 6]
+      [12, 180],
+      [13, 180],
+      [14, 180],
+      [15, 180],
+      [16, 180],
+      [17, 180],
+      [18, 180]
     ],
     images: []
   },
   year: {
     oneLine: {
       number: {
-        alignment: 'Center Center',
-        bottom: 92,
+        alignment: 'Center',
+        bottom: 315,
         images: [],
         left: 15,
-        right: 248,
+        right: 100,
         spacing: 0,
-        top: 300
+        top: 275
       }
     }
   }

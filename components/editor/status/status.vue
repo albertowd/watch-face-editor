@@ -3,13 +3,13 @@
 <template>
   <v-layout class="editor-status" column>
     <br />
-    <iconEditor v-if="hasAlarm" name="alarm" />
+    <iconEditor v-if="hasAlarm" icon-off="mdi-alarm-off" icon-on="mdi-alarm" name="alarm" />
     <br />
-    <iconEditor v-if="hasBluetooth" name="bluetooth" />
+    <iconEditor v-if="hasBluetooth" icon-off="mdi-bluetooth-off" icon-on="mdi-bluetooth" name="bluetooth" />
     <br />
-    <iconEditor v-if="hasDND" name="dnd" />
+    <iconEditor v-if="hasDND" icon-off="mdi-vibrate-off" icon-on="mdi-vibrate" name="dnd" />
     <br />
-    <iconEditor v-if="hasLock" name="lock" />
+    <iconEditor v-if="hasLock" icon-off="mdi-lock-open-variant-outline" icon-on="mdi-lock-outline" name="lock" />
     <br />
   </v-layout>
 </template>

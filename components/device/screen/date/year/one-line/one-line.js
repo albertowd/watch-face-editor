@@ -6,13 +6,12 @@ export default {
   },
   computed: {
     alignment () {
-      switch (this.$store.state.date.year.oneLine.number.alignment.split(' ')[0]) {
-        case 'Bottom':
-          return 'end'
-        case 'Top':
-          return 'start'
-        default:
-          return 'center'
+      if (this.$store.state.date.year.oneLine.number.alignment.startsWith('Bottom')) {
+        return 'end'
+      } else if (this.$store.state.date.year.oneLine.number.alignment.startsWith('Top')) {
+        return 'start'
+      } else {
+        return 'center'
       }
     },
     centuryImage () {
@@ -25,13 +24,12 @@ export default {
       return this.$store.state.date.year.oneLine.number.images
     },
     justify () {
-      switch (this.$store.state.date.year.oneLine.number.alignment.split(' ')[1]) {
-        case 'Left':
-          return 'start'
-        case 'Right':
-          return 'end'
-        default:
-          return 'center'
+      if (this.$store.state.date.year.oneLine.number.alignment.endsWith('Left')) {
+        return 'start'
+      } else if (this.$store.state.date.year.oneLine.number.alignment.endsWith('Right')) {
+        return 'end'
+      } else {
+        return 'center'
       }
     },
     milleniumImage () {
@@ -39,9 +37,9 @@ export default {
     },
     position () {
       return {
-        bottom: `${this.$store.state.date.year.oneLine.number.bottom}px`,
+        bottom: `${this.$store.state.device.size.height - this.$store.state.date.year.oneLine.number.bottom}px`,
         left: `${this.$store.state.date.year.oneLine.number.left}px`,
-        right: `${this.$store.state.date.year.oneLine.number.right}px`,
+        right: `${this.$store.state.device.size.width - this.$store.state.date.year.oneLine.number.right}px`,
         top: `${this.$store.state.date.year.oneLine.number.top}px`
       }
     },

@@ -1,4 +1,9 @@
 export default {
+  data () {
+    return {
+      expanded: false
+    }
+  },
   computed: {
     dimensions () {
       return {

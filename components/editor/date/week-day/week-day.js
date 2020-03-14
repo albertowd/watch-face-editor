@@ -1,7 +1,8 @@
 export default {
   data () {
     return {
-      error: ''
+      error: '',
+      expanded: false
     }
   },
   computed: {

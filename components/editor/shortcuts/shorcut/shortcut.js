@@ -5,6 +5,11 @@ export default {
       type: String
     }
   },
+  data () {
+    return {
+      expanded: false
+    }
+  },
   computed: {
     dimensions () {
       return {

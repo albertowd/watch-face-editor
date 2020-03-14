@@ -3,7 +3,7 @@ export const state = () => ({
     imagesAM: [],
     imagesPM: [],
     x: 292,
-    y: 150
+    y: 170
   },
   delimiter: {
     image: null,

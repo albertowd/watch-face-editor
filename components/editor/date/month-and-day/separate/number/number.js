@@ -7,7 +7,8 @@ export default {
   },
   data () {
     return {
-      error: ''
+      error: '',
+      expanded: false
     }
   },
   computed: {
@@ -16,8 +17,8 @@ export default {
       set (alignment) { this.changeNumber({ alignment }) }
     },
     bottom: {
-      get () { return this.dimensions.height - this.$store.state.date.monthAndDay.separate[this.name].bottom },
-      set (bottom) { this.changeNumber({ bottom: this.dimensions.height - bottom }) }
+      get () { return this.$store.state.date.monthAndDay.separate[this.name].bottom },
+      set (bottom) { this.changeNumber({ bottom }) }
     },
     dimensions () {
       return {
@@ -34,8 +35,8 @@ export default {
       set (left) { this.changeNumber({ left }) }
     },
     right: {
-      get () { return this.dimensions.width - this.$store.state.date.monthAndDay.separate[this.name].right },
-      set (right) { this.changeNumber({ right: this.dimensions.width - right }) }
+      get () { return this.$store.state.date.monthAndDay.separate[this.name].right },
+      set (right) { this.changeNumber({ right }) }
     },
     spacing: {
       get () { return this.$store.state.date.monthAndDay.separate[this.name].spacing },

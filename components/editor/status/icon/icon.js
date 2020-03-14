@@ -1,8 +1,21 @@
 export default {
   props: {
+    iconOff: {
+      default: 'mdi-power-plug-off',
+      type: String
+    },
+    iconOn: {
+      default: 'mdi-power-plug',
+      type: String
+    },
     name: {
       default: 'alarm',
       type: String
+    }
+  },
+  data () {
+    return {
+      expanded: false
     }
   },
   computed: {

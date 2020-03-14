@@ -9,6 +9,7 @@
     "alignment": "Alinhamento",
     "bottom": "Baixo",
     "by": "por",
+    "center": "Centro",
     "delimiter": "Delimitador",
     "dimensions": "Dimensões",
     "devices": "Dispositivos",
@@ -19,12 +20,12 @@
     "height": "Altura",
     "languages": "Linguagens",
     "left": "Esquerda",
-    "ones": "Unidades",
+    "ones": "1",
     "position": "Posição",
     "right": "Direita",
     "size": "Tamanho",
     "spacing": "Espaçamento",
-    "tens": "Dezenas",
+    "tens": "10",
     "title": "Editor de Faces",
     "top": "Cima",
     "width": "Largura"
@@ -41,6 +42,7 @@
   "date": {
     "monthAndDay": {
       "oneLine": {
+        "delimiter": "/",
         "error": "Requer 10 imagens (0-9).",
         "title": "MM/DD"
       },

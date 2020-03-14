@@ -1,17 +1,55 @@
 export default {
   data () {
     return {
-      error: ''
+      error: '',
+      expanded: false
     }
   },
   computed: {
     alignment: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.alignment },
-      set (alignment) { this.changeOneLine({ number: { alignment } }) }
+      set (alignment) {
+        this.changeOneLine({ number: { alignment } })
+      }
+    },
+    alignmentIcon () {
+      switch (this.$store.state.date.monthAndDay.oneLine.number.alignment) {
+        case 'BottomCenter':
+          return 'mdi-pan-down'
+        case 'BottomLeft':
+          return 'mdi-pan-bottom-left'
+        case 'BottomRight':
+          return 'mdi-pan-bottom-right'
+        case 'Center':
+          return 'mdi-pan'
+        case 'Left':
+          return 'mdi-pan-left'
+        case 'Right':
+          return 'mdi-pan-right'
+        case 'TopCenter':
+          return 'mdi-pan-up'
+        case 'TopLeft':
+          return 'mdi-pan-top-left'
+        case 'TopRight':
+          return 'mdi-pan-top-right'
+      }
+    },
+    alignmentItems () {
+      return [
+        { text: `${this.$t('app.bottom')}${this.$t('app.center')}`, value: 'BottomCenter' },
+        { text: `${this.$t('app.bottom')}${this.$t('app.left')}`, value: 'BottomLeft' },
+        { text: `${this.$t('app.bottom')}${this.$t('app.right')}`, value: 'BottomRight' },
+        { text: `${this.$t('app.center')}`, value: 'Center' },
+        { text: `${this.$t('app.left')}`, value: 'Left' },
+        { text: `${this.$t('app.right')}`, value: 'Right' },
+        { text: `${this.$t('app.top')}${this.$t('app.center')}`, value: 'TopCenter' },
+        { text: `${this.$t('app.top')}${this.$t('app.left')}`, value: 'TopLeft' },
+        { text: `${this.$t('app.top')}${this.$t('app.right')}`, value: 'TopRight' }
+      ]
     },
     bottom: {
-      get () { return this.dimensions.height - this.$store.state.date.monthAndDay.oneLine.number.bottom },
-      set (bottom) { this.changeOneLine({ number: { bottom: this.dimensions.height - bottom } }) }
+      get () { return this.$store.state.date.monthAndDay.oneLine.number.bottom },
+      set (bottom) { this.changeOneLine({ number: { bottom } }) }
     },
     delimiterImage: {
       get () { return this.$store.state.date.monthAndDay.oneLine.delimiterImage },
@@ -32,8 +70,8 @@ export default {
       set (left) { this.changeOneLine({ number: { left } }) }
     },
     right: {
-      get () { return this.dimensions.width - this.$store.state.date.monthAndDay.oneLine.number.right },
-      set (right) { this.changeOneLine({ number: { right: this.dimensions.width - right } }) }
+      get () { return this.$store.state.date.monthAndDay.oneLine.number.right },
+      set (right) { this.changeOneLine({ number: { right } }) }
     },
     spacing: {
       get () { return this.$store.state.date.monthAndDay.oneLine.number.spacing },
@@ -48,6 +86,9 @@ export default {
     },
     tBottom () {
       return this.$t('app.bottom')
+    },
+    tDelimiter () {
+      return this.$t('date.monthAndDay.oneLine.delimiter')
     },
     tDimension () {
       return this.$t('app.dimensions')

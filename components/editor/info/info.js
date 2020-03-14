@@ -41,7 +41,7 @@ export default {
       const converter = this.$converters[this.$store.state.device.alias]
       EventBus.$emit('makePreview', (preview) => {
         const device = this.$packDevice(this.$store.state, preview)
-        const pack = converter.fromDevice(device, this.$store.state.device.features)
+        const pack = converter.export(device, this.$store.state.device.features)
         this.$zipUnpacked(pack, undefined, (content, name) => {
           const link = document.createElement('a')
           link.href = window.URL.createObjectURL(content)
@@ -62,7 +62,7 @@ export default {
       const device = converter.toDevice(pack, this.$store.state.device.features, { images, ...this.obj })
       this.$unpackDevice(device, this.$store)
 
-      const obj = converter.fromDevice(device, this.$store.state.device.features)
+      const obj = converter.import(device, this.$store.state.device.features)
       delete obj.images
       this.$store.commit('json/json', { changed: true, parsed: JSON.stringify(obj, null, 4) })
     },

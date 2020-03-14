@@ -9,6 +9,7 @@
     "alignment": "Alignment",
     "bottom": "Bottom",
     "by": "by",
+    "center": "Center",
     "delimiter": "Delimiter",
     "dimensions": "Dimensions",
     "devices": "Devices",
@@ -19,12 +20,12 @@
     "height": "Height",
     "languages": "Languages",
     "left": "Left",
-    "ones": "Ones",
+    "ones": "1",
     "position": "Position",
     "right": "Right",
     "size": "Size",
     "spacing": "Spacing",
-    "tens": "Tens",
+    "tens": "10",
     "title": "Watch Face Editor",
     "top": "Top",
     "width": "Width"
@@ -41,8 +42,9 @@
   "date": {
     "monthAndDay": {
       "oneLine": {
+        "delimiter": ".",
         "error": "Required 10 images (0-9).",
-        "title": "MM/DD"
+        "title": "MM.DD"
       },
       "separate": {
         "day": {

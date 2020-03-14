@@ -46,9 +46,9 @@ export default {
     },
     position () {
       return {
-        bottom: `${this.$store.state.date.monthAndDay.separate[this.name].bottom}px`,
+        bottom: `${this.$store.state.device.size.height - this.$store.state.date.monthAndDay.separate[this.name].bottom}px`,
         left: `${this.$store.state.date.monthAndDay.separate[this.name].left}px`,
-        right: `${this.$store.state.date.monthAndDay.separate[this.name].right}px`,
+        right: `${this.$store.state.device.size.width - this.$store.state.date.monthAndDay.separate[this.name].right}px`,
         top: `${this.$store.state.date.monthAndDay.separate[this.name].top}px`
       }
     }
