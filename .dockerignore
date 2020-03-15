@@ -3,5 +3,6 @@ node_modules
 npm-debug*
 resources
 test
+.git
 .nuxt
 .vscode
