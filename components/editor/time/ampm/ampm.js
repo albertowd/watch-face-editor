@@ -23,8 +23,14 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tTitle () {
       return this.$t('time.ampm')
+    },
+    tTitleDescription () {
+      return this.$t('time.ampmDescription')
     },
     x: {
       get () { return this.$store.state.time.ampm.x },

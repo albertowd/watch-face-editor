@@ -139,6 +139,36 @@ function _timeToGTS (gts, name, sub, time) {
 }
 
 /**
+ * Exports the Animation feature to a GTS object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be updated.
+ */
+function exportAnimation (device, features, gts) {
+  if (features.animation.motion) {
+    makeObjPath(gts, 'Unknown11.Unknown11_1')
+    // TODO: motion animation
+  }
+
+  if (features.animation.static && device.animation.static.images.length) {
+    makeObjPath(gts, 'Unknown11.Unknown11_2')
+    gts.Unknown11.Unknown11_2 = {
+      Unknown11d2p1: {
+        ImageIndex: gts.images.length,
+        ImagesCount: device.animation.static.images.length,
+        X: device.animation.static.x,
+        Y: device.animation.static.y
+      },
+      Unknown11d2p2: device.animation.static.speed,
+      Unknown11d2p3: 0,
+      Unknown11d2p4: device.animation.static.time,
+      Unknown11d2p5: device.animation.static.pause
+    }
+    gts.images = gts.images.concat(device.animation.static.images)
+  }
+}
+
+/**
  * Exports the Background feature to a GTS object.
  * @param {object} device Store based device with all available options.
  * @param {object} features Features enabled for this device.
@@ -322,6 +352,7 @@ export default function (device, features) {
     images: []
   }
 
+  exportAnimation(device, features, gts)
   exportBackground(device, features, gts)
   exportDate(device, features, gts)
   exportShortCuts(device, features, gts)

@@ -1,0 +1,8 @@
+.editor-animation-static {
+  max-width: 512px;
+  width: 100%;
+}
+
+.editor-animation-static-hidden {
+  display: none;
+}

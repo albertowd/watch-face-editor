@@ -2,11 +2,11 @@
 <style scoped src="./screen.css"></style>
 <template>
   <div class="device-screen" :style="size">
-    <background />
-    <status name="alarm" />
-    <status name="bluetooth" />
-    <status name="dnd" />
-    <status name="lock" />
+    <screenBackground />
+    <screenStatus name="alarm" />
+    <screenStatus name="bluetooth" />
+    <screenStatus name="dnd" />
+    <screenStatus name="lock" />
     <screenTime :initial="Math.floor(new Date().getHours() / 10)" :max="2" name="hours" sub="tens" />
     <screenTime :initial="new Date().getHours() % 10" name="hours" sub="ones" />
     <screenTimeDelimiter />
@@ -21,9 +21,10 @@
     <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
     <screenDateYearOneLine />
-    <shortcut name="energy" />
-    <shortcut name="pulse" />
-    <shortcut name="state" />
-    <shortcut name="weather" />
+    <screenShortcut name="energy" />
+    <screenShortcut name="pulse" />
+    <screenShortcut name="state" />
+    <screenShortcut name="weather" />
+    <screenAnimationStatic />
   </div>
 </template>

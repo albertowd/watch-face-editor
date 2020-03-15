@@ -19,8 +19,14 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tTitle () {
       return this.$t('date.monthAndDay.separate.monthName.title')
+    },
+    tTitleDescription () {
+      return this.$t('date.monthAndDay.separate.monthName.titleDescription')
     },
     x: {
       get () { return this.$store.state.date.monthAndDay.separate.monthName.x },

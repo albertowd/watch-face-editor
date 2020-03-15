@@ -1,6 +1,10 @@
 export const state = () => ({
   alias: '',
   features: {
+    animation: {
+      motion: false,
+      static: false
+    },
     background: false,
     date: {
       monthAndDay: {

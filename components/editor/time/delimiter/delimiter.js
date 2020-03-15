@@ -18,8 +18,14 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tTitle () {
       return this.$t('app.delimiter')
+    },
+    tTitleDescription () {
+      return this.$t('app.delimiterDescription')
     },
     x: {
       get () { return this.$store.state.time.delimiter.x },

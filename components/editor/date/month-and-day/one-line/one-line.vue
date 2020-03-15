@@ -6,7 +6,12 @@
       <v-layout>
         <v-btn text @click="expanded = !expanded">
           <v-icon>{{ expanded ? 'mdi-chevron-down' : 'mdi-chevron-right' }}</v-icon>
-          <h2>{{ tTitle }}</h2>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <h2 v-on="on">{{ tTitle }}</h2>
+            </template>
+            <span>{{ tTitleDescription }}</span>
+          </v-tooltip>
         </v-btn>
         <v-spacer />
         <v-btn class="ml-5" @click="numberFilePick">
@@ -55,7 +60,12 @@
           :min="-50"
           :max="50"
         />
-        <h3>{{ tDimension }}</h3>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <h3 v-on="on">{{ tDimensions }}</h3>
+          </template>
+          <span>{{ tDimensionsDescription }}</span>
+        </v-tooltip>
         <v-slider
           v-model="bottom"
           step="1"

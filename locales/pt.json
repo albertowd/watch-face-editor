@@ -3,34 +3,67 @@
     "title": "Atividade"
   },
   "animation": {
+    "motion": {
+      "title": "Dinâmica",
+      "titleDescription": "Animação com movimento em tela. Clique na imagem da animação para habilitá-la em tela."
+    },
+    "pause": "Pausa",
+    "pauseDescription": "Pausa entre o tempo da animação em millisegundos.",
+    "speed": "Velocidade",
+    "speedDescription": "Duração de cada imagem da animação em millisegundos.",
+    "static": {
+      "title": "Estática",
+      "titleDescription": "Animação estática. Clique na imagem da animação para habilitá-la em tela."
+    },
+    "time": "Tempo",
+    "timeDescription": "Tempo de duração da animação até a próxima pausa em millisegundos.",
     "title": "Animação"
   },
   "app": {
     "alignment": "Alinhamento",
+    "alignmentDescription": "Alinhamento da caixa de um componente/imagem em tela.",
     "bottom": "Baixo",
     "by": "por",
     "center": "Centro",
     "delimiter": "Delimitador",
+    "delimiterDescription": "Image do delimitador.",
     "dimensions": "Dimensões",
+    "dimensionsDescription": "Dimensões da caixa de um componente/imagem com as coordenadas dos cantos de cima da esquerda e de baixo da direita em pixels [[x,y],[x,y]].",
     "devices": "Dispositivos",
     "errors": {
       "notFound": "Não encontrado",
       "unknown": "Erro desconhecido"
     },
     "height": "Altura",
+    "heightDescription": "Altura de um componente/imagem em pixels.",
     "languages": "Linguagens",
     "left": "Esquerda",
-    "ones": "1",
+    "milliseconds": "Millisegundos",
+    "ones": "Unidades",
+    "onesDescription": "Imagens dos números das unidades.",
     "position": "Posição",
+    "positionDescription": "Coordenadas da posição de um componente/imagem em pixels [x,y].",
     "right": "Direita",
     "size": "Tamanho",
+    "sizeDescription": "Tamanho de um componente/imagem em pixels [altura, largura].",
     "spacing": "Espaçamento",
-    "tens": "10",
+    "spacingDescription": "Espaçamento de componentes/imagens em pixels.",
+    "tens": "Dezenas",
+    "tensDescription": "Imagens dos números das dezenas.",
     "title": "Editor de Faces",
     "top": "Cima",
-    "width": "Largura"
+    "width": "Largura",
+    "widthDescription": "Largura de um componente/imagem em pixels."
   },
   "background": {
+    "background": {
+      "title": "Imagem de fundo",
+      "titleDescription": "Imagem de fundo."
+    },
+    "preview": {
+      "title": "Visualização",
+      "titleDescription": "Visualização do relógio na tela de seleção."
+    },
     "title": "Imagem de Fundo"
   },
   "battery": {
@@ -44,20 +77,24 @@
       "oneLine": {
         "delimiter": "/",
         "error": "Requer 10 imagens (0-9).",
-        "title": "MM/DD"
+        "title": "MM/DD",
+        "titleDescription": "Imagens dos números do mês e dia em linha."
       },
       "separate": {
         "day": {
           "error": "Requer 10 imagens (0-9).",
-          "title": "Dia"
+          "title": "Dia",
+          "titleDescription": "Imagens do número do dia."
         },
         "month": {
           "error": "Requer 10 imagens (0-9).",
-          "title": "Mês"
+          "title": "Mês",
+          "titleDescription": "Imagens do número do mês."
         },
         "monthName": {
           "error": "Requer 12 imagens (Jan-Dez).",
-          "title": "Nome do Mês"
+          "title": "Nome do Mês",
+          "titleDescription": "Imagens do nome do mês."
         }
       },
       "twoDigitsDay": "Dia de Dois Dígitos",
@@ -66,7 +103,8 @@
     "title": "Data",
     "weekDay": {
       "error": "Requer 7 imagens (Seg-Dom).",
-      "title": "Dia da Semana"
+      "title": "Dia da Semana",
+      "titleDescription": "Imagens do dia da semana."
     },
     "weekDayProgress": {
       "error": "Requer 7 imagens (Seg-Dom).",
@@ -74,8 +112,9 @@
     },
     "year": {
       "oneLine": {
-        "error": "Requer 7 imagens (Seg-Dom).",
-        "title": "Ano"
+        "error": "Requer 10 imagens (0-9).",
+        "title": "Ano",
+        "titleDescription": "Imagens do ano em linhe."
       }
     }
   },
@@ -87,31 +126,44 @@
     "title": "Relógio"
   },
   "json": {
-    "title": "JSON"
+    "title": "JSON",
+    "titleDescription": "Visualizador de JSON para mostrar o arquivo final que será exportado."
   },
   "shortcuts": {
     "energy": "Economia de Energia",
+    "energyDescription": "Atalho que vai para a tela de economia de energia.",
     "pulse": "Pulso",
+    "pulseDescription": "Atalho que vai para a tela de pulsos.",
     "state": "Estado",
+    "stateDescription": "Atalho que vai para a tela de estado.",
     "title": "Atalhos",
-    "weather": "Tempo"
+    "weather": "Tempo",
+    "weatherDescription": "Atalho que vai para a tela de previsão do tempo."
   },
   "status": {
     "alarm": "Alarme",
+    "alarmDescription": "Ícone que indica se o alarm está desativo/ativo.",
     "bluetooth": "Bluetooth",
+    "bluetoothDescription": "Ícone que indica se o bluetooh está desconectado/conectado.",
     "dnd": "Silencioso",
+    "dndDescription": "Ícone que indica se o modo silencioso está desativo/ativo.",
     "lock": "Bloqueio",
+    "lockDescription": "Ícone que indica se o bloqueio de tela está desativo/ativo.",
     "title": "Ícones"
   },
   "time": {
     "ampm": "Manhã/Tarde",
+    "ampmDescription": "Ícones de manhã/tarde para mostrar, se necessário.",
     "errors" : {
       "ampm": "Requer 1 ou 2 imagens (chinês e global)",
       "numbers": "Requer 10 imagens (0-9)."
     },
     "hours": "Horas",
+    "hoursDescription": "Imagens dos números de horas.",
     "minutes": "Minutos",
+    "minutesDescription": "Imagens dos números de minutos.",
     "seconds": "Segundos",
+    "secondsDescription": "Imagens dos números de segundos.",
     "title": "Hora"
   },
   "weather": {

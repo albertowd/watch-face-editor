@@ -1,6 +1,10 @@
 {
   "alias": "gts",
   "features": {
+    "animation": {
+      "motion": false,
+      "static": true
+    },
     "background": true,
     "date": {
       "monthAndDay": {

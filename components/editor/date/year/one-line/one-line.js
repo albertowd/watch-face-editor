@@ -81,8 +81,11 @@ export default {
     tBottom () {
       return this.$t('app.bottom')
     },
-    tDimension () {
+    tDimensions () {
       return this.$t('app.dimensions')
+    },
+    tDimensionsDescription () {
+      return this.$t('app.dimensionsDescription')
     },
     tLeft () {
       return this.$t('app.left')
@@ -95,6 +98,9 @@ export default {
     },
     tTitle () {
       return this.$t('date.year.oneLine.title')
+    },
+    tTitleDescription () {
+      return this.$t('date.year.oneLine.titleDescription')
     },
     tTop () {
       return this.$t('app.top')

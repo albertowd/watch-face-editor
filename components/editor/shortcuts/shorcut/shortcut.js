@@ -31,11 +31,20 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tSize () {
       return this.$t('app.size')
     },
+    tSizeDescription () {
+      return this.$t('app.sizeDescription')
+    },
     tTitle () {
       return this.$t(`shortcuts.${this.name}`)
+    },
+    tTitleDescription () {
+      return this.$t(`shortcuts.${this.name}Description`)
     },
     tWidth () {
       return this.$t('app.width')

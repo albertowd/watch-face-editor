@@ -8,6 +8,9 @@ export default {
   computed: {
     tTitle () {
       return this.$t('json.title')
+    },
+    tTitleDescription () {
+      return this.$t('json.titleDescription')
     }
   },
   methods: {

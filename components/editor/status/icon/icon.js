@@ -36,8 +36,14 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tTitle () {
       return this.$t(`status.${this.name}`)
+    },
+    tTitleDescription () {
+      return this.$t(`status.${this.name}Description`)
     },
     x: {
       get () { return this.$store.state.status[this.name].x },

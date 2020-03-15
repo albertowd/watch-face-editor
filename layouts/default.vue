@@ -30,7 +30,7 @@ export default {
           to: '/activity'
         },
         {
-          disabled: !this.$store.state.device.features.animation,
+          disabled: !(this.$store.state.device.features.animation.motion || this.$store.state.device.features.animation.static),
           icon: 'mdi-play-box',
           title: this.$t('animation.title'),
           to: '/animation'

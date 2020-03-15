@@ -1,4 +1,5 @@
-import background from './background/background.vue'
+import screenAnimationStatic from './animation/static/static.vue'
+import screenBackground from './background/background.vue'
 import screenDateMonthAndDaySeparateMonthName from './date/month-and-day/separate/month-name/month-name.vue'
 import screenDateMonthAndDaySeparateNumber from './date/month-and-day/separate/number/number.vue'
 import screenDateMonthAndDayOneLine from './date/month-and-day/one-line/one-line.vue'
@@ -8,12 +9,13 @@ import screenDateYearOneLine from './date/year/one-line/one-line.vue'
 import screenTime from './time/time.vue'
 import screenTimeAMPM from './time/ampm/ampm.vue'
 import screenTimeDelimiter from './time/delimiter/delimiter.vue'
-import shortcut from './shortcut/shortcut.vue'
-import status from './status/status.vue'
+import screenShortcut from './shortcut/shortcut.vue'
+import screenStatus from './status/status.vue'
 
 export default {
   components: {
-    background,
+    screenAnimationStatic,
+    screenBackground,
     screenDateMonthAndDayOneLine,
     screenDateMonthAndDaySeparateMonthName,
     screenDateMonthAndDaySeparateNumber,
@@ -22,8 +24,8 @@ export default {
     screenTime,
     screenTimeAMPM,
     screenTimeDelimiter,
-    shortcut,
-    status
+    screenShortcut,
+    screenStatus
   },
   computed: {
     model () {

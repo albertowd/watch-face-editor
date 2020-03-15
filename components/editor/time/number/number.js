@@ -46,14 +46,26 @@ export default {
     tOnes () {
       return this.$t('app.ones')
     },
+    tOnesDescription () {
+      return this.$t('app.onesDescription')
+    },
     tPosition () {
       return this.$t('app.position')
+    },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
     },
     tTens () {
       return this.$t('app.tens')
     },
+    tTensDescription () {
+      return this.$t('app.tensDescription')
+    },
     tTitle () {
       return this.$t(`time.${this.name}`)
+    },
+    tTitleDescription () {
+      return this.$t(`time.${this.name}Description`)
     }
   },
   methods: {

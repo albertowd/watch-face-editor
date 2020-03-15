@@ -90,8 +90,11 @@ export default {
     tDelimiter () {
       return this.$t('date.monthAndDay.oneLine.delimiter')
     },
-    tDimension () {
+    tDimensions () {
       return this.$t('app.dimensions')
+    },
+    tDimensionsDescription () {
+      return this.$t('app.dimensionsDescription')
     },
     tLeft () {
       return this.$t('app.left')
@@ -104,6 +107,9 @@ export default {
     },
     tTitle () {
       return this.$t('date.monthAndDay.oneLine.title')
+    },
+    tTitleDescription () {
+      return this.$t('date.monthAndDay.oneLine.titleDescription')
     },
     tTop () {
       return this.$t('app.top')

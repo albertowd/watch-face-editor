@@ -18,8 +18,14 @@ export default {
     tPosition () {
       return this.$t('app.position')
     },
+    tPositionDescription () {
+      return this.$t('app.positionDescription')
+    },
     tTitle () {
-      return this.$t('background.title')
+      return this.$t('background.background.title')
+    },
+    tTitleDescription () {
+      return this.$t('background.background.titleDescription')
     },
     x: {
       get () { return this.$store.state.background.x },
