@@ -1,6 +1,9 @@
 const colors = require('vuetify/es5/util/colors').default
 
 module.exports = {
+  env: {
+    app_version: require('./package.json').version
+  },
   mode: 'spa',
   /*
   ** Headers of the page

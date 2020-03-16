@@ -8,7 +8,8 @@ export default {
   data () {
     return {
       drawer: false,
-      modelIndex: 0
+      modelIndex: 0,
+      version: process.env.app_version
     }
   },
   computed: {
@@ -61,7 +62,7 @@ export default {
         },
         {
           disabled: false,
-          icon: 'mdi-json',
+          icon: 'mdi-format-text',
           title: this.$t('json.title'),
           to: '/json'
         },
@@ -169,7 +170,7 @@ export default {
       </v-layout>
     </v-content>
     <v-footer app :fixed="true">
-      <v-btn class="purple" href="https://github.com/albertowd/watch-face-editor" target="_blank"><v-icon>mdi-github-circle</v-icon></v-btn>
+      <v-btn class="purple" href="https://github.com/albertowd/watch-face-editor" target="_blank" text><v-icon left>mdi-git</v-icon> v{{ version }}</v-btn>
       <v-spacer />{{ by }} Alberto Wollmann Dietrich
     </v-footer>
   </v-app>

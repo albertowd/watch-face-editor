@@ -16,6 +16,41 @@ export default {
       get () { return this.$store.state.date.monthAndDay.separate[this.name].alignment },
       set (alignment) { this.changeNumber({ alignment }) }
     },
+    alignmentIcon () {
+      switch (this.$store.state.date.year.oneLine.number.alignment) {
+        case 'BottomCenter':
+          return 'mdi-pan-down'
+        case 'BottomLeft':
+          return 'mdi-pan-bottom-left'
+        case 'BottomRight':
+          return 'mdi-pan-bottom-right'
+        case 'Center':
+          return 'mdi-pan'
+        case 'Left':
+          return 'mdi-pan-left'
+        case 'Right':
+          return 'mdi-pan-right'
+        case 'TopCenter':
+          return 'mdi-pan-up'
+        case 'TopLeft':
+          return 'mdi-pan-top-left'
+        case 'TopRight':
+          return 'mdi-pan-top-right'
+      }
+    },
+    alignmentItems () {
+      return [
+        { text: `${this.$t('app.bottom')}${this.$t('app.center')}`, value: 'BottomCenter' },
+        { text: `${this.$t('app.bottom')}${this.$t('app.left')}`, value: 'BottomLeft' },
+        { text: `${this.$t('app.bottom')}${this.$t('app.right')}`, value: 'BottomRight' },
+        { text: `${this.$t('app.center')}`, value: 'Center' },
+        { text: `${this.$t('app.left')}`, value: 'Left' },
+        { text: `${this.$t('app.right')}`, value: 'Right' },
+        { text: `${this.$t('app.top')}${this.$t('app.center')}`, value: 'TopCenter' },
+        { text: `${this.$t('app.top')}${this.$t('app.left')}`, value: 'TopLeft' },
+        { text: `${this.$t('app.top')}${this.$t('app.right')}`, value: 'TopRight' }
+      ]
+    },
     bottom: {
       get () { return this.$store.state.date.monthAndDay.separate[this.name].bottom },
       set (bottom) { this.changeNumber({ bottom }) }

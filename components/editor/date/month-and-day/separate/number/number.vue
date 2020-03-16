@@ -36,9 +36,10 @@
         <v-alert v-if="error" type="error">{{ error }}</v-alert>
         <v-select
           v-model="alignment"
-          :items="['Bottom Center', 'Bottom Left', 'Bottom Right', 'Center Center', 'Center Left', 'Center Right', 'Top Center', 'Top Left', 'Top Right']"
           :disabled="!images.length"
+          :items="alignmentItems"
           :label="tAlignment"
+          :prepend-icon="alignmentIcon"
         ></v-select>
         <v-slider
           v-model="spacing"
