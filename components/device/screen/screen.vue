@@ -21,10 +21,10 @@
     <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
     <screenDateYearOneLine />
+    <screenAnimationStatic />
     <screenShortcut name="energy" />
     <screenShortcut name="pulse" />
     <screenShortcut name="state" />
     <screenShortcut name="weather" />
-    <screenAnimationStatic />
   </div>
 </template>

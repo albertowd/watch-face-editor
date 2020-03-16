@@ -47,10 +47,18 @@ export const mutations = {
    * @param {object} obj New shortcut options.
    */
   import (state, obj) {
-    this.commit('shortcuts/energy', obj.energy)
-    this.commit('shortcuts/pulse', obj.pulse)
-    this.commit('shortcuts/state', obj.state)
-    this.commit('shortcuts/weather', obj.weather)
+    if (obj.energy) {
+      this.commit('shortcuts/energy', obj.energy)
+    }
+    if (obj.pulse) {
+      this.commit('shortcuts/pulse', obj.pulse)
+    }
+    if (obj.state) {
+      this.commit('shortcuts/state', obj.state)
+    }
+    if (obj.weather) {
+      this.commit('shortcuts/weather', obj.weather)
+    }
   },
   /**
    * Updates new pulse options over the existing ones.

@@ -50,6 +50,7 @@ function _monthAndDayToGTS (gts, name, monthAndDay) {
 
     const imgIndex = gts.images.indexOf(monthAndDay.images[0])
     gts.Date.MonthAndDay.Separate[name] = {
+      Alignment: monthAndDay.alignment,
       BottomRightX: monthAndDay.right,
       BottomRightY: monthAndDay.bottom,
       ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex,
@@ -175,15 +176,24 @@ function exportAnimation (device, features, gts) {
  * @param {object} gts GTS object to be updated.
  */
 function exportBackground (device, features, gts) {
-  if (features.background && device.background.image) {
-    gts.Background = {
-      Image: {
-        ImageIndex: gts.images.length,
-        X: device.background.x,
-        Y: device.background.y
-      }
+  if (features.background.image && device.background.image.image) {
+    makeObjPath(gts, 'Background.Image')
+    gts.Background.Image = {
+      ImageIndex: gts.images.length,
+      X: device.background.image.x,
+      Y: device.background.image.y
     }
-    gts.images.push(device.background.image)
+    gts.images.push(device.background.image.image)
+  }
+
+  if (features.background.preview && device.background.preview.image) {
+    makeObjPath(gts, 'Background.Preview')
+    gts.Background.Preview = {
+      ImageIndex: gts.images.length,
+      X: device.background.preview.x,
+      Y: device.background.preview.y
+    }
+    gts.images.push(device.background.preview.image)
   }
 }
 

@@ -65,10 +65,18 @@ export const mutations = {
    * @param {object} obj New status options.
    */
   import (state, obj) {
-    this.commit('status/alarm', obj.alarm)
-    this.commit('status/bluetooth', obj.bluetooth)
-    this.commit('status/dnd', obj.dnd)
-    this.commit('status/lock', obj.lock)
+    if (obj.alarm) {
+      this.commit('status/alarm', obj.alarm)
+    }
+    if (obj.bluetooth) {
+      this.commit('status/bluetooth', obj.bluetooth)
+    }
+    if (obj.dnd) {
+      this.commit('status/dnd', obj.dnd)
+    }
+    if (obj.lock) {
+      this.commit('status/lock', obj.lock)
+    }
   },
   /**
    * Updates new lock options over the existing ones.

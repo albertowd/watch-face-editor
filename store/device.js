@@ -5,7 +5,10 @@ export const state = () => ({
       motion: false,
       static: false
     },
-    background: false,
+    background: {
+      image: false,
+      preview: false
+    },
     date: {
       monthAndDay: {
         oneLine: true,

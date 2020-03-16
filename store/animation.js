@@ -11,12 +11,25 @@ export const state = () => ({
 
 export const mutations = {
   /**
+   * Imports dynamic animation options over the existing ones.
+   * @param {object} state Actual state to update.
+   * @param {object} obj New dynamic animation options.
+   */
+  dynamic (state, obj) {
+    // TODO: dynamic animation
+  },
+  /**
    * Imports animation options over the existing ones.
    * @param {object} state Actual state to update.
    * @param {object} obj New animation options.
    */
   import (state, obj) {
-    this.commit('animation/static', obj.static)
+    if (obj.dynamic) {
+      this.commit('animation/dynamic', obj.dynamic)
+    }
+    if (obj.static) {
+      this.commit('animation/static', obj.static)
+    }
   },
   /**
    * Imports static animation options over the existing ones.

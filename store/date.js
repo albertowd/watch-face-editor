@@ -79,10 +79,18 @@ export const mutations = {
    * @param {object} obj New date options.
    */
   import (state, obj) {
-    this.commit('date/monthAndDay', obj.monthAndDay)
-    this.commit('date/weekDay', obj.weekDay)
-    this.commit('date/weekDayProgress', obj.weekDayProgress)
-    this.commit('date/year', obj.year.oneLine)
+    if (obj.monthAndDay) {
+      this.commit('date/monthAndDay', obj.monthAndDay)
+    }
+    if (obj.weeDay) {
+      this.commit('date/weekDay', obj.weekDay)
+    }
+    if (obj.weekDayProgress) {
+      this.commit('date/weekDayProgress', obj.weekDayProgress)
+    }
+    if (obj.year) {
+      this.commit('date/year', obj.year.oneLine)
+    }
   },
   /**
    * Updates new month and day options over the existing ones.

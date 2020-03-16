@@ -83,7 +83,7 @@ export default {
       })
     },
     pickImages () {
-      if (this.images.lenght) {
+      if (this.images.length) {
         this.images = []
       } else {
         this.$refs.imagesInput.click()

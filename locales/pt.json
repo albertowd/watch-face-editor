@@ -56,7 +56,7 @@
     "widthDescription": "Largura de um componente/imagem em pixels."
   },
   "background": {
-    "background": {
+    "image": {
       "title": "Imagem de fundo",
       "titleDescription": "Imagem de fundo."
     },

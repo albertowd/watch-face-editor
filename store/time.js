@@ -99,14 +99,24 @@ export const mutations = {
    * @param {object} obj New time options.
    */
   import (state, obj) {
-    this.commit('time/ampm', obj.ampm)
-    this.commit('time/delimiter', obj.delimiter)
-    this.commit('time/hoursOnes', obj.hours.ones)
-    this.commit('time/hoursTens', obj.hours.tens)
-    this.commit('time/minutesOnes', obj.minutes.ones)
-    this.commit('time/minutesTens', obj.minutes.tens)
-    this.commit('time/secondsOnes', obj.seconds.ones)
-    this.commit('time/secondsTens', obj.seconds.tens)
+    if (obj.ampm) {
+      this.commit('time/ampm', obj.ampm)
+    }
+    if (obj.delimiter) {
+      this.commit('time/delimiter', obj.delimiter)
+    }
+    if (obj.hours) {
+      this.commit('time/hoursOnes', obj.hours.ones)
+      this.commit('time/hoursTens', obj.hours.tens)
+    }
+    if (obj.minutes) {
+      this.commit('time/minutesOnes', obj.minutes.ones)
+      this.commit('time/minutesTens', obj.minutes.tens)
+    }
+    if (Object.seconds) {
+      this.commit('time/secondsOnes', obj.seconds.ones)
+      this.commit('time/secondsTens', obj.seconds.tens)
+    }
   },
   /**
    * Updates new minutes ones options over the existing ones.

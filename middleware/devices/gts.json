@@ -5,7 +5,10 @@
       "motion": false,
       "static": true
     },
-    "background": true,
+    "background": {
+      "image": true,
+      "preview": true
+    },
     "date": {
       "monthAndDay": {
         "oneLine": true,

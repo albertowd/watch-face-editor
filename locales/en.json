@@ -56,8 +56,8 @@
     "widthDescription": "Component/Image width in pixels."
   },
   "background": {
-    "background": {
-      "title": "Background",
+    "image": {
+      "title": "Image",
       "titleDescription": "Background image."
     },
     "preview": {
