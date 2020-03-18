@@ -5,14 +5,16 @@ export default {
     }
   },
   computed: {
+    coords () {
+      return this.$store.state.date.weekDayProgress.coords
+    },
     images () {
-      return this.$store.state.date.weekDay.images
+      return this.$store.state.date.weekDayProgress.images
     },
     position () {
-      const weekDay = this.$store.state.date.weekDay
       return {
-        left: `${weekDay.x}px`,
-        top: `${weekDay.y}px`
+        left: `${this.coords[this.index][0]}px`,
+        top: `${this.coords[this.index][1]}px`
       }
     }
   },

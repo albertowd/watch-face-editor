@@ -2,10 +2,15 @@ export default {
   data () {
     return {
       error: '',
-      expanded: false
+      expanded: false,
+      tab: 0
     }
   },
   computed: {
+    coords: {
+      get () { return this.$store.state.date.weekDayProgress.coords },
+      set (coords) { this.$store.commit('date/weekDayProgress', coords) }
+    },
     dimensions () {
       return {
         height: this.$store.state.device.size.height,
@@ -13,8 +18,8 @@ export default {
       }
     },
     images: {
-      get () { return this.$store.state.date.weekDay.images },
-      set (images) { this.$store.commit('date/weekDay', { images }) }
+      get () { return this.$store.state.date.weekDayProgress.images },
+      set (images) { this.$store.commit('date/weekDayProgress', { images }) }
     },
     tPosition () {
       return this.$t('app.position')
@@ -23,21 +28,42 @@ export default {
       return this.$t('app.positionDescription')
     },
     tTitle () {
-      return this.$t('date.weekDay.title')
+      return this.$t('date.weekDayProgress.title')
     },
     tTitleDescription () {
-      return this.$t('date.weekDay.titleDescription')
+      return this.$t('date.weekDayProgress.titleDescription')
+    },
+    tWeekDay () {
+      return {
+        mon: this.$t('app.weekDay.mon'),
+        fri: this.$t('app.weekDay.fri'),
+        sat: this.$t('app.weekDay.sat'),
+        sun: this.$t('app.weekDay.sun'),
+        thu: this.$t('app.weekDay.thu'),
+        tue: this.$t('app.weekDay.tue'),
+        wed: this.$t('app.weekDay.wed')
+      }
     },
     x: {
-      get () { return this.$store.state.date.weekDay.x },
-      set (x) { this.$store.commit('date/weekDay', { x }) }
+      get () { return this.coords[this.tab][0] },
+      set (x) { this.changeX(x) }
     },
     y: {
-      get () { return this.$store.state.date.weekDay.y },
-      set (y) { this.$store.commit('date/weekDay', { y }) }
+      get () { return this.coords[this.tab][1] },
+      set (y) { this.changeY(y) }
     }
   },
   methods: {
+    changeX (x) {
+      const coords = this.coords
+      coords[this.tab][0] = x
+      this.coords = coords
+    },
+    changeY (y) {
+      const coords = this.coords
+      coords[this.tab][1] = y
+      this.coords = coords
+    },
     imagePromise (file) {
       return new Promise((resolve) => {
         const fileReader = new FileReader()
@@ -71,7 +97,7 @@ export default {
             this.images = images
           })
         } else {
-          this.error = this.$t('date.weekDay.error')
+          this.error = this.$t('date.weekDayProgress.error')
         }
       }
     }

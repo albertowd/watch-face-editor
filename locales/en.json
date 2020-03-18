@@ -52,6 +52,15 @@
     "tensDescription": "Higher number images.",
     "title": "Watch Face Editor",
     "top": "Top",
+    "weekDay": {
+      "fri": "FRI",
+      "mon": "MON",
+      "sat": "SAT",
+      "sun": "SUN",
+      "thu": "THU",
+      "tue": "TUE",
+      "wed": "WED"
+    },
     "width": "Width",
     "widthDescription": "Component/Image width in pixels."
   },
@@ -107,8 +116,9 @@
       "titleDescription": "Week day images."
     },
     "weekDayProgress": {
-      "error": "Required 7 images (Mon-Sun).",
-      "title": "Week Day Progress"
+      "error": "Required 7 images (0-7).",
+      "title": "Week Day Progress",
+      "titleDescription": "Week day progress images."
     },
     "year": {
       "oneLine": {

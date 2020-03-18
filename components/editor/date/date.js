@@ -3,6 +3,7 @@ import monthAndDayOneLineEditor from './month-and-day/one-line/one-line.vue'
 import monthAndDaySeparateMonthNameEditor from './month-and-day/separate/month-name/month-name.vue'
 import monthAndDaySeparateNumberEditor from './month-and-day/separate/number/number.vue'
 import weekDayEditor from './week-day/week-day.vue'
+import weekDayProgressEditor from './week-day-progress/week-day-progress.vue'
 import yearOneLineEditor from './year/one-line/one-line.vue'
 
 export default {
@@ -12,6 +13,7 @@ export default {
     monthAndDaySeparateMonthNameEditor,
     monthAndDaySeparateNumberEditor,
     weekDayEditor,
+    weekDayProgressEditor,
     yearOneLineEditor
   },
   computed: {

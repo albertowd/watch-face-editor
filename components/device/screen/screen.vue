@@ -20,6 +20,7 @@
     <screenDateMonthAndDaySeparateNumber name="day" />
     <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
+    <screenDateWeekDayProgress />
     <screenDateYearOneLine />
     <screenAnimationStatic />
     <screenShortcut name="energy" />

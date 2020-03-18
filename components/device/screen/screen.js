@@ -4,7 +4,7 @@ import screenDateMonthAndDaySeparateMonthName from './date/month-and-day/separat
 import screenDateMonthAndDaySeparateNumber from './date/month-and-day/separate/number/number.vue'
 import screenDateMonthAndDayOneLine from './date/month-and-day/one-line/one-line.vue'
 import screenDateWeekDay from './date/week-day/week-day.vue'
-// import screenDateWeekDayProgress from './date/week-day-progress/week-day-progress.vue'
+import screenDateWeekDayProgress from './date/week-day-progress/week-day-progress.vue'
 import screenDateYearOneLine from './date/year/one-line/one-line.vue'
 import screenTime from './time/time.vue'
 import screenTimeAMPM from './time/ampm/ampm.vue'
@@ -20,6 +20,7 @@ export default {
     screenDateMonthAndDaySeparateMonthName,
     screenDateMonthAndDaySeparateNumber,
     screenDateWeekDay,
+    screenDateWeekDayProgress,
     screenDateYearOneLine,
     screenTime,
     screenTimeAMPM,

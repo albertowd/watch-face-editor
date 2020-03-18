@@ -245,7 +245,17 @@ function exportDate (device, features, gts) {
   }
 
   if (features.date.weekDayProgress) {
-    // TODO: WeekDayProgress
+    makeObjPath(gts, 'Date.WeekDayProgress')
+
+    const imgIndex = gts.images.indexOf(device.date.weekDayProgress.images[0])
+    gts.Date.WeekDayProgress = {
+      Coordinates: device.date.weekDayProgress.coords,
+      ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex
+    }
+
+    if (imgIndex < 0) {
+      gts.images = gts.images.concat(device.date.weekDayProgress.images)
+    }
   }
 
   if (features.date.year) {

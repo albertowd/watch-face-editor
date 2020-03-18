@@ -4,8 +4,8 @@
   <img
     v-if="images.length"
     class="device-screen-date-week-day"
-    :src="images[weekDayIndex]"
-    :style="weekDayPosition"
-    @click="circleWeekDay"
+    :src="images[index]"
+    :style="position"
+    @click="circle"
   />
 </template>

@@ -15,6 +15,8 @@
     <br />
     <weekDayEditor v-if="hasWeekDay" />
     <br />
+    <weekDayProgressEditor v-if="hasWeekDayProgress" />
+    <br />
     <yearOneLineEditor v-if="hasYearOneLine" />
     <br />
   </v-layout>

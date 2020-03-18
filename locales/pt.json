@@ -52,6 +52,15 @@
     "tensDescription": "Imagens dos números das dezenas.",
     "title": "Editor de Faces",
     "top": "Cima",
+    "weekDay": {
+      "fri": "SEX",
+      "mon": "SEG",
+      "sat": "SÁB",
+      "sun": "DOM",
+      "thu": "QUI",
+      "tue": "TER",
+      "wed": "QUA"
+    },
     "width": "Largura",
     "widthDescription": "Largura de um componente/imagem em pixels."
   },
@@ -107,8 +116,9 @@
       "titleDescription": "Imagens do dia da semana."
     },
     "weekDayProgress": {
-      "error": "Requer 7 imagens (Seg-Dom).",
-      "title": "Progresso do Dia da Semana"
+      "error": "Requer 7 imagens (0-7).",
+      "title": "Progresso do Dia da Semana",
+      "titleDescription": "Imagens do progresso do dia da semana."
     },
     "year": {
       "oneLine": {
