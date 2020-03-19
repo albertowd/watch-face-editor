@@ -3,6 +3,8 @@
 <template>
   <v-layout class="editor-battery" column>
     <br />
+    <imagesEditor v-if="hasImages" />
+    <br />
     <percentEditor v-if="hasPercent" />
     <br />
     <textEditor v-if="hasText" />

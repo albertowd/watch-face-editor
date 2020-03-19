@@ -1,5 +1,6 @@
 import screenAnimationStatic from './animation/static/static.vue'
 import screenBackground from './background/background.vue'
+import screenBatteryImages from './battery/images/images.vue'
 import screenBatteryPercent from './battery/percent/percent.vue'
 import screenBatteryText from './battery/text/text.vue'
 import screenBatteryTextBorder from './battery/text-border/text-border.vue'
@@ -22,6 +23,7 @@ export default {
   components: {
     screenAnimationStatic,
     screenBackground,
+    screenBatteryImages,
     screenBatteryTextBorder,
     screenBatteryText,
     screenBatteryPercent,

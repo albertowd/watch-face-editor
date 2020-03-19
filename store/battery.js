@@ -55,7 +55,7 @@ export const mutations = {
    */
   images (state, obj) {
     for (const prop in obj) {
-      state.iamges[prop] = obj[prop]
+      state.images[prop] = obj[prop]
     }
     this.commit('json/changed', true)
   },

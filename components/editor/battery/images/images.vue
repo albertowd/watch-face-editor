@@ -1,5 +1,5 @@
-<script src="./percent.js" />
-<style scoped src="./percent.css"></style>
+<script src="./images.js" />
+<style scoped src="./images.css"></style>
 <template>
   <v-card outlined>
     <v-card-title>
@@ -14,20 +14,26 @@
           </v-tooltip>
         </v-btn>
         <v-spacer />
-        <v-btn @click="pickImage">
-          <h2 :class="image ? 'primary--text' : 'normal--text'">%</h2>
+        <v-btn @click="imagesFilePick">
+          <v-icon
+            :color="images.length ? 'primary' : 'normal'"
+          >
+            {{ images.length ? 'mdi-image-off' : 'mdi-image-multiple' }}
+          </v-icon>
         </v-btn>
         <input
-          ref="imageInput"
+          ref="imagesInput"
           accept=".png"
-          class="editor-battery-percent-hidden"
+          class="editor-battery-images-hidden"
+          multiple
           type="file"
-          @change="uploadImage"
+          @change="imagesFilePicked"
         />
       </v-layout>
     </v-card-title>
     <v-expand-transition>
       <v-card-text v-show="expanded">
+        <v-alert v-if="error" type="error">{{ error }}</v-alert>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
             <h3 v-on="on">{{ tPosition }}</h3>
@@ -39,7 +45,7 @@
           label="X:"
           step="1"
           thumb-label
-          :disabled="!image"
+          :disabled="!images.length"
           :min="0"
           :max="dimensions.width"
         />
@@ -48,7 +54,7 @@
           label="Y:"
           step="1"
           thumb-label
-          :disabled="!image"
+          :disabled="!images.length"
           :min="0"
           :max="dimensions.height"
         />

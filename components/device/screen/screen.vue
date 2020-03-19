@@ -3,6 +3,7 @@
 <template>
   <div class="device-screen" :style="size">
     <screenBackground />
+    <screenBatteryImages />
     <screenBatteryTextBorder />
     <screenBatteryText />
     <screenBatteryPercent />

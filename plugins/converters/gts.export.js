@@ -204,18 +204,34 @@ function exportBackground (device, features, gts) {
  * @param {object} gts GTS object to be updated.
  */
 function exportBattery (device, features, gts) {
-  if (features.battery.percent && device.battery.percent.images) {
+  if (features.battery.images && device.battery.images.images.length) {
+    makeObjPath(gts, 'Battery.Images')
+
+    const imgIndex = gts.images.indexOf(device.battery.images.images[0])
+    gts.Battery.Images = {
+      ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex,
+      ImagesCount: device.battery.images.images.length,
+      X: device.battery.images.x,
+      Y: device.battery.images.y
+    }
+
+    if (imgIndex < 0) {
+      gts.images = gts.images.concat(device.battery.images.images)
+    }
+  }
+
+  if (features.battery.percent && device.battery.percent.image) {
     makeObjPath(gts, 'Battery.Percent')
 
     const imgIndex = gts.images.indexOf(device.battery.percent.image)
     gts.Battery.Percent = {
       ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex,
-      X: device.background.preview.x,
-      Y: device.background.preview.y
+      X: device.battery.percent.x,
+      Y: device.battery.percent.y
     }
 
     if (imgIndex < 0) {
-      gts.images = gts.images.concat(device.battery.percent.image)
+      gts.images.push(device.battery.percent.image)
     }
   }
 
@@ -223,7 +239,7 @@ function exportBattery (device, features, gts) {
     makeObjPath(gts, 'Battery.Text')
 
     const imgIndex = gts.images.indexOf(device.battery.text.images[0])
-    gts.BAttery.Text = {
+    gts.Battery.Text = {
       Alignment: device.battery.text.alignment,
       BottomRightX: device.battery.text.right,
       BottomRightY: device.battery.text.bottom,
