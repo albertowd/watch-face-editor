@@ -20,7 +20,7 @@
         <input
           ref="imageOffInput"
           accept=".png"
-          class="editor-status-icon-hidden"
+          class="editor-status-hidden"
           type="file"
           @change="offFilePicked"
         />
@@ -30,7 +30,7 @@
         <input
           ref="imageOnInput"
           accept=".png"
-          class="editor-status-icon-hidden"
+          class="editor-status-hidden"
           type="file"
           @change="onFilePicked"
         />

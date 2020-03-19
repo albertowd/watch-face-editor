@@ -1,0 +1,10 @@
+.device-screen-battery-text-border {
+  left: 0;
+  position: absolute;
+  margin: 0;
+  top: 0;
+}
+
+.device-screen-battery-text-border-border {
+  border: 3px dashed gray;
+}

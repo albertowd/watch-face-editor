@@ -24,7 +24,7 @@
         <input
           ref="numberInput"
           accept=".png"
-          class="editor-date-number-icon-hidden"
+          class="editor-date-number-hidden"
           multiple
           type="file"
           @change="numberFilePicked"

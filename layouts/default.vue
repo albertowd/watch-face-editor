@@ -43,7 +43,7 @@ export default {
           to: '/background'
         },
         {
-          disabled: !this.$store.state.device.features.battery,
+          disabled: !(this.$store.state.device.features.battery.analog || this.$store.state.device.features.battery.icons || this.$store.state.device.features.battery.images || this.$store.state.device.features.battery.percentage || this.$store.state.device.features.battery.text),
           icon: 'mdi-battery-charging',
           title: this.$t('battery.title'),
           to: '/battery'
@@ -112,7 +112,7 @@ export default {
   }
 }
 </script>
-<style src="./default.css"></style>
+<style scoped src="./default.css"></style>
 <template>
   <v-app dark>
     <v-navigation-drawer v-model="drawer" clipped fixed app>

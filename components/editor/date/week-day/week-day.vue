@@ -24,7 +24,7 @@
         <input
           ref="pngInput"
           accept=".png"
-          class="editor-date-week-day-icon-hidden"
+          class="editor-date-week-day-hidden"
           multiple
           type="file"
           @change="onFilePicked"

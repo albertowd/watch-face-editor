@@ -3,6 +3,9 @@
 <template>
   <div class="device-screen" :style="size">
     <screenBackground />
+    <screenBatteryTextBorder />
+    <screenBatteryText />
+    <screenBatteryPercent />
     <screenStatus name="alarm" />
     <screenStatus name="bluetooth" />
     <screenStatus name="dnd" />
@@ -15,12 +18,16 @@
     <screenTimeAMPM />
     <screenTime :initial="Math.floor(new Date().getMinutes() / 10)" :max="5" name="seconds" sub="tens" />
     <screenTime :initial="new Date().getMinutes() % 10" name="seconds" sub="ones" />
+    <screenDateMonthAndDayOneLineBorder />
     <screenDateMonthAndDayOneLine />
     <screenDateMonthAndDaySeparateMonthName />
+    <screenDateMonthAndDaySeparateNumberBorder name="day" />
+    <screenDateMonthAndDaySeparateNumberBorder name="month" />
     <screenDateMonthAndDaySeparateNumber name="day" />
     <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
     <screenDateWeekDayProgress />
+    <screenDateYearOneLineBorder />
     <screenDateYearOneLine />
     <screenAnimationStatic />
     <screenShortcut name="energy" />

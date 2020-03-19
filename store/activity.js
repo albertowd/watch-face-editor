@@ -1,4 +1,33 @@
 export const state = () => ({
+  calories: {
+    alignment: 'Center',
+    bottom: 315,
+    images: [],
+    left: 15,
+    right: 100,
+    spacing: 0,
+    top: 275
+  },
+  pulse: {
+    alignment: 'Center',
+    bottom: 315,
+    images: [],
+    left: 15,
+    right: 100,
+    spacing: 0,
+    top: 275
+  },
+  steps: {
+    step: {
+      alignment: 'Center',
+      bottom: 315,
+      images: [],
+      left: 15,
+      right: 100,
+      spacing: 0,
+      top: 275
+    }
+  }
 })
 
 export const mutations = {

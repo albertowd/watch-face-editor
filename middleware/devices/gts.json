@@ -9,6 +9,13 @@
       "image": true,
       "preview": true
     },
+    "battery": {
+      "analog": false,
+      "icons": true,
+      "images": true,
+      "percent": true,
+      "text": true
+    },
     "date": {
       "monthAndDay": {
         "oneLine": true,

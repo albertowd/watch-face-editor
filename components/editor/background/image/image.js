@@ -48,7 +48,7 @@ export default {
     },
     pickImage () {
       if (this.image) {
-        this.changeBackground({ image: null })
+        this.image = null
       } else {
         this.$refs.imageInput.click()
       }

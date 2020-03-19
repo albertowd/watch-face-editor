@@ -3,14 +3,14 @@
 <template>
   <v-row
     v-if="images.length"
+    class="device-screen-date-year-one-line"
     :align="alignment"
-    :class="`device-screen-date-year-one-line ${$route.path === '/date' ? 'device-screen-date-year-one-line-border' : ''}`"
     :justify="justify"
     :style="position"
   >
-    <img :style="spacing" :src="milleniumImage" @click="circle" />
-    <img :style="spacing" :src="centuryImage" @click="circle" />
-    <img :style="spacing" :src="decadeImage" @click="circle" />
-    <img :style="spacing" :src="yearImage" @click="circle" />
+    <img :style="spacing" :src="milleniumImage" @click="circle(1000)" />
+    <img :style="spacing" :src="centuryImage" @click="circle(100)" />
+    <img :style="spacing" :src="decadeImage" @click="circle(10)" />
+    <img :style="spacing" :src="yearImage" @click="circle(1)" />
   </v-row>
 </template>

@@ -6,7 +6,7 @@ export const state = () => ({
         bottom: 245,
         images: [],
         left: 15,
-        right: 100,
+        right: 115,
         spacing: 0,
         top: 205
       },
@@ -18,7 +18,7 @@ export const state = () => ({
         bottom: 245,
         images: [],
         left: 70,
-        right: 100,
+        right: 115,
         spacing: 0,
         top: 205
       },
@@ -27,7 +27,7 @@ export const state = () => ({
         bottom: 245,
         images: [],
         left: 15,
-        right: 50,
+        right: 62,
         spacing: 0,
         top: 205
       },
@@ -64,7 +64,7 @@ export const state = () => ({
         bottom: 315,
         images: [],
         left: 15,
-        right: 100,
+        right: 115,
         spacing: 0,
         top: 275
       }

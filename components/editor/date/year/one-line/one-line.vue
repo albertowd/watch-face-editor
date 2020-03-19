@@ -24,7 +24,7 @@
         <input
           ref="yearInput"
           accept=".png"
-          class="editor-date-year-one-line-icon-hidden"
+          class="editor-date-year-one-line-hidden"
           multiple
           type="file"
           @change="yearFilePicked"

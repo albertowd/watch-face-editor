@@ -52,8 +52,8 @@ export default {
     }
   },
   methods: {
-    circle () {
-      this.year += 1
+    circle (mult) {
+      this.year = (this.year + mult) % 10000
     }
   }
 }

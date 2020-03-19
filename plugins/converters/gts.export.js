@@ -198,6 +198,49 @@ function exportBackground (device, features, gts) {
 }
 
 /**
+ * Exports the Battery feature to a GTS object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be updated.
+ */
+function exportBattery (device, features, gts) {
+  if (features.battery.percent && device.battery.percent.images) {
+    makeObjPath(gts, 'Battery.Percent')
+
+    const imgIndex = gts.images.indexOf(device.battery.percent.image)
+    gts.Battery.Percent = {
+      ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex,
+      X: device.background.preview.x,
+      Y: device.background.preview.y
+    }
+
+    if (imgIndex < 0) {
+      gts.images = gts.images.concat(device.battery.percent.image)
+    }
+  }
+
+  if (features.battery.text && device.battery.text.images.length) {
+    makeObjPath(gts, 'Battery.Text')
+
+    const imgIndex = gts.images.indexOf(device.battery.text.images[0])
+    gts.BAttery.Text = {
+      Alignment: device.battery.text.alignment,
+      BottomRightX: device.battery.text.right,
+      BottomRightY: device.battery.text.bottom,
+      ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex,
+      ImagesCount: device.battery.text.images.length,
+      Spacing: device.battery.text.spacing,
+      TopLeftX: device.battery.text.left,
+      TopLeftY: device.battery.text.top
+    }
+
+    if (imgIndex < 0) {
+      gts.images = gts.images.concat(device.battery.text.images)
+    }
+  }
+}
+
+/**
  * Exports the Date feature to a GTS object.
  * @param {object} device Store based device with all available options.
  * @param {object} features Features enabled for this device.
@@ -244,12 +287,12 @@ function exportDate (device, features, gts) {
     gts.images = gts.images.concat(device.date.weekDay.images)
   }
 
-  if (features.date.weekDayProgress) {
+  if (features.date.weekDayProgress && device.date.weekDayProgress.images.length) {
     makeObjPath(gts, 'Date.WeekDayProgress')
 
     const imgIndex = gts.images.indexOf(device.date.weekDayProgress.images[0])
     gts.Date.WeekDayProgress = {
-      Coordinates: device.date.weekDayProgress.coords,
+      Coordinates: device.date.weekDayProgress.coords.map((coord) => { return { X: coord[0], Y: coord[1] } }),
       ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex
     }
 
@@ -374,6 +417,7 @@ export default function (device, features) {
 
   exportAnimation(device, features, gts)
   exportBackground(device, features, gts)
+  exportBattery(device, features, gts)
   exportDate(device, features, gts)
   exportShortCuts(device, features, gts)
   exportStatus(device, features, gts)

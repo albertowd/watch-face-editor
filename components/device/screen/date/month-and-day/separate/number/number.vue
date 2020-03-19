@@ -3,8 +3,8 @@
 <template>
   <v-row
     v-if="images.length"
+    class="device-screen-date-month-and-day-separate-number"
     :align="alignment"
-    :class="`device-screen-date-month-and-day-separate-number ${$route.path === '/date' ? 'device-screen-date-month-and-day-separate-number-border' : ''}`"
     :justify="justify"
     :style="position"
   >

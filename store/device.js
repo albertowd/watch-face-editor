@@ -9,9 +9,16 @@ export const state = () => ({
       image: false,
       preview: false
     },
+    battery: {
+      analog: false,
+      icons: false,
+      images: false,
+      percent: false,
+      text: false
+    },
     date: {
       monthAndDay: {
-        oneLine: true,
+        oneLine: false,
         separate: {
           day: false,
           month: false,

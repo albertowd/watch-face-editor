@@ -76,6 +76,29 @@
     "title": "Background"
   },
   "battery": {
+    "analog": {
+      "title": "Analog",
+      "titleDescription": "Battery analog shapes."
+    },
+    "icons": {
+      "error": "Required 11 images (0-10).",
+      "title": "Icons",
+      "titleDescription": "Battery icons images with each position."
+    },
+    "images": {
+      "error": "Required 11 images (0-10).",
+      "title": "Images",
+      "titleDescription": "Battery images images."
+    },
+    "percent": {
+      "title": "Percent",
+      "titleDescription": "Battery percent image."
+    },
+    "text": {
+      "error": "Required 10 images (0-9).",
+      "title": "Text",
+      "titleDescription": "Battery text number images."
+    },
     "title": "Battery"
   },
   "clock": {

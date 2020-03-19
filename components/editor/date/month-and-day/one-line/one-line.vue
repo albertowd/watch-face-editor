@@ -24,7 +24,7 @@
         <input
           ref="numberInput"
           accept=".png"
-          class="editor-date-month-and-day-one-line-icon-hidden"
+          class="editor-date-month-and-day-one-line-hidden"
           multiple
           type="file"
           @change="numberFilePicked"
@@ -35,7 +35,7 @@
         <input
           ref="delimiterInput"
           accept=".png"
-          class="editor-date-month-and-day-one-line-icon-hidden"
+          class="editor-date-month-and-day-one-line-hidden"
           type="file"
           @change="delimiterFilePicked"
         />
