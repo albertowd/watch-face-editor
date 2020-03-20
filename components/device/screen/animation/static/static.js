@@ -1,6 +1,7 @@
 export default {
   data () {
     return {
+      elapsed: 0,
       index: 0,
       intervalId: null
     }
@@ -28,29 +29,52 @@ export default {
   },
   methods: {
     pause () {
-      this.stop()
-      setTimeout(() => this.play(), this.pauseMs - this.speedMs)
+      const waitTime = this.pauseMs - this.speedMs
+
+      if (waitTime > 0) {
+        this.stop(false)
+        setTimeout(() => {
+          this.elapsed += this.speedMs
+          this.play()
+        }, waitTime)
+      } else {
+        this.index = 0
+      }
     },
     play () {
       if (this.intervalId) {
-        this.stop()
+        this.stop(true)
       }
+
+      this.index = 0
       this.intervalId = setInterval(this.tick.bind(this), this.speedMs)
     },
     toggle () {
-      this.intervalId ? this.stop() : this.play()
+      this.intervalId ? this.stop(true) : this.play()
     },
-    stop () {
+    stop (reset) {
       if (this.intervalId) {
         clearInterval(this.intervalId)
         this.intervalId = null
       }
+
+      if (reset) {
+        this.elapsed = 0
+      }
     },
     tick () {
-      this.index += 1
-      if (this.index * this.speedMs > this.timeMs) {
-        this.index = this.index % this.images.length
-        this.pause()
+      this.elapsed += this.speedMs
+
+      if (this.timeMs && this.elapsed > this.timeMs) {
+        this.stop(true)
+      } else {
+        const next = (this.index + 1) % this.images.length
+
+        if (next === 0) {
+          this.pause()
+        } else {
+          this.index = next
+        }
       }
     }
   }

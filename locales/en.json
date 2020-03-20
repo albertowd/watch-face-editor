@@ -8,7 +8,7 @@
       "titleDescription": "Motion animation."
     },
     "pause": "Pause",
-    "pauseDescription": "Pause between the the animation time in milliseconds.",
+    "pauseDescription": "Pause before the the animation restart between the total time in milliseconds.",
     "speed": "Speed",
     "speedDescription": "Duration of each animation frame in milliseconds.",
     "static": {
@@ -16,7 +16,7 @@
       "titleDescription": "Static animation. Click on the animation image to toggle the animation on screen."
     },
     "time": "Time",
-    "timeDescription": "Time of the animation until it pauses in milliseconds.",
+    "timeDescription": "Total time of the animation in milliseconds.",
     "title": "Animation"
   },
   "app" : {

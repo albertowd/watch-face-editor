@@ -4,8 +4,8 @@ export const state = () => ({
     pause: 500,
     speed: 111,
     time: 1000,
-    x: 0,
-    y: 0
+    x: 124,
+    y: 171
   }
 })
 

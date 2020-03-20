@@ -64,7 +64,7 @@ export default {
 
       const obj = converter.import(device, this.$store.state.device.features)
       delete obj.images
-      this.$store.commit('json/json', { changed: true, parsed: JSON.stringify(obj, null, 4) })
+      this.$store.commit('json/json', { changed: true, parsed: JSON.stringify(obj, null, 2) })
     },
     uploadJSON (event) {
       const file = event.target.files[0]

@@ -68,7 +68,7 @@ function zipUnpacked (pack, name, callback) {
   }
 
   delete pack.images
-  zip.file(`${zName}.json`, JSON.stringify(pack, null, 4))
+  zip.file(`${zName}.json`, JSON.stringify(pack, null, 2))
 
   zip.generateAsync({
     type: 'blob'

@@ -8,7 +8,7 @@
       "titleDescription": "Animação com movimento em tela. Clique na imagem da animação para habilitá-la em tela."
     },
     "pause": "Pausa",
-    "pauseDescription": "Pausa entre o tempo da animação em millisegundos.",
+    "pauseDescription": "Pausa antes da animação reiniciar entre o tempo total em millisegundos.",
     "speed": "Velocidade",
     "speedDescription": "Duração de cada imagem da animação em millisegundos.",
     "static": {
