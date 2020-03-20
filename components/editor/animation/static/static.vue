@@ -66,7 +66,7 @@
           :disabled="!images.length"
           :label="`${tMilliseconds}:`"
           :min="0"
-          :max="5000"
+          :max="1000"
         />
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
@@ -96,7 +96,7 @@
           :disabled="!images.length"
           :label="`${tMilliseconds}:`"
           :min="0"
-          :max="5000"
+          :max="20000"
         />
       </v-card-text>
     </v-expand-transition>

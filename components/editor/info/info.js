@@ -59,10 +59,10 @@ export default {
     setDevice (images = []) {
       const converter = this.$converters[this.$store.state.device.alias]
       const pack = this.$packDevice(this.$store.state)
-      const device = converter.toDevice(pack, this.$store.state.device.features, { images, ...this.obj })
+      const device = converter.import(pack, this.$store.state.device.features, { images, ...this.obj })
       this.$unpackDevice(device, this.$store)
 
-      const obj = converter.import(device, this.$store.state.device.features)
+      const obj = this.$packDevice(this.$store.state)
       delete obj.images
       this.$store.commit('json/json', { changed: true, parsed: JSON.stringify(obj, null, 2) })
     },

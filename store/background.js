@@ -29,8 +29,8 @@ export const mutations = {
    * @param {object} obj New background options.
    */
   import (state, obj) {
-    if (obj.background) {
-      this.commit('background/image', obj.background)
+    if (obj.image) {
+      this.commit('background/image', obj.image)
     }
     if (obj.preview) {
       this.commit('background/preview', obj.preview)

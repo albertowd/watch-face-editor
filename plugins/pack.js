@@ -15,7 +15,6 @@ function packDevice (state, preview) {
     date: state.date,
     shortcuts: state.shortcuts,
     status: state.status,
-    preview,
     time: state.time,
     weather: state.weather
   })

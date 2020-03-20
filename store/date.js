@@ -200,7 +200,7 @@ export const mutations = {
    * @param {object} obj New year options.
    */
   year (state, obj) {
-    this.commit('json/yearOneLineNumber', obj.oneLine)
+    this.commit('date/yearOneLineNumber', obj.oneLine)
   },
   /**
    * Updates new one line year options over the existing ones.

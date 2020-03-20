@@ -79,9 +79,9 @@ function _shortcutToGTS (gts, name, shortcut) {
     gts.Shortcuts[name] = {
       Element: {
         Height: shortcut.height,
-        Width: shortcut.width,
         TopLeftX: shortcut.x,
-        TopLeftY: shortcut.y
+        TopLeftY: shortcut.y,
+        Width: shortcut.width
       }
     }
   }
