@@ -69,9 +69,9 @@ export const mutations = {
       this.commit('battery/icons', obj.icons)
     }
     if (obj.images) {
-      this.commit('battery/icons', obj.images)
+      this.commit('battery/images', obj.images)
     }
-    if (obj.percentage) {
+    if (obj.percent) {
       this.commit('battery/percent', obj.percent)
     }
     if (obj.text) {

@@ -45,7 +45,7 @@ function _gtsDateToMonthAndDay (gts, name, monthAndDay) {
  * @param {object} shortcut Device shortcut to be updated.
  */
 function _gtsToShortcut (gts, name, shortcut) {
-  if (gts.Shortcuts[name]) {
+  if (gts.Shortcuts && gts.Shortcuts[name]) {
     shortcut.enabled = true
     shortcut.height = gts.Shortcuts[name].Element.Height
     shortcut.width = gts.Shortcuts[name].Element.Width
@@ -61,7 +61,7 @@ function _gtsToShortcut (gts, name, shortcut) {
  * @param {object} status Device status to be updated.
  */
 function _gtsToStatus (gts, name, status) {
-  if (gts.Status[name]) {
+  if (gts.Status && gts.Status[name]) {
     status.x = gts.Status[name].Coordinates.X
     status.y = gts.Status[name].Coordinates.Y
 
@@ -82,7 +82,7 @@ function _gtsToStatus (gts, name, status) {
  * @param {object} time Device time to be updated.
  */
 function _gtsToTime (gts, name, sub, time) {
-  if (gts.Time[name] && gts.Time[name][sub]) {
+  if (gts.Time && gts.Time[name] && gts.Time[name][sub]) {
     time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
     time.x = gts.Time[name][sub].X
     time.y = gts.Time[name][sub].Y
@@ -117,16 +117,46 @@ function importAnimation (device, features, gts) {
  * @param {object} gts GTS object to be copied.
  */
 function importBackground (device, features, gts) {
-  if (features.background.image && gts.Background.Image) {
+  if (features.background.image && gts.Background && gts.Background.Image) {
     device.background.image.image = gts.images[gts.Background.Image.ImageIndex]
     device.background.image.x = gts.Background.Image.X
     device.background.image.y = gts.Background.Image.Y
   }
 
-  if (features.background.preview && gts.Background.Preview) {
+  if (features.background.preview && gts.Background && gts.Background.Preview) {
     device.background.preview.image = gts.images[gts.Background.Preview.ImageIndex]
     device.background.preview.x = gts.Background.Preview.X
     device.background.preview.y = gts.Background.Preview.Y
+  }
+}
+
+/**
+ * Imports the Battery feature to a device object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be copied.
+ */
+function importBattery (device, features, gts) {
+  if (features.battery.images && gts.Battery && gts.Battery.Images) {
+    device.battery.images.images = gts.images.slice(gts.Battery.Images.ImageIndex, gts.Battery.Images.ImageIndex + gts.Battery.Images.ImagesCount)
+    device.battery.images.x = gts.Battery.Images.X
+    device.battery.images.y = gts.Battery.Images.Y
+  }
+
+  if (features.battery.percent && gts.Battery && gts.Battery.Percent) {
+    device.battery.percent.image = gts.images[gts.Battery.Percent.ImageIndex]
+    device.battery.percent.x = gts.Battery.Percent.X
+    device.battery.percent.y = gts.Battery.Percent.Y
+  }
+
+  if (features.battery.text && gts.Battery && gts.Battery.Text) {
+    device.battery.text.alignment = gts.Battery.Text.Alignment
+    device.battery.text.bottom = gts.Battery.Text.BottomRightY
+    device.battery.text.images = gts.images.slice(gts.Battery.Text.ImageIndex, gts.Battery.Text.ImageIndex + gts.Battery.Text.ImagesCount)
+    device.battery.text.left = gts.Battery.Text.TopLeftX
+    device.battery.text.spacing = gts.Battery.Text.Spacing
+    device.battery.text.right = gts.Battery.Text.BottomRightX
+    device.battery.text.top = gts.Battery.Text.TopLeftY
   }
 }
 
@@ -282,7 +312,7 @@ export default function (device, features, gts) {
   // TODO: activity
   importAnimation(device, features, gts)
   importBackground(device, features, gts)
-  // importBattery(device, features, gts)
+  importBattery(device, features, gts)
   // TODO: clock
   importDate(device, features, gts)
   importShortcuts(device, features, gts)
