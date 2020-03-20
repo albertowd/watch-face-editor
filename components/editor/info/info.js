@@ -3,6 +3,7 @@ import { EventBus } from '../../event-bus.js'
 export default {
   data () {
     return {
+      obj: null,
       json: null
     }
   },

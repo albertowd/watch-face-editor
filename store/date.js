@@ -82,7 +82,7 @@ export const mutations = {
     if (obj.monthAndDay) {
       this.commit('date/monthAndDay', obj.monthAndDay)
     }
-    if (obj.weeDay) {
+    if (obj.weekDay) {
       this.commit('date/weekDay', obj.weekDay)
     }
     if (obj.weekDayProgress) {

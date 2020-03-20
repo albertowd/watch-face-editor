@@ -19,6 +19,25 @@ function _gtsDateToOneLine (gts, name, oneLine) {
     }
   }
 }
+
+/**
+ * Updates a device object with the available options on a GTS month and day date object.
+ * @param {object} gts A GTS object representing it's JSON to be updated.
+ * @param {string} name Name of the month and day option (Day or Month).
+ * @param {object} monthAndDay Device month and day date to be updated.
+ */
+function _gtsDateToMonthAndDay (gts, name, monthAndDay) {
+  if (gts.Date && gts.Date.MonthAndDay && gts.Date.MonthAndDay.Separate && gts.Date.MonthAndDay.Separate[name]) {
+    monthAndDay.alignment = gts.Date.MonthAndDay.Separate[name].Alignment
+    monthAndDay.bottom = gts.Date.MonthAndDay.Separate[name].BottomRightY
+    monthAndDay.images = gts.images.slice(gts.Date.MonthAndDay.Separate[name].ImageIndex, gts.Date.MonthAndDay.Separate[name].ImageIndex + gts.Date.MonthAndDay.Separate[name].ImagesCount)
+    monthAndDay.left = gts.Date.MonthAndDay.Separate[name].TopLeftX
+    monthAndDay.right = gts.Date.MonthAndDay.Separate[name].BottomRightX
+    monthAndDay.spacing = gts.Date.MonthAndDay.Separate[name].Spacing
+    monthAndDay.top = gts.Date.MonthAndDay.Separate[name].TopLeftY
+  }
+}
+
 /**
  * Updates a device object with the available options on a GTS shortcut object.
  * @param {object} gts A GTS object representing it's JSON to be updated.
@@ -120,6 +139,36 @@ function importBackground (device, features, gts) {
 function importDate (device, features, gts) {
   if (features.date.monthAndDay.oneLine) {
     _gtsDateToOneLine(gts, 'MonthAndDay', device.date.monthAndDay.oneLine)
+  }
+
+  if (features.date.monthAndDay.separate.monthName && gts.Date && gts.Date.MonthAndDay && gts.Date.MonthAndDay.Separate && gts.Date.MonthAndDay.Separate.MonthName) {
+    device.date.monthAndDay.separate.monthName.images = gts.images.slice(gts.Date.MonthAndDay.Separate.MonthName.ImageIndex, gts.Date.MonthAndDay.Separate.MonthName.ImageIndex + gts.Date.MonthAndDay.Separate.MonthName.ImagesCount)
+    device.date.monthAndDay.separate.monthName.x = gts.Date.MonthAndDay.Separate.MonthName.X
+    device.date.monthAndDay.separate.monthName.y = gts.Date.MonthAndDay.Separate.MonthName.Y
+  }
+
+  if (features.date.monthAndDay.separate.day) {
+    _gtsDateToMonthAndDay(gts, 'Day', device.date.monthAndDay.separate.day)
+  }
+
+  if (features.date.monthAndDay.separate.month) {
+    _gtsDateToMonthAndDay(gts, 'Month', device.date.monthAndDay.separate.month)
+  }
+
+  if (gts.Date && gts.Date.MonthAndDay) {
+    device.date.monthAndDay.twoDigitsDay = gts.Date.MonthAndDay.TwoDigitsDay
+    device.date.monthAndDay.twoDigitsMonth = gts.Date.MonthAndDay.TwoDigitsMonth
+  }
+
+  if (features.date.weekDay && gts.Date && gts.Date.WeekDay) {
+    device.date.weekDay.images = gts.images.slice(gts.Date.WeekDay.ImageIndex, gts.Date.WeekDay.ImageIndex + gts.Date.WeekDay.ImagesCount)
+    device.date.weekDay.x = gts.Date.WeekDay.X
+    device.date.weekDay.y = gts.Date.WeekDay.Y
+  }
+
+  if (features.date.weekDayProgress && gts.Date && gts.Date.WeekDayProgress) {
+    device.date.weekDayProgress.coords = gts.Date.WeekDayProgress.Coordinates.map(coord => [coord.X, coord.Y])
+    device.date.weekDayProgress.images = gts.images.slice(gts.Date.WeekDayProgress.ImageIndex, gts.Date.WeekDayProgress.ImageIndex + 7)
   }
 
   if (features.date.year) {
