@@ -204,6 +204,20 @@ function exportBackground (device, features, gts) {
  * @param {object} gts GTS object to be updated.
  */
 function exportBattery (device, features, gts) {
+  if (features.battery.icons && device.battery.icons.images.length) {
+    makeObjPath(gts, 'Battery.Icons')
+
+    const imgIndex = gts.images.indexOf(device.battery.icons.images[0])
+    gts.Battery.Icons = {
+      Coordinates: device.battery.icons.coords.map((coord) => { return { X: coord[0], Y: coord[1] } }),
+      ImageIndex: imgIndex < 0 ? gts.images.length : imgIndex
+    }
+
+    if (imgIndex < 0) {
+      gts.images = gts.images.concat(device.battery.icons.images)
+    }
+  }
+
   if (features.battery.images && device.battery.images.images.length) {
     makeObjPath(gts, 'Battery.Images')
 

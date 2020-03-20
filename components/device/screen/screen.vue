@@ -3,6 +3,7 @@
 <template>
   <div class="device-screen" :style="size">
     <screenBackground />
+    <screenBatteryIcons />
     <screenBatteryImages />
     <screenBatteryTextBorder />
     <screenBatteryText />

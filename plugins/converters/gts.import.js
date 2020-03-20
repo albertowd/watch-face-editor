@@ -137,6 +137,11 @@ function importBackground (device, features, gts) {
  * @param {object} gts GTS object to be copied.
  */
 function importBattery (device, features, gts) {
+  if (features.battery.icons && gts.Battery && gts.Battery.Icons) {
+    device.battery.icons.coords = gts.Battery.Icons.Coordinates.map(coord => [coord.X, coord.Y])
+    device.battery.icons.images = gts.images.slice(gts.Battery.Icons.ImageIndex, gts.Battery.Icons.ImageIndex + gts.Battery.Icons.Coordinates.length)
+  }
+
   if (features.battery.images && gts.Battery && gts.Battery.Images) {
     device.battery.images.images = gts.images.slice(gts.Battery.Images.ImageIndex, gts.Battery.Images.ImageIndex + gts.Battery.Images.ImagesCount)
     device.battery.images.x = gts.Battery.Images.X

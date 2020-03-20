@@ -1,9 +1,11 @@
+import iconsEditor from './icons/icons.vue'
 import imagesEditor from './images/images.vue'
 import percentEditor from './percent/percent.vue'
 import textEditor from './text/text.vue'
 
 export default {
   components: {
+    iconsEditor,
     imagesEditor,
     percentEditor,
     textEditor
