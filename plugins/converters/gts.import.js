@@ -1,4 +1,25 @@
 /**
+ * Updates a device object with the available options on a device one line date object.
+ * @param {object} gts A GTS object representing it's JSON to be updated.
+ * @param {string} name Name of the one line option (MonthAndDay or Year).
+ * @param {object} oneLine Device one line date to be updated.
+ */
+function _gtsDateToOneLine (gts, name, oneLine) {
+  if (gts.Date && gts.Date[name] && gts.Date[name].OneLine) {
+    oneLine.number.alignment = gts.Date[name].OneLine.Number.Alignment
+    oneLine.number.bottom = gts.Date[name].OneLine.Number.BottomRightY
+    oneLine.number.images = gts.images.slice(gts.Date[name].OneLine.Number.ImageIndex, gts.Date[name].OneLine.Number.ImageIndex + gts.Date[name].OneLine.Number.ImagesCount)
+    oneLine.number.left = gts.Date[name].OneLine.Number.TopLeftX
+    oneLine.number.right = gts.Date[name].OneLine.Number.BottomRightX
+    oneLine.number.spacing = gts.Date[name].OneLine.Number.Spacing
+    oneLine.number.top = gts.Date[name].OneLine.Number.TopLeftY
+
+    if (gts.Date[name].OneLine.DelimiterImageIndex) {
+      oneLine.delimiterImage = gts.images[gts.Date[name].OneLine.DelimiterImageIndex]
+    }
+  }
+}
+/**
  * Updates a device object with the available options on a GTS shortcut object.
  * @param {object} gts A GTS object representing it's JSON to be updated.
  * @param {string} name Name of the shortcut option (Pulse, State or Weather).
@@ -91,12 +112,28 @@ function importBackground (device, features, gts) {
 }
 
 /**
+ * Imports the Date feature to a device object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be updated.
+ */
+function importDate (device, features, gts) {
+  if (features.date.monthAndDay.oneLine) {
+    _gtsDateToOneLine(gts, 'MonthAndDay', device.date.monthAndDay.oneLine)
+  }
+
+  if (features.date.year) {
+    _gtsDateToOneLine(gts, 'Year', device.date.year.oneLine)
+  }
+}
+
+/**
  * Imports the Shortcuts feature to a device object.
  * @param {object} device Store based device with all available options.
  * @param {object} features Features enabled for this device.
  * @param {object} gts GTS object to be copied.
  */
-function importShortCuts (device, features, gts) {
+function importShortcuts (device, features, gts) {
   if (features.shortcuts.energy) {
     // Not supported
   }
@@ -136,7 +173,7 @@ function importStatus (device, features, gts) {
 }
 
 /**
- * Imports the Time feature to a GTS object.
+ * Imports the Time feature to a device object.
  * @param {object} device Store based device with all available options.
  * @param {object} features Features enabled for this device.
  * @param {object} gts GTS object to be copied.
@@ -198,8 +235,8 @@ export default function (device, features, gts) {
   importBackground(device, features, gts)
   // importBattery(device, features, gts)
   // TODO: clock
-  // importDate(device, features, gts)
-  importShortCuts(device, features, gts)
+  importDate(device, features, gts)
+  importShortcuts(device, features, gts)
   importStatus(device, features, gts)
   // TODO: steps progress
   importTime(device, features, gts)

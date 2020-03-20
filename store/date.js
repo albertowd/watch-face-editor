@@ -89,7 +89,7 @@ export const mutations = {
       this.commit('date/weekDayProgress', obj.weekDayProgress)
     }
     if (obj.year) {
-      this.commit('date/year', obj.year.oneLine)
+      this.commit('date/year', obj.year)
     }
   },
   /**
@@ -200,7 +200,7 @@ export const mutations = {
    * @param {object} obj New year options.
    */
   year (state, obj) {
-    this.commit('date/yearOneLineNumber', obj.oneLine)
+    this.commit('date/yearOneLineNumber', obj.oneLine.number)
   },
   /**
    * Updates new one line year options over the existing ones.
