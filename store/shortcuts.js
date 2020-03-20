@@ -10,21 +10,21 @@ export const state = () => ({
     enabled: false,
     height: 77,
     width: 77,
-    x: 97,
+    x: 33,
     y: 367
   },
   state: {
     enabled: false,
     height: 77,
     width: 77,
-    x: 174,
+    x: 135,
     y: 367
   },
   weather: {
     enabled: false,
     height: 77,
     width: 77,
-    x: 251,
+    x: 237,
     y: 367
   }
 })
