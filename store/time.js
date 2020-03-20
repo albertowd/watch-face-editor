@@ -113,7 +113,7 @@ export const mutations = {
       this.commit('time/minutesOnes', obj.minutes.ones)
       this.commit('time/minutesTens', obj.minutes.tens)
     }
-    if (Object.seconds) {
+    if (obj.seconds) {
       this.commit('time/secondsOnes', obj.seconds.ones)
       this.commit('time/secondsTens', obj.seconds.tens)
     }
