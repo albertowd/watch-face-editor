@@ -3,5 +3,7 @@ services:
   watch-face-editor:
     build: .
     container_name: watch-face-editor
+    hostname: watch-face-editor
+    image: watch-face-editor
     ports:
       - 8080:3000
