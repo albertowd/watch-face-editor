@@ -74,7 +74,7 @@ function _monthAndDayToGTS (gts, name, monthAndDay) {
  */
 function _shortcutToGTS (gts, name, shortcut) {
   if (shortcut.enabled) {
-    makeObjPath(gts, 'ShortCuts')
+    makeObjPath(gts, 'Shortcuts')
 
     gts.Shortcuts[name] = {
       Element: {
@@ -267,24 +267,38 @@ function exportDate (device, features, gts) {
     _dateOneLineToGTS(gts, 'MonthAndDay', device.date.monthAndDay.oneLine)
   }
 
+  if (features.date.monthAndDay.separate.monthName && device.date.monthAndDay.separate.monthName.images.length) {
+    if (device.date.monthAndDay.oneLine.number.images.length) {
+      alert('One line date overwrites month name, it will not be shown on watch.')
+    } else {
+      makeObjPath(gts, 'Date.MonthAndDay.Separate.MonthName')
+
+      gts.Date.MonthAndDay.Separate.MonthName = {
+        ImageIndex: gts.images.length,
+        ImagesCount: device.date.monthAndDay.separate.monthName.images.length,
+        X: device.date.monthAndDay.separate.monthName.x,
+        Y: device.date.monthAndDay.separate.monthName.y
+      }
+      gts.images = gts.images.concat(device.date.monthAndDay.separate.monthName.images)
+    }
+  }
+
   if (features.date.monthAndDay.separate.day) {
-    _monthAndDayToGTS(gts, 'Day', device.date.monthAndDay.separate.day)
+    if (device.date.monthAndDay.oneLine.number.images.length) {
+      alert('One line date overwrites separate day, it will not be shown on watch.')
+    } else {
+      _monthAndDayToGTS(gts, 'Day', device.date.monthAndDay.separate.day)
+    }
   }
 
   if (features.date.monthAndDay.separate.month) {
-    _monthAndDayToGTS(gts, 'Month', device.date.monthAndDay.separate.month)
-  }
-
-  if (features.date.monthAndDay.separate.monthName && device.date.monthAndDay.separate.monthName.images.length) {
-    makeObjPath(gts, 'Date.MonthAndDay.Separate.MonthName')
-
-    gts.Date.MonthAndDay.Separate.MonthName = {
-      ImageIndex: gts.images.length,
-      ImagesCount: device.date.monthAndDay.separate.monthName.images.length,
-      X: device.date.monthAndDay.separate.monthName.x,
-      Y: device.date.monthAndDay.separate.monthName.y
+    if (device.date.monthAndDay.oneLine.number.images.length) {
+      alert('One line date overwrites separate month, it will not be shown on watch.')
+    } else if (device.date.monthAndDay.separate.monthName.images.length) {
+      alert('Month name overwrites separate month, it will not be shown on watch.')
+    } else {
+      _monthAndDayToGTS(gts, 'Month', device.date.monthAndDay.separate.month)
     }
-    gts.images = gts.images.concat(device.date.monthAndDay.separate.monthName.images)
   }
 
   if (gts.Date && gts.Date.MonthAndDay) {
