@@ -12,23 +12,21 @@ export default {
   },
   computed: {
     alignment () {
-      switch (this.$store.state.date.monthAndDay.separate[this.name].alignment.split(' ')[0]) {
-        case 'Bottom':
-          return 'end'
-        case 'Top':
-          return 'start'
-        default:
-          return 'center'
+      if (this.$store.state.date.monthAndDay.separate[this.name].alignment.startsWith('Bottom')) {
+        return 'end'
+      } else if (this.$store.state.date.monthAndDay.separate[this.name].alignment.startsWith('Top')) {
+        return 'start'
+      } else {
+        return 'center'
       }
     },
     justify () {
-      switch (this.$store.state.date.monthAndDay.separate[this.name].alignment.split(' ')[1]) {
-        case 'Left':
-          return 'start'
-        case 'Right':
-          return 'end'
-        default:
-          return 'center'
+      if (this.$store.state.date.monthAndDay.separate[this.name].alignment.endsWith('Left')) {
+        return 'start'
+      } else if (this.$store.state.date.monthAndDay.separate[this.name].alignment.endsWith('Right')) {
+        return 'end'
+      } else {
+        return 'center'
       }
     },
     images () {

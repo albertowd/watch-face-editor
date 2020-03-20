@@ -76,7 +76,7 @@ function _shortcutToGTS (gts, name, shortcut) {
   if (shortcut.enabled) {
     makeObjPath(gts, 'ShortCuts')
 
-    gts.ShortCuts[name] = {
+    gts.Shortcuts[name] = {
       Element: {
         Height: shortcut.height,
         Width: shortcut.width,
@@ -288,8 +288,8 @@ function exportDate (device, features, gts) {
   }
 
   if (gts.Date && gts.Date.MonthAndDay) {
-    gts.Date.MonthAndDay.twoDigitsDay = device.date.monthAndDay.twoDigitsDay
-    gts.Date.MonthAndDay.twoDigitsMonth = device.date.monthAndDay.twoDigitsMonth
+    gts.Date.MonthAndDay.TwoDigitsDay = device.date.monthAndDay.twoDigitsDay
+    gts.Date.MonthAndDay.TwoDigitsMonth = device.date.monthAndDay.twoDigitsMonth
   }
 
   if (features.date.weekDay && device.date.weekDay.images.length) {
@@ -431,13 +431,17 @@ export default function (device, features) {
     images: []
   }
 
+  // TODO: activity
   exportAnimation(device, features, gts)
   exportBackground(device, features, gts)
   exportBattery(device, features, gts)
+  // TODO: clock
   exportDate(device, features, gts)
   exportShortCuts(device, features, gts)
   exportStatus(device, features, gts)
+  // TODO: steps progress
   exportTime(device, features, gts)
+  // TODO: weather
 
   return gts
 }

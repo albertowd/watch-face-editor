@@ -34,15 +34,15 @@ export default {
     },
     alignmentItems () {
       return [
-        { text: `${this.$t('app.bottom')}${this.$t('app.center')}`, value: 'BottomCenter' },
-        { text: `${this.$t('app.bottom')}${this.$t('app.left')}`, value: 'BottomLeft' },
-        { text: `${this.$t('app.bottom')}${this.$t('app.right')}`, value: 'BottomRight' },
+        { text: `${this.$t('app.bottom')} ${this.$t('app.center')}`, value: 'BottomCenter' },
+        { text: `${this.$t('app.bottom')} ${this.$t('app.left')}`, value: 'BottomLeft' },
+        { text: `${this.$t('app.bottom')} ${this.$t('app.right')}`, value: 'BottomRight' },
         { text: `${this.$t('app.center')}`, value: 'Center' },
         { text: `${this.$t('app.left')}`, value: 'Left' },
         { text: `${this.$t('app.right')}`, value: 'Right' },
-        { text: `${this.$t('app.top')}${this.$t('app.center')}`, value: 'TopCenter' },
-        { text: `${this.$t('app.top')}${this.$t('app.left')}`, value: 'TopLeft' },
-        { text: `${this.$t('app.top')}${this.$t('app.right')}`, value: 'TopRight' }
+        { text: `${this.$t('app.top')} ${this.$t('app.center')}`, value: 'TopCenter' },
+        { text: `${this.$t('app.top')} ${this.$t('app.left')}`, value: 'TopLeft' },
+        { text: `${this.$t('app.top')} ${this.$t('app.right')}`, value: 'TopRight' }
       ]
     },
     bottom: {
