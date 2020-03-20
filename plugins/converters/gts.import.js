@@ -1,4 +1,4 @@
-import makeObjPath from './base-converter'
+// import makeObjPath from './base-converter'
 
 /**
  * Updates a device shortcut object with the available options on a GTS object.
