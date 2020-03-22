@@ -17,6 +17,7 @@ export default {
     position () {
       return {
         left: `${this.$store.state.status[this.name].x}px`,
+        position: 'absolute',
         top: `${this.$store.state.status[this.name].y}px`
       }
     }

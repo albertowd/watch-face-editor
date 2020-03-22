@@ -1,8 +1,28 @@
 {
   "alias": "gts",
   "features": {
+    "activity": {
+      "calories": {
+        "graph": true,
+        "number": true
+      },
+      "distance": {
+        "number": true
+      },
+      "pulse": {
+        "graph": true,
+        "images": true,
+        "meter": true,
+        "number": true
+      },
+      "steps": {
+        "goal": true,
+        "image": true,
+        "number": true
+      }
+    },
     "animation": {
-      "motion": false,
+      "motion": true,
       "static": true
     },
     "background": {

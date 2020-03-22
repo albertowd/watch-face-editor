@@ -1,7 +1,7 @@
 <script src="./icons.js" />
 <style scoped src="./icons.css"></style>
 <template>
-  <div v-if="images.length" class="device-screen-battery-icons" :style="size">
+  <div v-if="images.length">
     <img v-if="images[0]" :src="images[0]" :style="position[0]" @click="circle" />
     <img v-if="images[1] && index > 0" :src="images[1]" :style="position[1]" @click="circle" />
     <img v-if="images[2] && index > 1" :src="images[2]" :style="position[2]" @click="circle" />

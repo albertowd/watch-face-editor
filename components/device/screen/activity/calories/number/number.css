@@ -1,0 +1,11 @@
+.device-screen-activity-calories-number {
+  left: 0;
+  position: absolute;
+  margin: 0;
+  top: 0;
+}
+
+.device-screen-activity-calories-number-border {
+  border: 3px dashed gray;
+  position: absolute;
+}

@@ -19,13 +19,12 @@ export default {
     items () {
       return [
         {
-          disabled: false,
           icon: 'mdi-watch-variant',
           title: this.$t('device.title'),
           to: '/device'
         },
         {
-          disabled: !this.$store.state.device.features.activity,
+          disabled: !(this.$store.state.device.features.activity.calories.graph || this.$store.state.device.features.activity.calories.number || this.$store.state.device.features.activity.distance.number || this.$store.state.device.features.activity.pulse.graph || this.$store.state.device.features.activity.pulse.images || this.$store.state.device.features.activity.pulse.meter || this.$store.state.device.features.activity.pulse.number || this.$store.state.device.features.activity.steps.goal || this.$store.state.device.features.activity.steps.image || this.$store.state.device.features.activity.steps.number),
           icon: 'mdi-heart',
           title: this.$t('activity.title'),
           to: '/activity'

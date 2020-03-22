@@ -1,6 +1,26 @@
 export const state = () => ({
   alias: '',
   features: {
+    activity: {
+      calories: {
+        graph: false,
+        number: false
+      },
+      distance: {
+        number: true
+      },
+      pulse: {
+        graph: false,
+        images: false,
+        meter: false,
+        number: false
+      },
+      setps: {
+        goal: false,
+        image: false,
+        number: false
+      }
+    },
     animation: {
       motion: false,
       static: false

@@ -1,5 +1,33 @@
 {
   "activity": {
+    "calories": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Calories",
+        "titleDescription": "Calories number images."
+      }
+    },
+    "distance": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Distance",
+        "titleDescription": "Distance traveled number images in km."
+      }
+    },
+    "pulse": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Pulse",
+        "titleDescription": "Pulse number images."
+      }
+    },
+    "steps": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Steps",
+        "titleDescription": "Steps taken number images."
+      }
+    },
     "title": "Activity"
   },
   "animation": {
@@ -25,6 +53,7 @@
     "bottom": "Bottom",
     "by": "by",
     "center": "Center",
+    "decimal": ".",
     "delimiter": "Delimiter",
     "delimiterDescription": "Delimiter image.",
     "dimensions": "Dimensions",

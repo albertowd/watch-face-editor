@@ -5,7 +5,6 @@
     <screenBackground />
     <screenBatteryIcons />
     <screenBatteryImages />
-    <screenBatteryTextBorder />
     <screenBatteryText />
     <screenBatteryPercent />
     <screenStatus name="alarm" />
@@ -20,17 +19,17 @@
     <screenTimeAMPM />
     <screenTime :initial="Math.floor(new Date().getMinutes() / 10)" :max="5" name="seconds" sub="tens" />
     <screenTime :initial="new Date().getMinutes() % 10" name="seconds" sub="ones" />
-    <screenDateMonthAndDayOneLineBorder />
     <screenDateMonthAndDayOneLine />
     <screenDateMonthAndDaySeparateMonthName />
-    <screenDateMonthAndDaySeparateNumberBorder name="day" />
-    <screenDateMonthAndDaySeparateNumberBorder name="month" />
     <screenDateMonthAndDaySeparateNumber name="day" />
     <screenDateMonthAndDaySeparateNumber name="month" />
     <screenDateWeekDay />
     <screenDateWeekDayProgress />
-    <screenDateYearOneLineBorder />
     <screenDateYearOneLine />
+    <screenActivityCaloriesNumber />
+    <screenActivityDistanceNumber />
+    <screenActivityPulseNumber />
+    <screenActivityStepsNumber />>
     <screenAnimationStatic />
     <screenShortcut name="energy" />
     <screenShortcut name="pulse" />

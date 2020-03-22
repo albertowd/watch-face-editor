@@ -20,13 +20,6 @@ export default {
           top: `${coord[1]}px`
         }
       })
-    },
-    size () {
-      const device = this.$store.state.device
-      return {
-        height: `${device.size.height}px`,
-        width: `${device.size.width}px`
-      }
     }
   },
   methods: {

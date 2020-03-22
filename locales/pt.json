@@ -1,5 +1,33 @@
 {
   "activity": {
+    "calories": {
+      "number": {
+        "error": "Requer 10 imagens (0-9).",
+        "title": "Calorias",
+        "titleDescription": "Imagens do número das calorias gastas."
+      }
+    },
+    "distance": {
+      "number": {
+        "error": "Requer 10 imagens (0-9).",
+        "title": "Distância",
+        "titleDescription": "Imagens do número da distância em km."
+      }
+    },
+    "pulse": {
+      "number": {
+        "error": "Requer 10 imagens (0-9).",
+        "title": "Pulso",
+        "titleDescription": "Imagens do número do pulso."
+      }
+    },
+    "steps": {
+      "number": {
+        "error": "Requer 10 imagens (0-9).",
+        "title": "Passos",
+        "titleDescription": "Imagens do número de passos dados."
+      }
+    },
     "title": "Atividade"
   },
   "animation": {
@@ -25,6 +53,7 @@
     "bottom": "Baixo",
     "by": "por",
     "center": "Centro",
+    "decimal": ",",
     "delimiter": "Delimitador",
     "delimiterDescription": "Image do delimitador.",
     "dimensions": "Dimensões",
