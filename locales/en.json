@@ -14,6 +14,10 @@
         "titleDescription": "Distance traveled number images in km."
       }
     },
+    "noDataImage": {
+      "title": "No Data",
+      "titleDescription": "No data images to show."
+    },
     "pulse": {
       "number": {
         "error": "Required 10 images (0-9).",

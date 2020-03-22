@@ -14,10 +14,11 @@
       :justify="justify"
       :style="position"
     >
+      <img v-if="calories === null" :style="spacing" :src="noDataImage" @click="circle()" />
       <img v-if="calories > 999" :style="spacing" :src="images[Math.floor(calories / 1000)]" @click="circle(1000)" />
       <img v-if="calories > 99" :style="spacing" :src="images[Math.floor((calories % 1000) / 100)]" @click="circle(100)" />
       <img v-if="calories > 9" :style="spacing" :src="images[Math.floor((calories % 100) / 10)]" @click="circle(10)" />
-      <img :style="spacing" :src="images[calories % 10]" @click="circle(1)" />
+      <img v-if="calories !== null" :style="spacing" :src="images[calories % 10]" @click="circle(1)" />
     </v-row>
   </div>
 </template>

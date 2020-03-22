@@ -1,5 +1,6 @@
 import distanceNumberEditor from './distance/number/number.vue'
 import caloriesNumberEditor from './calories/number/number.vue'
+import noDataEditor from './no-data/no-data.vue'
 import pulseNumberEditor from './pulse/number/number.vue'
 import stepsNumberEditor from './steps/number/number.vue'
 
@@ -7,6 +8,7 @@ export default {
   components: {
     caloriesNumberEditor,
     distanceNumberEditor,
+    noDataEditor,
     pulseNumberEditor,
     stepsNumberEditor
   },
@@ -19,6 +21,9 @@ export default {
     },
     hasDistanceNumber () {
       return this.$store.state.device.features.activity.distance.number
+    },
+    hasNoDataImage () {
+      return this.$store.state.device.features.activity.noDataImage
     },
     hasPulseGraph () {
       return this.$store.state.device.features.activity.pulse.graph

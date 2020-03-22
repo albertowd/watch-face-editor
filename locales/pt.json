@@ -14,6 +14,10 @@
         "titleDescription": "Imagens do número da distância em km."
       }
     },
+    "noDataImage": {
+      "title": "Sem dados",
+      "titleDescription": "Imagem de sem dados para mostrar."
+    },
     "pulse": {
       "number": {
         "error": "Requer 10 imagens (0-9).",

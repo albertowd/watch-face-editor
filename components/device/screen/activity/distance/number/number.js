@@ -1,7 +1,7 @@
 export default {
   data () {
     return {
-      distance: 0,
+      distance: null,
       tensIndex: 0,
       onesIndex: 0,
       decimalTensIndex: 0,
@@ -36,6 +36,9 @@ export default {
         return 'center'
       }
     },
+    noDataImage () {
+      return this.$store.state.activity.noDataImage
+    },
     position () {
       return {
         bottom: `${this.$store.state.device.size.height - this.$store.state.activity.distance.number.bottom}px`,
@@ -51,11 +54,19 @@ export default {
   },
   methods: {
     circle (mult) {
-      this.distance = (this.distance + mult) % 10000
-      this.tensIndex = Math.floor(this.distance / 1000)
-      this.onesIndex = Math.floor((this.distance % 1000) / 100)
-      this.decimalTensIndex = Math.floor((this.distance % 100) / 10)
-      this.decimalOnesIndex = this.distance % 10
+      if (this.distance !== null) {
+        const next = (this.distance + mult) % 10000
+        this.distance = this.noDataImage && next === 0 ? null : next
+      } else {
+        this.distance = 0
+      }
+
+      if (this.distance !== null) {
+        this.tensIndex = Math.floor(this.distance / 1000)
+        this.onesIndex = Math.floor((this.distance % 1000) / 100)
+        this.decimalTensIndex = Math.floor((this.distance % 100) / 10)
+        this.decimalOnesIndex = this.distance % 10
+      }
     }
   }
 }

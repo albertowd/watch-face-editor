@@ -1,7 +1,7 @@
 export default {
   data () {
     return {
-      pulse: 0
+      pulse: null
     }
   },
   computed: {
@@ -26,6 +26,9 @@ export default {
         return 'center'
       }
     },
+    noDataImage () {
+      return this.$store.state.activity.noDataImage
+    },
     position () {
       return {
         bottom: `${this.$store.state.device.size.height - this.$store.state.activity.pulse.number.bottom}px`,
@@ -41,7 +44,12 @@ export default {
   },
   methods: {
     circle (mult) {
-      this.pulse = (this.pulse + mult) % 1000
+      if (this.pulse !== null) {
+        const next = (this.pulse + mult) % 1000
+        this.pulse = this.noDataImage && next === 0 ? null : next
+      } else {
+        this.pulse = 0
+      }
     }
   }
 }

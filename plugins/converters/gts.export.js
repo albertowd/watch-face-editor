@@ -140,13 +140,124 @@ function _timeToGTS (gts, name, sub, time) {
 }
 
 /**
+ * Exports the Activity feature to a GTS object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be updated.
+ */
+function exportActivity (device, features, gts) {
+  if (features.activity.calories.number && device.activity.calories.number.images.length) {
+    makeObjPath(gts, 'Activity.Calories')
+
+    const imIndex = gts.images.indexOf(device.activity.calories.number.images[0])
+    gts.Activity.Calories = {
+      Alignment: device.activity.calories.number.alignment,
+      BottomRightX: device.activity.calories.number.right,
+      BottomRightY: device.activity.calories.number.bottom,
+      ImageIndex: imIndex < 0 ? gts.images.length : imIndex,
+      ImagesCount: device.activity.calories.number.images.length,
+      Spacing: device.activity.calories.number.spacing,
+      TopLeftX: device.activity.calories.number.left,
+      TopLeftY: device.activity.calories.number.top
+    }
+    if (imIndex < 0) {
+      gts.images = gts.images.concat(device.activity.calories.number.images)
+    }
+  }
+
+  if (features.activity.calories.number && device.activity.distance.number.images.length) {
+    makeObjPath(gts, 'Activity.Distance.Number')
+
+    const imIndex = gts.images.indexOf(device.activity.distance.number.images[0])
+    gts.Activity.Distance.Number = {
+      Alignment: device.activity.distance.number.alignment,
+      BottomRightX: device.activity.distance.number.right,
+      BottomRightY: device.activity.distance.number.bottom,
+      ImageIndex: imIndex < 0 ? gts.images.length : imIndex,
+      ImagesCount: device.activity.distance.number.images.length,
+      Spacing: device.activity.distance.number.spacing,
+      TopLeftX: device.activity.distance.number.left,
+      TopLeftY: device.activity.distance.number.top
+    }
+
+    if (imIndex < 0) {
+      gts.images = gts.images.concat(device.activity.distance.number.images)
+    }
+
+    if (device.activity.distance.decimalImage) {
+      const decimalIndex = gts.images.indexOf(device.activity.distance.decimalImage)
+      gts.Activity.Distance.DecimalPointImageIndex = gts.images.length
+      if (decimalIndex < 0) {
+        gts.images.push(device.activity.distance.decimalImage)
+      }
+    }
+
+    if (device.activity.distance.kmImage) {
+      const kmIndex = gts.images.indexOf(device.activity.distance.kmImage)
+      gts.Activity.Distance.SuffixImageIndex = gts.images.length
+      if (kmIndex < 0) {
+        gts.images.push(device.activity.distance.kmImage)
+      }
+    }
+  }
+
+  if (features.activity.noDataImage && device.activity.noDataImage) {
+    makeObjPath(gts, 'Activity')
+    const noDataIndex = gts.images.indexOf(device.activity.noDataImage)
+    gts.Activity.NoDataImageIndex = noDataIndex < 0 ? gts.images.length : noDataIndex
+    if (noDataIndex < 0) {
+      gts.images.push(device.activity.noDataImage)
+    }
+  }
+
+  if (features.activity.calories.number && device.activity.pulse.number.images.length) {
+    makeObjPath(gts, 'Activity.Pulse')
+
+    const imIndex = gts.images.indexOf(device.activity.pulse.number.images[0])
+    gts.Activity.Pulse = {
+      Alignment: device.activity.pulse.number.alignment,
+      BottomRightX: device.activity.pulse.number.right,
+      BottomRightY: device.activity.pulse.number.bottom,
+      ImageIndex: imIndex < 0 ? gts.images.length : imIndex,
+      ImagesCount: device.activity.pulse.number.images.length,
+      Spacing: device.activity.pulse.number.spacing,
+      TopLeftX: device.activity.pulse.number.left,
+      TopLeftY: device.activity.pulse.number.top
+    }
+    if (imIndex < 0) {
+      gts.images = gts.images.concat(device.activity.pulse.number.images)
+    }
+  }
+
+  if (features.activity.calories.number && device.activity.steps.number.images.length) {
+    makeObjPath(gts, 'Activity.Steps.Step')
+
+    const imIndex = gts.images.indexOf(device.activity.steps.number.images[0])
+    gts.Activity.Steps.Step = {
+      Alignment: device.activity.steps.number.alignment,
+      BottomRightX: device.activity.steps.number.right,
+      BottomRightY: device.activity.steps.number.bottom,
+      ImageIndex: imIndex < 0 ? gts.images.length : imIndex,
+      ImagesCount: device.activity.steps.number.images.length,
+      Spacing: device.activity.steps.number.spacing,
+      TopLeftX: device.activity.steps.number.left,
+      TopLeftY: device.activity.steps.number.top
+    }
+
+    if (imIndex < 0) {
+      gts.images = gts.images.concat(device.activity.steps.number.images)
+    }
+  }
+}
+
+/**
  * Exports the Animation feature to a GTS object.
  * @param {object} device Store based device with all available options.
  * @param {object} features Features enabled for this device.
  * @param {object} gts GTS object to be updated.
  */
 function exportAnimation (device, features, gts) {
-  if (features.animation.motion) {
+  if (features.animation.motion && device.animation.motion) {
     makeObjPath(gts, 'Unknown11.Unknown11_1')
     // TODO: motion animation
   }
@@ -456,7 +567,7 @@ export default function (device, features) {
     images: []
   }
 
-  // TODO: activity
+  exportActivity(device, features, gts)
   exportAnimation(device, features, gts)
   exportBackground(device, features, gts)
   exportBattery(device, features, gts)

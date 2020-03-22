@@ -9,6 +9,7 @@
       "distance": {
         "number": true
       },
+      "noDataImage": true,
       "pulse": {
         "graph": true,
         "images": true,

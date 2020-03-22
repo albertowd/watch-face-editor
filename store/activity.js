@@ -34,6 +34,7 @@ export const state = () => ({
       top: 275
     }
   },
+  noDataImage: null,
   steps: {
     image: {
       image: null,
@@ -125,6 +126,10 @@ export const mutations = {
     }
     if (obj.distance) {
       this.commit('activity/distance', obj.distance)
+    }
+    if (obj.noDataImage) {
+      state.noDataImage = obj.noDataImage
+      this.commit('json/changed', true)
     }
     if (obj.pulse) {
       this.commit('activity/pulse', obj.pulse)

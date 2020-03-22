@@ -14,9 +14,10 @@
       :justify="justify"
       :style="position"
     >
+      <img v-if="pulse === null" :style="spacing" :src="noDataImage" @click="circle()" />
       <img v-if="pulse > 99" :style="spacing" :src="images[Math.floor((pulse % 1000) / 100)]" @click="circle(100)" />
       <img v-if="pulse > 9" :style="spacing" :src="images[Math.floor((pulse % 100) / 10)]" @click="circle(10)" />
-      <img :style="spacing" :src="images[pulse % 10]" @click="circle(1)" />
+      <img v-if="pulse !== null" :style="spacing" :src="images[pulse % 10]" @click="circle(1)" />
     </v-row>
   </div>
 </template>

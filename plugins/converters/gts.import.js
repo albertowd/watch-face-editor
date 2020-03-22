@@ -14,7 +14,7 @@ function _gtsDateToOneLine (gts, name, oneLine) {
     oneLine.number.spacing = gts.Date[name].OneLine.Number.Spacing
     oneLine.number.top = gts.Date[name].OneLine.Number.TopLeftY
 
-    if (gts.Date[name].OneLine.DelimiterImageIndex) {
+    if (gts.Date[name].OneLine.DelimiterImageIndex >= 0) {
       oneLine.delimiterImage = gts.images[gts.Date[name].OneLine.DelimiterImageIndex]
     }
   }
@@ -86,6 +86,70 @@ function _gtsToTime (gts, name, sub, time) {
     time.images = gts.images.slice(gts.Time[name][sub].ImageIndex, gts.Time[name][sub].ImageIndex + gts.Time[name][sub].ImagesCount)
     time.x = gts.Time[name][sub].X
     time.y = gts.Time[name][sub].Y
+  }
+}
+
+/**
+ * Imports the Activity feature to a device object.
+ * @param {object} device Store based device with all available options.
+ * @param {object} features Features enabled for this device.
+ * @param {object} gts GTS object to be copied.
+ */
+function importActivity (device, features, gts) {
+  if (features.activity.noDataImage && gts.Activity && gts.Activity.NoDataImageIndex >= 0) {
+    device.activity.noDataImage = gts.images[gts.Activity.NoDataImageIndex]
+  }
+
+  if (features.activity.calories.number && gts.Activity && gts.Activity.Calories) {
+    device.activity.calories.number.alignment = gts.Activity.Calories.Alignment
+    device.activity.calories.number.bottom = gts.Activity.Calories.BottomRightY
+    device.activity.calories.number.images = gts.images.slice(gts.Activity.Calories.ImageIndex, gts.Activity.Calories.ImageIndex + gts.Activity.Calories.ImagesCount)
+    device.activity.calories.number.left = gts.Activity.Calories.TopLeftX
+    device.activity.calories.number.right = gts.Activity.Calories.BottomRightX
+    device.activity.calories.number.spacing = gts.Activity.Calories.Spacing
+    device.activity.calories.number.top = gts.Activity.Calories.TopLeftY
+  }
+
+  if (features.activity.distance.number && gts.Activity && gts.Activity.Distance && gts.Activity.Distance.DecimalPointImageIndex >= 0) {
+    device.activity.distance.decimalImage = gts.images[gts.Activity.Distance.DecimalPointImageIndex]
+  }
+
+  if (features.activity.distance.number && gts.Activity && gts.Activity.Distance && gts.Activity.Distance.Number) {
+    device.activity.distance.number.alignment = gts.Activity.Distance.Number.Alignment
+    device.activity.distance.number.bottom = gts.Activity.Distance.Number.BottomRightY
+    device.activity.distance.number.images = gts.images.slice(gts.Activity.Distance.Number.ImageIndex, gts.Activity.Distance.Number.ImageIndex + gts.Activity.Distance.Number.ImagesCount)
+    device.activity.distance.number.left = gts.Activity.Distance.Number.TopLeftX
+    device.activity.distance.number.right = gts.Activity.Distance.Number.BottomRightX
+    device.activity.distance.number.spacing = gts.Activity.Distance.Number.Spacing
+    device.activity.distance.number.top = gts.Activity.Distance.Number.TopLeftY
+  }
+
+  if (features.activity.distance.number && gts.Activity && gts.Activity.Distance && gts.Activity.Distance.SuffixImageIndex >= 0) {
+    device.activity.distance.kmImage = gts.images[gts.Activity.Distance.SuffixImageIndex]
+  }
+
+  if (features.activity.noDataImage && gts.Activity && gts.Activity.NoDataImageIndex >= 0) {
+    device.activity.noDataImage = gts.images[gts.Activity.NoDataImageIndex]
+  }
+
+  if (features.activity.pulse.number && gts.Activity && gts.Activity.Pulse) {
+    device.activity.pulse.number.alignment = gts.Activity.Pulse.Alignment
+    device.activity.pulse.number.bottom = gts.Activity.Pulse.BottomRightY
+    device.activity.pulse.number.images = gts.images.slice(gts.Activity.Pulse.ImageIndex, gts.Activity.Pulse.ImageIndex + gts.Activity.Pulse.ImagesCount)
+    device.activity.pulse.number.left = gts.Activity.Pulse.TopLeftX
+    device.activity.pulse.number.right = gts.Activity.Pulse.BottomRightX
+    device.activity.pulse.number.spacing = gts.Activity.Pulse.Spacing
+    device.activity.pulse.number.top = gts.Activity.Pulse.TopLeftY
+  }
+
+  if (features.activity.steps.number && gts.Activity && gts.Activity.Steps && gts.Activity.Steps.Step) {
+    device.activity.steps.number.alignment = gts.Activity.Steps.Step.Alignment
+    device.activity.steps.number.bottom = gts.Activity.Steps.Step.BottomRightY
+    device.activity.steps.number.images = gts.images.slice(gts.Activity.Steps.Step.ImageIndex, gts.Activity.Steps.Step.ImageIndex + gts.Activity.Steps.Step.ImagesCount)
+    device.activity.steps.number.left = gts.Activity.Steps.Step.TopLeftX
+    device.activity.steps.number.right = gts.Activity.Steps.Step.BottomRightX
+    device.activity.steps.number.spacing = gts.Activity.Steps.Step.Spacing
+    device.activity.steps.number.top = gts.Activity.Steps.Step.TopLeftY
   }
 }
 
@@ -314,7 +378,7 @@ function importTime (device, features, gts) {
  * @returns {obj} The updated device object.
  */
 export default function (device, features, gts) {
-  // TODO: activity
+  importActivity(device, features, gts)
   importAnimation(device, features, gts)
   importBackground(device, features, gts)
   importBattery(device, features, gts)

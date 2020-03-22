@@ -1,7 +1,7 @@
 export default {
   data () {
     return {
-      calories: 0
+      calories: null
     }
   },
   computed: {
@@ -26,6 +26,9 @@ export default {
         return 'center'
       }
     },
+    noDataImage () {
+      return this.$store.state.activity.noDataImage
+    },
     position () {
       return {
         bottom: `${this.$store.state.device.size.height - this.$store.state.activity.calories.number.bottom}px`,
@@ -41,7 +44,12 @@ export default {
   },
   methods: {
     circle (mult) {
-      this.calories = (this.calories + mult) % 10000
+      if (this.calories !== null) {
+        const next = (this.calories + mult) % 10000
+        this.calories = this.noDataImage && next === 0 ? null : next
+      } else {
+        this.calories = 0
+      }
     }
   }
 }

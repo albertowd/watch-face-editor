@@ -9,6 +9,7 @@ export const state = () => ({
       distance: {
         number: true
       },
+      noDataImage: false,
       pulse: {
         graph: false,
         images: false,
