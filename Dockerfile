@@ -4,16 +4,18 @@ FROM node:lts-alpine
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Copies the app, note .dockerignore
-COPY . /usr/src/app/
-
-# Updates and installs dependency
+# Updates and installs dependency on node > 12
 # RUN apk update && apk upgrade
 # RUN apk add --no-cache --virtual .gyp python make g++
 
+# Copies the package to install it
+COPY package.json .
+COPY package-locak.json .
+RUN npm i
+
 # Build necessary, even if no static files are needed,
 # since it builds the server as well
-RUN npm i
+COPY . .
 RUN npm run build
 
 # Exposes 3000 on container
