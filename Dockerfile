@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:lts-alpine
 
 # Create destination directory
 RUN mkdir -p /usr/src/app
@@ -8,13 +8,16 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app/
 
 # Updates and installs dependency
-RUN apk update && apk upgrade
-RUN apk add --no-cache --virtual .gyp python make g++
+# RUN apk update && apk upgrade
+# RUN apk add --no-cache --virtual .gyp python make g++
 
 # Build necessary, even if no static files are needed,
 # since it builds the server as well
-RUN npm i --production
+RUN npm i
 RUN npm run build
+
+RUN rm -r node_modules
+RUN npm i --production
 
 # Exposes 3000 on container
 EXPOSE 3000
