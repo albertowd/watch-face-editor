@@ -16,9 +16,6 @@ COPY . /usr/src/app/
 RUN npm i
 RUN npm run build
 
-RUN rm -r node_modules
-RUN npm i --production
-
 # Exposes 3000 on container
 EXPOSE 3000
 
