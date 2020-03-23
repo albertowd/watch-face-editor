@@ -1,32 +1,22 @@
-FROM node:alpine
+FROM node:lts-alpine
 
-# create destination directory
+# Create destination directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# update and install dependency
-RUN apk update && apk upgrade
-RUN apk add --no-cache --virtual .gyp \
-        python \
-        make \
-        g++
-
-# copy the app, note .dockerignore
+# Copies the app, note .dockerignore
 COPY . /usr/src/app/
-RUN npm install
+RUN npm i --production
 
-# Not needed anymore
-RUN apk del .gyp
-
-# build necessary, even if no static files are needed,
+# Build necessary, even if no static files are needed,
 # since it builds the server as well
-RUN npm run generate
+RUN npm run build
 
-# expose 3000 on container
+# Exposes 3000 on container
 EXPOSE 3000
 
-# set app serving to permissive / assigned
+# Sets app serving to permissive / assigned
 ENV NUXT_HOST=0.0.0.0
 
-# start the app
+# Starts the app
 CMD [ "npm", "start" ]
