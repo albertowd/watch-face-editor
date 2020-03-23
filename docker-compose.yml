@@ -3,6 +3,10 @@ services:
   watch-face-editor:
     build: .
     container_name: watch-face-editor
+    deploy:
+      resources:
+        limits:
+          memory: 50M
     hostname: watch-face-editor
     image: watch-face-editor
     ports:
