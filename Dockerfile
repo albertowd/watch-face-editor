@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 # Copies the package to install it
 COPY package.json .
-COPY package-locak.json .
+COPY package-lock.json .
 RUN npm i
 
 # Build necessary, even if no static files are needed,
