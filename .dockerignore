@@ -1,7 +1,10 @@
-dist
-node_modules
-npm-debug*
-resources
 .git
 .nuxt
 .vscode
+dist
+node_modules
+resources
+
+deploy.bat
+docker-compose.yeml
+Dockerfile
