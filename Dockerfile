@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:alpine
 
 # Create destination directory
 RUN mkdir -p /usr/src/app
@@ -6,10 +6,14 @@ WORKDIR /usr/src/app
 
 # Copies the app, note .dockerignore
 COPY . /usr/src/app/
-RUN npm i --production
+
+# Updates and installs dependency
+RUN apk update && apk upgrade
+RUN apk add --no-cache --virtual .gyp python make g++
 
 # Build necessary, even if no static files are needed,
 # since it builds the server as well
+RUN npm i --production
 RUN npm run build
 
 # Exposes 3000 on container
