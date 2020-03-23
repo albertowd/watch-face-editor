@@ -97,6 +97,7 @@ module.exports = {
    * customize nuxt.js router (vue-router).
    */
   router: {
+    base: '/wath-face-editor/',
     middleware: ['device', 'i18n']
   }
 }
