@@ -1,0 +1,93 @@
+{
+  "alias": "gts",
+  "features": {
+    "activity": {
+      "calories": {
+        "graph": true,
+        "number": true
+      },
+      "distance": {
+        "number": true
+      },
+      "noDataImage": true,
+      "pulse": {
+        "graph": true,
+        "images": true,
+        "meter": true,
+        "number": true
+      },
+      "steps": {
+        "goal": true,
+        "image": true,
+        "number": true
+      }
+    },
+    "animation": {
+      "motion": true,
+      "static": true
+    },
+    "background": {
+      "image": true,
+      "preview": true
+    },
+    "battery": {
+      "analog": false,
+      "icons": true,
+      "images": true,
+      "percent": true,
+      "text": true
+    },
+    "date": {
+      "monthAndDay": {
+        "oneLine": true,
+        "separate": {
+          "day": true,
+          "month": true,
+          "monthName": true
+        }
+      },
+      "weekDay": true,
+      "weekDayProgress": true,
+      "year": {
+        "oneLine": true
+      }
+    },
+    "shortcuts": {
+      "energy": false,
+      "pulse": true,
+      "state": true,
+      "weather": true
+    },
+    "status": {
+      "alarm": true,
+      "bluetooth": true,
+      "dnd": true,
+      "lock": true
+    },
+    "time": {
+      "ampm": true,
+      "delimiter": true,
+      "hours": true,
+      "minutes": true,
+      "seconds": true
+    }
+  },
+  "model": "GTS",
+  "packLimit": 1536,
+  "preview": {
+    "screen": {
+      "x": 62,
+      "y": 223
+    },
+    "size": {
+      "height": 888,
+      "width": 502
+    },
+    "zoom": 1
+  },
+  "size": {
+    "height": 442,
+    "width": 348
+  },
+  "vendor": "Amazfit"
+}

@@ -1,0 +1,11 @@
+.device-screen-date-month-and-day-one-line {
+  left: 0;
+  position: absolute;
+  margin: 0;
+  top: 0;
+}
+
+.device-screen-date-month-and-day-one-line-border {
+  border: 3px dashed gray;
+  position: absolute;
+}

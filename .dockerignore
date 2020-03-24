@@ -1,0 +1,10 @@
+.git
+.nuxt
+.vscode
+dist
+node_modules
+resources
+
+deploy.bat
+docker-compose.yeml
+Dockerfile

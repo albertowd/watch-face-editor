@@ -1,0 +1,7 @@
+* eol=lf
+
+*.bin binary
+*.gif binary
+*.ico binary
+*.png binary
+*.psd binary

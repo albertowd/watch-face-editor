@@ -102,3 +102,31 @@ dist
 
 # TernJS port file
 .tern-port
+
+# React ignore
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# IDE / Editor
+.idea
+
+# Service worker
+sw.*
+# Vim swap files
+*.swp
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
