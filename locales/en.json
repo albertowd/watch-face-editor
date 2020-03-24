@@ -1,0 +1,238 @@
+{
+  "activity": {
+    "calories": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Calories",
+        "titleDescription": "Calories number images."
+      }
+    },
+    "distance": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Distance",
+        "titleDescription": "Distance traveled number images in km."
+      }
+    },
+    "noDataImage": {
+      "title": "No Data",
+      "titleDescription": "No data images to show."
+    },
+    "pulse": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Pulse",
+        "titleDescription": "Pulse number images."
+      }
+    },
+    "steps": {
+      "number": {
+        "error": "Required 10 images (0-9).",
+        "title": "Steps",
+        "titleDescription": "Steps taken number images."
+      }
+    },
+    "title": "Activity"
+  },
+  "animation": {
+    "motion": {
+      "title": "Motion",
+      "titleDescription": "Motion animation."
+    },
+    "pause": "Pause",
+    "pauseDescription": "Pause before the the animation restart between the total time in milliseconds.",
+    "speed": "Speed",
+    "speedDescription": "Duration of each animation frame in milliseconds.",
+    "static": {
+      "title": "Static",
+      "titleDescription": "Static animation. Click on the animation image to toggle the animation on screen."
+    },
+    "time": "Time",
+    "timeDescription": "Total time of the animation in milliseconds.",
+    "title": "Animation"
+  },
+  "app" : {
+    "alignment": "Alignment",
+    "alignmentDescription": "Component/Image box alignment on screen.",
+    "bottom": "Bottom",
+    "by": "by",
+    "center": "Center",
+    "decimal": ".",
+    "delimiter": "Delimiter",
+    "delimiterDescription": "Delimiter image.",
+    "dimensions": "Dimensions",
+    "dimensionsDescription": "Component/Image box dimensions with top left and bottom right corners coordinates in pixels [[x,y],[x,y]].",
+    "devices": "Devices",
+    "errors": {
+      "notFound": "Not found",
+      "unknown": "Unknown error"
+    },
+    "height": "Height",
+    "heightDescription": "Component/Image height in pixels.",
+    "languages": "Languages",
+    "left": "Left",
+    "milliseconds": "Milliseconds",
+    "ones": "Ones",
+    "onesDescription": "Lower number images.",
+    "position": "Position",
+    "positionDescription": "Component/Image position coordinates [x,y].",
+    "right": "Right",
+    "size": "Size",
+    "sizeDescription": "Component/Image size in pixels [height, width].",
+    "spacing": "Spacing",
+    "spacingDescription": "Spacing between components/images in pixels.",
+    "tens": "Tens",
+    "tensDescription": "Higher number images.",
+    "title": "Watch Face Editor",
+    "top": "Top",
+    "weekDay": {
+      "fri": "FRI",
+      "mon": "MON",
+      "sat": "SAT",
+      "sun": "SUN",
+      "thu": "THU",
+      "tue": "TUE",
+      "wed": "WED"
+    },
+    "width": "Width",
+    "widthDescription": "Component/Image width in pixels."
+  },
+  "background": {
+    "image": {
+      "title": "Image",
+      "titleDescription": "Background image."
+    },
+    "preview": {
+      "title": "Preview",
+      "titleDescription": "Preview image to show in the watch face selection screen."
+    },
+    "title": "Background"
+  },
+  "battery": {
+    "analog": {
+      "title": "Analog",
+      "titleDescription": "Battery analog shapes."
+    },
+    "icons": {
+      "error": "Required 11 images (0-10).",
+      "title": "Icons",
+      "titleDescription": "Battery icons images with each position."
+    },
+    "images": {
+      "error": "Required 11 images (0-10).",
+      "title": "Images",
+      "titleDescription": "Battery images images."
+    },
+    "percent": {
+      "title": "Percent",
+      "titleDescription": "Battery percent image."
+    },
+    "text": {
+      "error": "Required 10 images (0-9).",
+      "title": "Text",
+      "titleDescription": "Battery text number images."
+    },
+    "title": "Battery"
+  },
+  "clock": {
+    "title": "Clock"
+  },
+  "date": {
+    "monthAndDay": {
+      "oneLine": {
+        "delimiter": ".",
+        "error": "Required 10 images (0-9).",
+        "title": "MM.DD",
+        "titleDescription": "One line month and day images."
+      },
+      "separate": {
+        "day": {
+          "error": "Required 10 images (0-9).",
+          "title": "Day",
+          "titleDescription": "Separate day number images."
+        },
+        "month": {
+          "error": "Required 10 images (0-9).",
+          "title": "Month",
+          "titleDescription": "Separate month number images."
+        },
+        "monthName": {
+          "error": "Required 12 images (Jan-Dec).",
+          "title": "Month Name",
+          "titleDescription": "Separate month name images."
+        }
+      },
+      "twoDigitsDay": "Two Digits Day",
+      "twoDigitsMonth": "Two Digits Month"
+    },
+    "title": "Date",
+    "weekDay": {
+      "error": "Required 7 images (Mon-Sun).",
+      "title": "Week Day",
+      "titleDescription": "Week day images."
+    },
+    "weekDayProgress": {
+      "error": "Required 7 images (0-7).",
+      "title": "Week Day Progress",
+      "titleDescription": "Week day progress images."
+    },
+    "year": {
+      "oneLine": {
+        "error": "Required 10 images (0-9).",
+        "title": "Year",
+        "titleDescription": "Year number images."
+      }
+    }
+  },
+  "device": {
+    "export": "Export .ZIP",
+    "import": "Import Files",
+    "packLimit": "Package Limit",
+    "screen": "Screen",
+    "title": "Device"
+  },
+  "json": {
+    "title": "JSON",
+    "titleDescription": "JSON viewer to show the final file to be exported."
+  },
+  "shortcuts": {
+    "energy": "Energy Saver",
+    "energyDescription": "Shortcut to swith to the energy saver screen.",
+    "pulse": "Pulse",
+    "pulseDescription": "Shortcut to swith to the pulse screen.",
+    "state": "State",
+    "stateDescription": "Shortcut to swith to the state screen.",
+    "title": "Shortcuts",
+    "weather": "Weather",
+    "weatherDescription": "Shortcut to swith to the weather screen."
+  },
+  "status": {
+    "alarm": "Alarm",
+    "alarmDescription": "icon to show when the alarm is off/on.",
+    "bluetooth": "Bluetooth",
+    "bluetoothDescription": "Icon to show when the bluetooth is disconnected/connected.",
+    "dnd": "Do not Disturb",
+    "dndDescription": "Icon to show when the do not disturb mode is off/on.",
+    "lock": "Lock",
+    "lockDescription": "Icon to show when the screen lock is off/on.",
+    "title": "Status"
+  },
+  "time": {
+    "ampm": "AM/PM",
+    "ampmDescription": "AM/PM icons to show it when needed.",
+    "errors" : {
+      "ampm": "Required 1 or 2 images (chinese and global).",
+      "number": "Required 10 images (0-9)."
+    },
+    "hours": "Hours",
+    "hoursDescription": "Hours number images.",
+    "minutes": "Minutes",
+    "minutesDescription": "Minutes number images.",
+    "seconds": "Seconds",
+    "secondsDescription": "Seconds number images.",
+    "title": "Time"
+  },
+  "weather": {
+    "title": "Weather"
+  }
+}
